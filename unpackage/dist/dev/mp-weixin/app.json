@@ -3,13 +3,15 @@
     "pages/index/index",
     "pages/news/news",
     "pages/paper/paper",
-    "pages/home/home"
+    "pages/home/home",
+    "pages/search/search",
+    "pages/add-input/add-input"
   ],
   "subPackages": [],
   "window": {
     "navigationBarTextStyle": "white",
     "navigationBarTitleText": "仿糗事百科",
-    "navigationBarBackgroundColor": "#ffff00",
+    "navigationBarBackgroundColor": "#428FFE",
     "backgroundColor": "#FFFFFF"
   },
   "tabBar": {

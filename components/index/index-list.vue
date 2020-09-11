@@ -1,6 +1,6 @@
 <template>
 	<view >
-		<view class="index-list animate__animated animate__fadeInUp" v-for="(item,index) in list" :key="index" >
+		<view class="index-list animate__animated animate__fadeInUp" v-for="(item,index) in indexlist" :key="index" >
 					<!-- 个人信息 -->
 					<view class="index-list1 u-f u-f-ac">
 						<view class="u-f u-f-ac">
@@ -55,13 +55,14 @@
   },
 		data() {
 			return {
+				indexlist:this.list
 				
 			};
 		},
 		methods: {
 			// 关注
 			follow(index){
-				this.list[index].follow=!this.list[index].follow;
+				this.indexlist[index].follow=!this.indexlist[index].follow;
 				uni.showToast({
 					title:'关注成功'
 				})
@@ -71,24 +72,24 @@
 				switch (type){
 					case 'ding':
 					// 如果已经顶过了就不能再顶，直接return
-					if(this.list[index].infonum.index===1){return;}
+					if(this.indexlist[index].infonum.index===1){return;}
 					// 如果此时的状态是踩，那么点击顶就会让踩减1
-					if(this.list[index].infonum.index===2){
-						this.list[index].infonum.cai--;
+					if(this.indexlist[index].infonum.index===2){
+						this.indexlist[index].infonum.cai--;
 					}
 					// 如果顶和踩都没有操作，或者已经操作了踩，就让顶加一
-					this.list[index].infonum.dingnum++;
+					this.indexlist[index].infonum.dingnum++;
 					// 并且修改状态为顶
-					this.list[index].infonum.index=1;
+					this.indexlist[index].infonum.index=1;
 						break;
 					case 'cai':
-					if(this.list[index].infonum.index===2){return;}
+					if(this.indexlist[index].infonum.index===2){return;}
 						
-					if(this.list[index].infonum.index===1){
-						this.list[index].infonum.dingnum--;
+					if(this.indexlist[index].infonum.index===1){
+						this.indexlist[index].infonum.dingnum--;
 					}
-					this.list[index].infonum.cai++;
-					this.list[index].infonum.index=2;
+					this.indexlist[index].infonum.cai++;
+					this.indexlist[index].infonum.index=2;
 						break;
 				}
 			},

@@ -2,7 +2,7 @@
   <view class="uni-tab-bar">
     <scroll-view scroll-x class="uni-swiper-tab">
       <view class="container-topBar">
-        <view v-for="(tab,index) in tabBars" :key="tab.id">
+        <view v-for="(tab,index) in tobBars" :key="tab.id">
           <view class="swiper-tab-list" :class="{'active':tabIndex==index}" @tap="tabtap(index)">
             {{tab.name}}
             <view class="swiper-tab-line"></view>
@@ -25,7 +25,10 @@ export default {
     tabIndex: Number,
   },
   data() {
-    return {};
+    return {
+      tobBars:this.tabBars,
+      // topIndex:this.tapIndex
+    };
   },
   methods: {
     tabtap(index) {
