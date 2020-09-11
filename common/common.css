@@ -1,0 +1,17 @@
+.u-f{
+    display: flex;
+}
+.u-f-ac{
+    align-items: center;
+}
+.u-f-jc{
+    justify-content: space-between;
+}
+.u-f-ajc{
+    justify-content: center;
+}
+.u-f-asb{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
