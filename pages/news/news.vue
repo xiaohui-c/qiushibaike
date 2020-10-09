@@ -52,14 +52,23 @@
         <!-- 图片视频 -->
         <view class="videoImg u-f-asb">
           <!-- 图片 -->
-          <image
+          <!-- <image
+            src="../../static/demo/datapic/13.jpg"
+            mode="widthFix"
+            lazy-load
+          ></image> -->
+          <!-- 视频 -->
+          <!-- <view class="common-list-play icon iconfont icon-bofang"></view>
+          <view class="common-list-playinfo">20w 次播放 2:47</view> -->
+          <!-- 分享样式 -->
+          <view class="common-list-share u-f-asb">
+             <image
             src="../../static/demo/datapic/13.jpg"
             mode="widthFix"
             lazy-load
           ></image>
-          <!-- 视频 -->
-          <view class="common-list-play icon iconfont icon-bofang"></view>
-          <view class="common-list-playinfo">20w 次播放 2:47</view>
+          <view>高楼大厦平地起，勿在浮沙筑高层,加油！加油！加油！加油！</view>
+          </view>
         </view>
         <!-- 发布地点及阅览数据 -->
         <view class="u-f-ajb address-data">
@@ -203,6 +212,19 @@ export default {
   background: rgba(0, 0, 0, 0.6);
   padding: 3px 4px;
   border-radius: 7px;
+}
+.common-list-share{
+  background: #f7f7f7;
+  padding: 7px 5px;
+  width: 100%;
+  border-radius: 7px;
+}
+.common-list-share image{
+  width: 30%;
+  height: 20%;
+}
+.common-list-share view{
+  margin-left: 8px;
 }
 .address-data {
   color: #c5c5c5;

@@ -2062,22 +2062,25 @@ var render = function() {
                 "v-uni-view",
                 { staticClass: _vm._$g(21, "sc"), attrs: { _i: 21 } },
                 [
-                  _c("v-uni-image", {
-                    attrs: {
-                      src: _vm._$g(22, "a-src"),
-                      mode: "widthFix",
-                      "lazy-load": true,
-                      _i: 22
-                    }
-                  }),
-                  _c("v-uni-view", {
-                    staticClass: _vm._$g(23, "sc"),
-                    attrs: { _i: 23 }
-                  }),
                   _c(
                     "v-uni-view",
-                    { staticClass: _vm._$g(24, "sc"), attrs: { _i: 24 } },
-                    [_vm._v("20w 次播放 2:47")]
+                    { staticClass: _vm._$g(22, "sc"), attrs: { _i: 22 } },
+                    [
+                      _c("v-uni-image", {
+                        attrs: {
+                          src: _vm._$g(23, "a-src"),
+                          mode: "widthFix",
+                          "lazy-load": true,
+                          _i: 23
+                        }
+                      }),
+                      _c("v-uni-view", { attrs: { _i: 24 } }, [
+                        _vm._v(
+                          "高楼大厦平地起，勿在浮沙筑高层,加油！加油！加油！加油！"
+                        )
+                      ])
+                    ],
+                    1
                   )
                 ],
                 1
@@ -2929,7 +2932,7 @@ if(false) {}
 var ___CSS_LOADER_API_IMPORT___ = __webpack_require__(/*! ./node_modules/css-loader/dist/runtime/api.js */ 15);
 exports = ___CSS_LOADER_API_IMPORT___(false);
 // Module
-exports.push([module.i, "\n.nav-left > uni-view,\r\n.nav-right > uni-view {\r\n  font-size: 40upx;\n}\n.nav-left > uni-view {\r\n  color: #ff9619;\n}\n.nav-left {\r\n  margin-left: 16upx;\n}\n.nav-right {\r\n  width: 100%;\n}\n.nav-tab-bar {\r\n  width: 100%;\r\n  margin-left: -20upx;\r\n  position: relative;\n}\n.nav-tab-bar > uni-view {\r\n  font-size: 32upx;\r\n  padding: 0 15upx;\r\n  font-weight: bold;\r\n  color: #969696;\n}\n.active {\r\n  color: #333333 !important;\n}\n.nav-tab-bar-line {\r\n  border-bottom: 5upx solid #fede33;\r\n  border-top: 5upx solid #fede33;\r\n  width: 70upx;\r\n  -webkit-border-radius: 20upx;\r\n          border-radius: 20upx;\r\n  position: absolute;\r\n  bottom: 10upx;\n}\n.common-list {\r\n  padding: 5px 5px;\n}\n.common-list-left {\r\n  padding-top: 10px;\r\n  -webkit-flex-shrink: 0;\r\n          flex-shrink: 0;\n}\n.common-list-left > uni-image {\r\n  width: 38px;\r\n  height: 38px;\r\n  -webkit-border-radius: 50%;\r\n          border-radius: 50%;\n}\n.common-list-right {\r\n  padding: 5px;\r\n  width: 90%;\r\n  -webkit-box-flex: 1;\r\n  -webkit-flex: 1;\r\n          flex: 1;\r\n  border-bottom: 1upx solid #eeeeee;\n}\n.nickName {\r\n  color: #a5a5a5;\n}\n.nickName uni-view {\r\n  width: 30px;\r\n  height: 15px;\r\n  background: #44b3ff;\r\n  position: relative;\r\n  -webkit-border-radius: 20px;\r\n          border-radius: 20px;\r\n  color: #fff;\r\n  font-size: 10px;\r\n  top: 5px;\r\n  left: 4px;\n}\n.follow {\r\n  font-size: 12px;\r\n  background: #f4f4f4;\r\n  -webkit-border-radius: 4px;\r\n          border-radius: 4px;\r\n  margin-right: 8px;\r\n  padding: 2px 4px;\n}\n.videoImg {\r\n  position: relative;\n}\n.videoImg > uni-image {\r\n  width: 100%;\r\n  -webkit-border-radius: 4px;\r\n          border-radius: 4px;\n}\n.common-list-play {\r\n  color: #fff;\r\n  font-size: 60px;\r\n  position: absolute;\r\n  top: 50%;\r\n  left: 50%;\r\n  -webkit-transform: translate(-50%, -50%);\r\n          transform: translate(-50%, -50%);\n}\n.common-list-playinfo {\r\n  position: absolute;\r\n  left: 70%;\r\n  top: 80%;\r\n  color: #fff;\r\n  font-size: 10px;\r\n  background: rgba(0, 0, 0, 0.6);\r\n  padding: 3px 4px;\r\n  -webkit-border-radius: 7px;\r\n          border-radius: 7px;\n}\n.address-data {\r\n  color: #c5c5c5;\n}\n.followdata > uni-view {\r\n  font-size: 12px;\r\n  margin: 0 4px;\n}\r\n", ""]);
+exports.push([module.i, "\n.nav-left > uni-view,\r\n.nav-right > uni-view {\r\n  font-size: 40upx;\n}\n.nav-left > uni-view {\r\n  color: #ff9619;\n}\n.nav-left {\r\n  margin-left: 16upx;\n}\n.nav-right {\r\n  width: 100%;\n}\n.nav-tab-bar {\r\n  width: 100%;\r\n  margin-left: -20upx;\r\n  position: relative;\n}\n.nav-tab-bar > uni-view {\r\n  font-size: 32upx;\r\n  padding: 0 15upx;\r\n  font-weight: bold;\r\n  color: #969696;\n}\n.active {\r\n  color: #333333 !important;\n}\n.nav-tab-bar-line {\r\n  border-bottom: 5upx solid #fede33;\r\n  border-top: 5upx solid #fede33;\r\n  width: 70upx;\r\n  -webkit-border-radius: 20upx;\r\n          border-radius: 20upx;\r\n  position: absolute;\r\n  bottom: 10upx;\n}\n.common-list {\r\n  padding: 5px 5px;\n}\n.common-list-left {\r\n  padding-top: 10px;\r\n  -webkit-flex-shrink: 0;\r\n          flex-shrink: 0;\n}\n.common-list-left > uni-image {\r\n  width: 38px;\r\n  height: 38px;\r\n  -webkit-border-radius: 50%;\r\n          border-radius: 50%;\n}\n.common-list-right {\r\n  padding: 5px;\r\n  width: 90%;\r\n  -webkit-box-flex: 1;\r\n  -webkit-flex: 1;\r\n          flex: 1;\r\n  border-bottom: 1upx solid #eeeeee;\n}\n.nickName {\r\n  color: #a5a5a5;\n}\n.nickName uni-view {\r\n  width: 30px;\r\n  height: 15px;\r\n  background: #44b3ff;\r\n  position: relative;\r\n  -webkit-border-radius: 20px;\r\n          border-radius: 20px;\r\n  color: #fff;\r\n  font-size: 10px;\r\n  top: 5px;\r\n  left: 4px;\n}\n.follow {\r\n  font-size: 12px;\r\n  background: #f4f4f4;\r\n  -webkit-border-radius: 4px;\r\n          border-radius: 4px;\r\n  margin-right: 8px;\r\n  padding: 2px 4px;\n}\n.videoImg {\r\n  position: relative;\n}\n.videoImg > uni-image {\r\n  width: 100%;\r\n  -webkit-border-radius: 4px;\r\n          border-radius: 4px;\n}\n.common-list-play {\r\n  color: #fff;\r\n  font-size: 60px;\r\n  position: absolute;\r\n  top: 50%;\r\n  left: 50%;\r\n  -webkit-transform: translate(-50%, -50%);\r\n          transform: translate(-50%, -50%);\n}\n.common-list-playinfo {\r\n  position: absolute;\r\n  left: 70%;\r\n  top: 80%;\r\n  color: #fff;\r\n  font-size: 10px;\r\n  background: rgba(0, 0, 0, 0.6);\r\n  padding: 3px 4px;\r\n  -webkit-border-radius: 7px;\r\n          border-radius: 7px;\n}\n.common-list-share{\r\n  background: #f7f7f7;\r\n  padding: 7px 5px;\r\n  width: 100%;\r\n  -webkit-border-radius: 7px;\r\n          border-radius: 7px;\n}\n.common-list-share uni-image{\r\n  width: 30%;\r\n  height: 20%;\n}\n.common-list-share uni-view{\r\n  margin-left: 8px;\n}\n.address-data {\r\n  color: #c5c5c5;\n}\n.followdata > uni-view {\r\n  font-size: 12px;\r\n  margin: 0 4px;\n}\r\n", ""]);
 // Exports
 module.exports = exports;
 
