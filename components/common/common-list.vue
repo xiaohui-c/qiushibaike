@@ -1,5 +1,5 @@
 <template>
-  <view class="common-list u-f">
+  <view class="common-list u-f animate__animated animate__fadeInLeft fast">
     <!-- 左侧头像 -->
     <view class="common-list-left">
       <image :src="item.userpic" mode="widthFix" lazy-load></image>

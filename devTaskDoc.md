@@ -14,3 +14,9 @@
     </view>
 </view>
 ```
+
+问题二：animate.css特效库怎么使用
+```
+  <view class="common-list u-f animate__animated animate__fadeInUp">
+
+```
