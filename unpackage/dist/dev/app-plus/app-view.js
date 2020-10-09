@@ -2009,107 +2009,197 @@ var render = function() {
         ],
         2
       ),
-      _c(
-        "v-uni-view",
-        { staticClass: _vm._$g(12, "sc"), attrs: { _i: 12 } },
-        [
+      _vm._l(_vm._$g(12, "f"), function(item, index, $21, $31) {
+        return [
           _c(
             "v-uni-view",
-            { staticClass: _vm._$g(13, "sc"), attrs: { _i: 13 } },
-            [
-              _c("v-uni-image", {
-                attrs: {
-                  src: _vm._$g(14, "a-src"),
-                  mode: "widthFix",
-                  "lazy-load": true,
-                  _i: 14
-                }
-              })
-            ],
-            1
-          ),
-          _c(
-            "v-uni-view",
-            { staticClass: _vm._$g(15, "sc"), attrs: { _i: 15 } },
+            {
+              key: item["k0"],
+              staticClass: _vm._$g("13-" + $31, "sc"),
+              attrs: { _i: "13-" + $31 }
+            },
             [
               _c(
                 "v-uni-view",
-                { staticClass: _vm._$g(16, "sc"), attrs: { _i: 16 } },
+                {
+                  staticClass: _vm._$g("14-" + $31, "sc"),
+                  attrs: { _i: "14-" + $31 }
+                },
+                [
+                  _c("v-uni-image", {
+                    attrs: {
+                      src: _vm._$g("15-" + $31, "a-src"),
+                      mode: "widthFix",
+                      "lazy-load": true,
+                      _i: "15-" + $31
+                    }
+                  })
+                ],
+                1
+              ),
+              _c(
+                "v-uni-view",
+                {
+                  staticClass: _vm._$g("16-" + $31, "sc"),
+                  attrs: { _i: "16-" + $31 }
+                },
                 [
                   _c(
                     "v-uni-view",
-                    { staticClass: _vm._$g(17, "sc"), attrs: { _i: 17 } },
+                    {
+                      staticClass: _vm._$g("17-" + $31, "sc"),
+                      attrs: { _i: "17-" + $31 }
+                    },
                     [
-                      _vm._v("昵称"),
                       _c(
                         "v-uni-view",
-                        { staticClass: _vm._$g(18, "sc"), attrs: { _i: 18 } },
-                        [_vm._v("25")]
+                        {
+                          staticClass: _vm._$g("18-" + $31, "sc"),
+                          attrs: { _i: "18-" + $31 }
+                        },
+                        [
+                          _vm._v(_vm._$g("18-" + $31, "t0-0")),
+                          _c(
+                            "v-uni-view",
+                            {
+                              staticClass: _vm._$g("19-" + $31, "sc"),
+                              class: _vm._$g("19-" + $31, "c"),
+                              attrs: { _i: "19-" + $31 }
+                            },
+                            [_vm._v(_vm._$g("19-" + $31, "t0-0"))]
+                          )
+                        ],
+                        1
+                      ),
+                      _c(
+                        "v-uni-view",
+                        {
+                          directives: [
+                            {
+                              name: "show",
+                              rawName: "v-show",
+                              value: _vm._$g("20-" + $31, "v-show"),
+                              expression: "_$g((\"20-\"+$31),'v-show')"
+                            }
+                          ],
+                          staticClass: _vm._$g("20-" + $31, "sc"),
+                          attrs: { _i: "20-" + $31 }
+                        },
+                        [_vm._v("关注")]
                       )
                     ],
                     1
                   ),
-                  _c(
-                    "v-uni-view",
-                    { staticClass: _vm._$g(19, "sc"), attrs: { _i: 19 } },
-                    [_vm._v("关注")]
-                  )
-                ],
-                1
-              ),
-              _c("v-uni-view", { attrs: { _i: 20 } }, [_vm._v("我是标题")]),
-              _c(
-                "v-uni-view",
-                { staticClass: _vm._$g(21, "sc"), attrs: { _i: 21 } },
-                [
-                  _c(
-                    "v-uni-view",
-                    { staticClass: _vm._$g(22, "sc"), attrs: { _i: 22 } },
-                    [
-                      _c("v-uni-image", {
-                        attrs: {
-                          src: _vm._$g(23, "a-src"),
-                          mode: "widthFix",
-                          "lazy-load": true,
-                          _i: 23
-                        }
-                      }),
-                      _c("v-uni-view", { attrs: { _i: 24 } }, [
-                        _vm._v(
-                          "高楼大厦平地起，勿在浮沙筑高层,加油！加油！加油！加油！"
-                        )
-                      ])
-                    ],
-                    1
-                  )
-                ],
-                1
-              ),
-              _c(
-                "v-uni-view",
-                { staticClass: _vm._$g(25, "sc"), attrs: { _i: 25 } },
-                [
-                  _c("v-uni-view", { attrs: { _i: 26 } }, [
-                    _vm._v("深圳 龙岗")
+                  _c("v-uni-view", { attrs: { _i: "21-" + $31 } }, [
+                    _vm._v(_vm._$g("21-" + $31, "t0-0"))
                   ]),
                   _c(
                     "v-uni-view",
-                    { staticClass: _vm._$g(27, "sc"), attrs: { _i: 27 } },
+                    {
+                      staticClass: _vm._$g("22-" + $31, "sc"),
+                      attrs: { _i: "22-" + $31 }
+                    },
                     [
+                      _vm._$g("23-" + $31, "i")
+                        ? [
+                            _c("v-uni-image", {
+                              attrs: {
+                                src: _vm._$g("24-" + $31, "a-src"),
+                                mode: "widthFix",
+                                "lazy-load": true,
+                                _i: "24-" + $31
+                              }
+                            }),
+                            _vm._$g("25-" + $31, "i")
+                              ? [
+                                  _c("v-uni-view", {
+                                    staticClass: _vm._$g("26-" + $31, "sc"),
+                                    attrs: { _i: "26-" + $31 }
+                                  }),
+                                  _c(
+                                    "v-uni-view",
+                                    {
+                                      staticClass: _vm._$g("27-" + $31, "sc"),
+                                      attrs: { _i: "27-" + $31 }
+                                    },
+                                    [
+                                      _vm._v(
+                                        _vm._$g("27-" + $31, "t0-0") +
+                                          " " +
+                                          _vm._$g("27-" + $31, "t0-1")
+                                      )
+                                    ]
+                                  )
+                                ]
+                              : _vm._e()
+                          ]
+                        : _c(
+                            "v-uni-view",
+                            {
+                              staticClass: _vm._$g("28-" + $31, "sc"),
+                              attrs: { _i: "28-" + $31 }
+                            },
+                            [
+                              _c("v-uni-image", {
+                                attrs: {
+                                  src: _vm._$g("29-" + $31, "a-src"),
+                                  mode: "widthFix",
+                                  "lazy-load": true,
+                                  _i: "29-" + $31
+                                }
+                              }),
+                              _c("v-uni-view", { attrs: { _i: "30-" + $31 } }, [
+                                _vm._v(_vm._$g("30-" + $31, "t0-0"))
+                              ])
+                            ],
+                            1
+                          )
+                    ],
+                    2
+                  ),
+                  _c(
+                    "v-uni-view",
+                    {
+                      staticClass: _vm._$g("31-" + $31, "sc"),
+                      attrs: { _i: "31-" + $31 }
+                    },
+                    [
+                      _c("v-uni-view", { attrs: { _i: "32-" + $31 } }, [
+                        _vm._v(_vm._$g("32-" + $31, "t0-0"))
+                      ]),
                       _c(
                         "v-uni-view",
-                        { staticClass: _vm._$g(28, "sc"), attrs: { _i: 28 } },
-                        [_vm._v("10")]
-                      ),
-                      _c(
-                        "v-uni-view",
-                        { staticClass: _vm._$g(29, "sc"), attrs: { _i: 29 } },
-                        [_vm._v("20")]
-                      ),
-                      _c(
-                        "v-uni-view",
-                        { staticClass: _vm._$g(30, "sc"), attrs: { _i: 30 } },
-                        [_vm._v("30")]
+                        {
+                          staticClass: _vm._$g("33-" + $31, "sc"),
+                          attrs: { _i: "33-" + $31 }
+                        },
+                        [
+                          _c(
+                            "v-uni-view",
+                            {
+                              staticClass: _vm._$g("34-" + $31, "sc"),
+                              attrs: { _i: "34-" + $31 }
+                            },
+                            [_vm._v(_vm._$g("34-" + $31, "t0-0"))]
+                          ),
+                          _c(
+                            "v-uni-view",
+                            {
+                              staticClass: _vm._$g("35-" + $31, "sc"),
+                              attrs: { _i: "35-" + $31 }
+                            },
+                            [_vm._v(_vm._$g("35-" + $31, "t0-0"))]
+                          ),
+                          _c(
+                            "v-uni-view",
+                            {
+                              staticClass: _vm._$g("36-" + $31, "sc"),
+                              attrs: { _i: "36-" + $31 }
+                            },
+                            [_vm._v(_vm._$g("36-" + $31, "t0-0"))]
+                          )
+                        ],
+                        1
                       )
                     ],
                     1
@@ -2120,11 +2210,10 @@ var render = function() {
             ],
             1
           )
-        ],
-        1
-      )
+        ]
+      })
     ],
-    1
+    2
   )
 }
 var recyclableRender = false
@@ -2932,7 +3021,7 @@ if(false) {}
 var ___CSS_LOADER_API_IMPORT___ = __webpack_require__(/*! ./node_modules/css-loader/dist/runtime/api.js */ 15);
 exports = ___CSS_LOADER_API_IMPORT___(false);
 // Module
-exports.push([module.i, "\n.nav-left > uni-view,\r\n.nav-right > uni-view {\r\n  font-size: 40upx;\n}\n.nav-left > uni-view {\r\n  color: #ff9619;\n}\n.nav-left {\r\n  margin-left: 16upx;\n}\n.nav-right {\r\n  width: 100%;\n}\n.nav-tab-bar {\r\n  width: 100%;\r\n  margin-left: -20upx;\r\n  position: relative;\n}\n.nav-tab-bar > uni-view {\r\n  font-size: 32upx;\r\n  padding: 0 15upx;\r\n  font-weight: bold;\r\n  color: #969696;\n}\n.active {\r\n  color: #333333 !important;\n}\n.nav-tab-bar-line {\r\n  border-bottom: 5upx solid #fede33;\r\n  border-top: 5upx solid #fede33;\r\n  width: 70upx;\r\n  -webkit-border-radius: 20upx;\r\n          border-radius: 20upx;\r\n  position: absolute;\r\n  bottom: 10upx;\n}\n.common-list {\r\n  padding: 5px 5px;\n}\n.common-list-left {\r\n  padding-top: 10px;\r\n  -webkit-flex-shrink: 0;\r\n          flex-shrink: 0;\n}\n.common-list-left > uni-image {\r\n  width: 38px;\r\n  height: 38px;\r\n  -webkit-border-radius: 50%;\r\n          border-radius: 50%;\n}\n.common-list-right {\r\n  padding: 5px;\r\n  width: 90%;\r\n  -webkit-box-flex: 1;\r\n  -webkit-flex: 1;\r\n          flex: 1;\r\n  border-bottom: 1upx solid #eeeeee;\n}\n.nickName {\r\n  color: #a5a5a5;\n}\n.nickName uni-view {\r\n  width: 30px;\r\n  height: 15px;\r\n  background: #44b3ff;\r\n  position: relative;\r\n  -webkit-border-radius: 20px;\r\n          border-radius: 20px;\r\n  color: #fff;\r\n  font-size: 10px;\r\n  top: 5px;\r\n  left: 4px;\n}\n.follow {\r\n  font-size: 12px;\r\n  background: #f4f4f4;\r\n  -webkit-border-radius: 4px;\r\n          border-radius: 4px;\r\n  margin-right: 8px;\r\n  padding: 2px 4px;\n}\n.videoImg {\r\n  position: relative;\n}\n.videoImg > uni-image {\r\n  width: 100%;\r\n  -webkit-border-radius: 4px;\r\n          border-radius: 4px;\n}\n.common-list-play {\r\n  color: #fff;\r\n  font-size: 60px;\r\n  position: absolute;\r\n  top: 50%;\r\n  left: 50%;\r\n  -webkit-transform: translate(-50%, -50%);\r\n          transform: translate(-50%, -50%);\n}\n.common-list-playinfo {\r\n  position: absolute;\r\n  left: 70%;\r\n  top: 80%;\r\n  color: #fff;\r\n  font-size: 10px;\r\n  background: rgba(0, 0, 0, 0.6);\r\n  padding: 3px 4px;\r\n  -webkit-border-radius: 7px;\r\n          border-radius: 7px;\n}\n.common-list-share{\r\n  background: #f7f7f7;\r\n  padding: 7px 5px;\r\n  width: 100%;\r\n  -webkit-border-radius: 7px;\r\n          border-radius: 7px;\n}\n.common-list-share uni-image{\r\n  width: 30%;\r\n  height: 20%;\n}\n.common-list-share uni-view{\r\n  margin-left: 8px;\n}\n.address-data {\r\n  color: #c5c5c5;\n}\n.followdata > uni-view {\r\n  font-size: 12px;\r\n  margin: 0 4px;\n}\r\n", ""]);
+exports.push([module.i, "\n.nav-left > uni-view,\r\n.nav-right > uni-view {\r\n  font-size: 40upx;\n}\n.nav-left > uni-view {\r\n  color: #ff9619;\n}\n.nav-left {\r\n  margin-left: 16upx;\n}\n.nav-right {\r\n  width: 100%;\n}\n.nav-tab-bar {\r\n  width: 100%;\r\n  margin-left: -20upx;\r\n  position: relative;\n}\n.nav-tab-bar > uni-view {\r\n  font-size: 32upx;\r\n  padding: 0 15upx;\r\n  font-weight: bold;\r\n  color: #969696;\n}\n.active {\r\n  color: #333333 !important;\n}\n.nav-tab-bar-line {\r\n  border-bottom: 5upx solid #fede33;\r\n  border-top: 5upx solid #fede33;\r\n  width: 70upx;\r\n  -webkit-border-radius: 20upx;\r\n          border-radius: 20upx;\r\n  position: absolute;\r\n  bottom: 10upx;\n}\n.common-list {\r\n  padding: 5px 5px;\n}\n.common-list-left {\r\n  padding-top: 10px;\r\n  -webkit-flex-shrink: 0;\r\n          flex-shrink: 0;\n}\n.common-list-left > uni-image {\r\n  width: 38px;\r\n  height: 38px;\r\n  -webkit-border-radius: 50%;\r\n          border-radius: 50%;\n}\n.common-list-right {\r\n  padding: 5px;\r\n  width: 90%;\r\n  -webkit-box-flex: 1;\r\n  -webkit-flex: 1;\r\n          flex: 1;\r\n  border-bottom: 1upx solid #eeeeee;\n}\n.nickName {\r\n  color: #a5a5a5;\n}\n.nickName uni-view {\r\n  width: 30px;\r\n  height: 15px;\r\n  background: #44b3ff;\r\n  position: relative;\r\n  -webkit-border-radius: 20px;\r\n          border-radius: 20px;\r\n  color: #fff;\r\n  font-size: 10px;\r\n  top: 5px;\r\n  left: 4px;\n}\n.nickName uni-view.icon-nv{\r\n  background: pink;\n}\n.follow {\r\n  font-size: 12px;\r\n  background: #f4f4f4;\r\n  -webkit-border-radius: 4px;\r\n          border-radius: 4px;\r\n  margin-right: 8px;\r\n  padding: 2px 4px;\n}\n.videoImg {\r\n  position: relative;\n}\n.videoImg > uni-image {\r\n  width: 100%;\r\n  -webkit-border-radius: 4px;\r\n          border-radius: 4px;\n}\n.common-list-play {\r\n  color: #fff;\r\n  font-size: 60px;\r\n  position: absolute;\r\n  top: 50%;\r\n  left: 50%;\r\n  -webkit-transform: translate(-50%, -50%);\r\n          transform: translate(-50%, -50%);\n}\n.common-list-playinfo {\r\n  position: absolute;\r\n  left: 70%;\r\n  top: 80%;\r\n  color: #fff;\r\n  font-size: 10px;\r\n  background: rgba(0, 0, 0, 0.6);\r\n  padding: 3px 4px;\r\n  -webkit-border-radius: 7px;\r\n          border-radius: 7px;\n}\n.common-list-share {\r\n  background: #f7f7f7;\r\n  padding: 7px 5px;\r\n  width: 100%;\r\n  -webkit-border-radius: 7px;\r\n          border-radius: 7px;\n}\n.common-list-share uni-image {\r\n  width: 30%;\r\n  height: 20%;\n}\n.common-list-share uni-view {\r\n  margin-left: 8px;\n}\n.address-data {\r\n  color: #c5c5c5;\n}\n.followdata > uni-view {\r\n  font-size: 12px;\r\n  margin: 0 4px;\n}\r\n", ""]);
 // Exports
 module.exports = exports;
 

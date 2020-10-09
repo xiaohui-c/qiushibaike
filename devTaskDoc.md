@@ -4,3 +4,13 @@
 -------------
 
 1：重新搭建动态页静态页面
+
+问题一：根据判断条件动态添加类
+```
+<view class="u-f nickName" >
+    {{item.username}}
+    <view class="icon iconfont u-f-asb" :class="[item.sex?'icon-nv':'icon-nan']">
+    {{item.age}}
+    </view>
+</view>
+```

@@ -29,11 +29,12 @@
       </block>
     </uni-nav-bar>
     <!-- 列表 -->
+    <block v-for="(item,index) in list" :key="index">
     <view class="common-list u-f">
       <!-- 左侧头像 -->
       <view class="common-list-left">
         <image
-          src="../../static/demo/userpic/12.jpg"
+          :src="item.userpic"
           mode="widthFix"
           lazy-load
         ></image>
@@ -43,45 +44,51 @@
         <!-- 个人信息栏 -->
         <view class="u-f u-f-jc u-f-ac">
           <view class="u-f nickName"
-            >昵称<view class="icon iconfont icon-nan u-f-asb">25</view></view
+            >{{item.username}}<view class="icon iconfont u-f-asb" :class="[item.sex?'icon-nv':'icon-nan']">{{item.age}}</view></view
           >
-          <view class="icon iconfont icon-zengjia follow">关注</view>
+          <view class="icon iconfont icon-zengjia follow" v-show="!item.follow">关注</view>
         </view>
         <!-- 文章标题 -->
-        <view>我是标题</view>
+        <view>{{item.title}}</view>
         <!-- 图片视频 -->
         <view class="videoImg u-f-asb">
+         <template v-if="!item.share">
           <!-- 图片 -->
-          <!-- <image
-            src="../../static/demo/datapic/13.jpg"
-            mode="widthFix"
-            lazy-load
-          ></image> -->
-          <!-- 视频 -->
-          <!-- <view class="common-list-play icon iconfont icon-bofang"></view>
-          <view class="common-list-playinfo">20w 次播放 2:47</view> -->
-          <!-- 分享样式 -->
-          <view class="common-list-share u-f-asb">
-             <image
+          <image
             src="../../static/demo/datapic/13.jpg"
             mode="widthFix"
             lazy-load
           ></image>
-          <view>高楼大厦平地起，勿在浮沙筑高层,加油！加油！加油！加油！</view>
+          <!-- 视频 -->
+          <template v-if="item.video">
+          <view class="common-list-play icon iconfont icon-bofang"></view>
+          <view class="common-list-playinfo">{{item.video.visitnum}} {{item.video.long}}</view>
+          </template>
+          <!-- 分享样式 -->
+         </template>
+          <view class="common-list-share u-f-asb" v-else>
+            <image
+              :src="item.share.titlepic"
+              mode="widthFix"
+              lazy-load
+            ></image>
+            <view>{{item.share.title}}</view>
           </view>
         </view>
         <!-- 发布地点及阅览数据 -->
         <view class="u-f-ajb address-data">
-          <view>深圳 龙岗</view>
+          <view>{{item.path}}</view>
           <view class="u-f-aje followdata">
-            <view class="icon iconfont icon-zhuanfa">10</view>
-            <view class="icon iconfont icon-pinglun1">20</view>
-            <view class="icon iconfont icon-dianzan1">30</view>
+            <view class="icon iconfont icon-zhuanfa">{{item.sharenum}}</view>
+            <view class="icon iconfont icon-pinglun1">{{item.commentnum}}</view>
+            <view class="icon iconfont icon-dianzan1">{{item.goodnum}}</view>
           </view>
         </view>
       </view>
     </view>
+    </block>
   </view>
+
 </template>
 
 <script>
@@ -96,6 +103,62 @@ export default {
       tabBars: [
         { name: "关注", id: "guanzhu" },
         { name: "话题", id: "topic" },
+      ],
+      list: [
+        // 图文
+        {
+          userpic: "../../static/demo/userpic/12.jpg",
+          username: "小灰",
+          sex: 1, //0 男 1 女
+          age:25,
+          follow: false,
+          title: "关于加强思想层面深建设",
+          titlepic: "../../static/demo/datapic/13.jpg",
+          video: false,
+          share: false,
+          path: "深圳 龙岗",
+          sharenum: 20,
+          commentnum: 30,
+          goodnum: 20,
+        },
+        // 视频
+        {
+          userpic: "../../static/demo/userpic/12.jpg",
+          username: "小灰",
+          sex: 0, //0 男 1 女
+          age:25,
+          follow: false,
+          title: "关于加强思想层面深建设",
+          titlepic: "../../static/demo/datapic/13.jpg",
+          video: {
+            visitnum:'20w',
+            long:'2:47'
+          },
+          share: false,
+          path: "深圳 龙岗",
+          sharenum: 20,
+          commentnum: 30,
+          goodnum: 20,
+        },
+        // 分享
+        {
+          userpic: "../../static/demo/userpic/12.jpg",
+          username: "小灰",
+          sex: 0, //0 男 1 女
+          age:25,
+          follow: false,
+          title: "关于加强思想层面深建设",
+          titlepic: "",
+          video: false,
+          share: {
+            title:'下一阶段面试计划',
+            titlepic:'../../static/demo/datapic/13.jpg',
+          },
+          path: "深圳 龙岗",
+          sharenum: 20,
+          commentnum: 30,
+          goodnum: 20,
+        },
       ],
     };
   },
@@ -181,6 +244,9 @@ export default {
   top: 5px;
   left: 4px;
 }
+.nickName view.icon-nv{
+  background: pink;
+}
 .follow {
   font-size: 12px;
   background: #f4f4f4;
@@ -213,17 +279,17 @@ export default {
   padding: 3px 4px;
   border-radius: 7px;
 }
-.common-list-share{
+.common-list-share {
   background: #f7f7f7;
   padding: 7px 5px;
   width: 100%;
   border-radius: 7px;
 }
-.common-list-share image{
+.common-list-share image {
   width: 30%;
   height: 20%;
 }
-.common-list-share view{
+.common-list-share view {
   margin-left: 8px;
 }
 .address-data {
