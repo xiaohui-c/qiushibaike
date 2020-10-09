@@ -1,7 +1,7 @@
 <template>
   <view>
     <!-- 自定义导航栏 -->
-    <uni-nav-bar :statusBar="true" @clickRight="openAdd">
+    <uni-nav-bar :fixed="true" :statusBar="true" @clickRight="openAdd">
       <!-- 左边 -->
       <block slot="left">
         <view class="nav-left">
