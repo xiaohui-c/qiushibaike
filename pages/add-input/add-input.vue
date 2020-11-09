@@ -15,7 +15,7 @@
 		<uploud-images @uploud="uploud"></uploud-images>
 		<!-- 弹出公告 -->
 		<uni-popup :show="showpopup" position="middle" mode="fixed" @hidePopup="hidePopup">
-			<view class="gonggao">
+			<view class="gonggao" v-show="showpopup">
 				<view class="u-f-asb">
 					<image src="../../static/common/addinput.png" mode="widthFix"></image>
 				</view>
@@ -81,6 +81,7 @@
 			},
 			hidePopup(){
 				this.showpopup=false;
+				console.log('yes ok');
 			},
 			// 保存为草稿
 		savafile(){

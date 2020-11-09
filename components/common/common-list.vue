@@ -1,5 +1,7 @@
 <template>
-  <view class="common-list u-f animate__animated animate__fadeInLeft fast">
+  <!-- 糗事页主要内容列表 -->
+  <view>
+  <view class="common-list u-f animate__animated animate__fadeInLeft fast" v-for="(item,index) in indexlist" :key="index">
     <!-- 左侧头像 -->
     <view class="common-list-left">
       <image :src="item.userpic" mode="widthFix" lazy-load></image>
@@ -16,7 +18,10 @@
             >{{ item.age }}</view
           ></view
         >
-        <view class="icon iconfont icon-zengjia follow" v-show="!item.follow"
+        <view
+          class="icon iconfont icon-zengjia follow"
+          v-show="item.follow === false"
+          @tap="attention(index)"
           >关注</view
         >
       </view>
@@ -56,14 +61,31 @@
       </view>
     </view>
   </view>
+  </view>
 </template>
 <script>
 export default {
-    props:{
-        item:Object,
-        index:Number
-    }
-}
+  props: {
+    // 父组件传递过来的是数组对象的每一项
+    list: Array,
+     default: () => {
+        return [];
+      },
+  },
+  data() {
+    return {
+      indexlist: this.list,
+    };
+  },
+  methods: {
+    attention(index) {
+      this.indexlist[index].follow = !this.indexlist[index].follow;
+      uni.showToast({
+        title: "关注成功",
+      });
+    },
+  },
+};
 </script>
 <style scoped>
 .common-list {

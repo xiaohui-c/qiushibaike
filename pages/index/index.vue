@@ -1,4 +1,5 @@
 <template>
+	<!-- 糗事页 -->
   <!-- 页面整体容器 -->
   <view class="container">
     <!-- view和text的使用方法 -->
@@ -88,7 +89,7 @@ export default {
               follow: false,
               title: "新时代社会主义",
               type: "video", //*img:图文,video:视频
-              playnum: "20000",
+              playnum: "2w",
               long: "2:37",
               titlepic: require("../../static/demo/datapic/11.jpg"),
               infonum: {

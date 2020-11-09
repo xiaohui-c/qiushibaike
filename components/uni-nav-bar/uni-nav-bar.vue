@@ -165,8 +165,8 @@
 		display: flex;
 		/* #endif */
 		flex-direction: row;
-		height: 44px;
-		line-height: 44px;
+		height: 20px;
+		line-height: 20px;
 		font-size: 16px;
 	}
 

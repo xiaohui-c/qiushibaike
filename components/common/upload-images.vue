@@ -1,4 +1,5 @@
 <template>
+	<!-- 发布页图片上传 -->
 	<view class="uni-list list-pd">
 		<view class="uni-list-cell cell-pd">
 			<view class="uni-uploader">

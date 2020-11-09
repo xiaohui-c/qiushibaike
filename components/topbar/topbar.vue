@@ -1,4 +1,5 @@
 <template>
+	<!-- 糗事页顶栏分类 -->
   <view class="uni-tab-bar">
     <scroll-view scroll-x class="uni-swiper-tab">
       <view class="container-topBar">

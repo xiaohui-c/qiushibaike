@@ -1,4 +1,5 @@
 <template>
+	<!-- 底部加载更多功能 -->
 	 <view class="load-text">{{loadtext}}</view>
 </template>
 <script>

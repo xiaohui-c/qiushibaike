@@ -22,7 +22,8 @@
   width: 30px;
   margin: auto;
   border-top: 6rpx solid #fede33;
-  border-radius: 20rpx;
+  -webkit-border-radius: 20rpx;
+          border-radius: 20rpx;
   position: relative;
   top: -7px;
   -webkit-transition: all 250ms;

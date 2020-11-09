@@ -39,8 +39,8 @@
 	-webkit-box-direction: normal;
 	-webkit-flex-direction: row;
 	        flex-direction: row;
-	height: 44px;
-	line-height: 44px;
+	height: 20px;
+	line-height: 20px;
 	font-size: 16px;
 }
 .uni-navbar__header-btns.data-v-4afea59e {
@@ -114,7 +114,8 @@
 }
 .uni-navbar--shadow.data-v-4afea59e {
 
-	box-shadow: 0 1px 6px #ccc;
+	-webkit-box-shadow: 0 1px 6px #ccc;
+	        box-shadow: 0 1px 6px #ccc;
 }
 .uni-navbar--border.data-v-4afea59e {
 	border-bottom-width: 1rpx;

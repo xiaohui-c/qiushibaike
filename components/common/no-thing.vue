@@ -1,5 +1,5 @@
 <template>
-   	<!-- 无内容默认显示 -->
+   	<!-- 糗事页无内容默认显示 -->
 				<view class="nothing">
 			<image src="../../static/common/nothing.png" mode="widthFix"></image>		
 				</view>
