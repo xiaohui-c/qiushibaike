@@ -3969,6 +3969,18 @@ to {
     -webkit-align-items: center;
             align-items: center;
 }
+.u-f-dasb{
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -webkit-flex-direction: column;
+            flex-direction: column;
+    -webkit-box-pack: justify;
+    -webkit-justify-content: space-between;
+            justify-content: space-between;
+}
 @font-face {
 	font-family: uniicons;
 	font-weight: normal;

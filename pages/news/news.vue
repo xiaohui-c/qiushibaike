@@ -37,23 +37,79 @@
     <view class="uni-tab-bar">
       <swiper
         class="swiper-box"
-        :style="{height:swiperHeight+'px'}"
+        :style="{ height: swiperHeight + 'px' }"
         :current="tabIndex"
         @change="tabChange"
       >
-        <swiper-item v-for="(item,index) in newsList" :key="index">
-          <scroll-view scroll-y class="list" @scrolltolower="loadmore(index)">
-            <template v-if="item.list.length>0">
-              <!-- 每一个话题区域 组件已封装-->
-              <block>
-                <common-list :list="item.list"></common-list>
-              </block>
-              <!-- 上拉加载区域 组件已封装-->
-              <loadMore :loadtext="item.loadtext"></loadMore>
-            </template>
-            <template v-else>
-              <noThing></noThing>
-            </template>
+        <swiper-item>
+          <scroll-view scroll-y class="list" @scrolltolower="loadmore()">
+            <!-- 每一个话题区域 组件已封装-->
+            <block v-for="(item, index) in newsList" :key="index">
+              <common-list :list="item.list"></common-list>
+            </block>
+            <!-- 上拉加载区域 组件已封装-->
+            <loadMore :loadtext="newsList.loadtext"></loadMore>
+          </scroll-view>
+        </swiper-item>
+        <!-- 话题 -->
+        <swiper-item>
+          <scroll-view scroll-y class="list">
+            <!-- 搜索框 -->
+            <view class="search-input">
+              <input
+                class="uni-input u-f-asb"
+                placeholder-class="icon iconfont icon-sousuo topic-search"
+                placeholder="搜索内容"
+              />
+            </view>
+            <!-- 轮播图 -->
+            <swiper
+              class="topic-swiper u-f-asb"
+              :indicator-dots="true"
+              :autoplay="true"
+              :interval="3000"
+              :duration="1000"
+            >
+              <swiper-item
+                v-for="(item, index) in hotClassfyImage"
+                :key="index"
+              >
+                <image :src="item.img" mode="widthFix" lazy-load></image>
+              </swiper-item>
+            </swiper>
+            <!-- 热门分类 -->
+            <view class="hot-classify-box">
+              <view class="hot-top-bar u-f-ajb">
+                <text>热门分类</text>
+                <view class="hot-top-bar-right">
+                  <text>更多</text>
+                  <text class="icon iconfont icon-jinru"></text>
+                </view>
+              </view>
+              <view class="hot-bottom-bar u-f-aje">
+                <text v-for="(item, index) in hotClassfybtn" :key="index">{{
+                  item
+                }}</text>
+              </view>
+            </view>
+            <!-- 最近更新 -->
+            <view class="nearly-update-list-box">
+              <view class="nearly-update-title">最近更新</view>
+              <view class="nearly-update-list-item u-f-ajb" v-for="(item,index) in nearlyObj" :key="index">
+                <view class="imageBox">
+                  <image
+                    :src="item.img"
+                    mode="widthFix"
+                    lazy-load
+                  ></image>
+                </view>
+                <view class="nearly-text u-f-dasb">
+                  <view class="nearly-title">#{{item.title}}#</view>
+                  <view class="nearly-detail">{{item.detail}}</view>
+                  <view class="nearly-datebase">动态 {{item.newsnum}} 今日 {{item.today}}</view>
+                </view>
+              </view>
+            </view>
           </scroll-view>
         </swiper-item>
       </swiper>
@@ -65,17 +121,16 @@
 import uniNavBar from "../../components/uni-nav-bar/uni-nav-bar.vue";
 import commonList from "../../components/common/common-list.vue";
 import loadMore from "../../components/common/load-more.vue";
-import noThing from "../../components/common/no-thing.vue";
 export default {
   components: {
     uniNavBar,
     commonList,
     loadMore,
-    noThing
   },
   data() {
     return {
-      tabIndex: 0,
+      tabIndex: 1,
+      scrollTop: 0,
       // 主内容区域高度
       swiperHeight: 0,
       tabBars: [
@@ -143,10 +198,36 @@ export default {
           ],
         },
         { loadtext: "上拉加载更多", list: [] },
-        { loadtext: "上拉加载更多", list: [] },
-        { loadtext: "上拉加载更多", list: [] },
-        { loadtext: "上拉加载更多", list: [] },
-        { loadtext: "上拉加载更多", list: [] },
+      ],
+      hotClassfyImage: [
+        { img: "../../static/demo/banner1.jpg" },
+        { img: "../../static/demo/banner2.jpg" },
+        { img: "../../static/demo/banner3.jpg" },
+      ],
+      hotClassfybtn: ["最新", "游戏", "情感", "打卡", "故事", "喜爱"],
+      nearlyObj: [
+        {
+          img: "../../static/demo/datapic/35.jpg",
+          title: "淘宝记录",
+          detail: "120斤到85斤 我的反转人生",
+          newsnum: "545",
+          today:'720'
+        },
+        {
+          img: "../../static/demo/datapic/35.jpg",
+          title: "你亲生经历的灵异事件",
+          detail: "走出去，才发现你跟别人差的不是一点两点",
+          newsnum:'577',
+          today:'821'
+          
+        },
+        {
+          img: "../../static/demo/datapic/35.jpg",
+          title: "天天打卡",
+          detail: "面试官，在电梯里巧遇码云你会做什么？90后女孩的回答当场被录用",
+          newsnum:'507',
+          today:'707'
+        },
       ],
     };
   },
@@ -160,13 +241,13 @@ export default {
         url: "../add-input/add-input",
       });
     },
-     // 上拉加载
+    // 上拉加载
     loadmore(index) {
-      if (this.newsList[index].loadtext != "上拉加载更多") {
+      if (this.newsList.loadtext != "上拉加载更多") {
         return;
       }
       // 修改状态
-      this.newsList[index].loadtext = "加载中...";
+      this.newsList.loadtext = "加载中...";
       // 获取数据
       setTimeout(() => {
         // 获取数据完成
@@ -185,8 +266,8 @@ export default {
           commentnum: 10,
           forward: 12,
         };
-        this.newsList[index].list.push(obj);
-        this.newsList[index].loadtext = "上拉加载更多";
+        this.newsList.list.push(obj);
+        this.newsList.loadtext = "上拉加载更多";
       }, 1000);
       // this.newsList[index].loadtext = "没有更多数据了";
     },
@@ -194,7 +275,16 @@ export default {
     tabChange(e) {
       this.tabIndex = e.detail.current;
     },
-    
+    upper: function (e) {
+      console.log(e);
+    },
+    lower: function (e) {
+      console.log(e);
+    },
+    scroll: function (e) {
+      console.log(e);
+      this.old.scrollTop = e.detail.scrollTop;
+    },
   },
   onLoad() {
     // 计算并设置主要内容区域高度
@@ -204,7 +294,7 @@ export default {
         this.swiperHeight = height;
       },
     });
-  }
+  },
 };
 </script>
 
@@ -243,5 +333,95 @@ export default {
   border-radius: 20upx;
   position: absolute;
   bottom: 10upx;
+}
+.search-input {
+  padding: 4px 10px;
+}
+.uni-input {
+  background: #f4f4f4;
+  border-radius: 6px;
+  height: 10px;
+  text-align: center;
+  line-height: 10px;
+}
+.icon {
+  font-size: 12px;
+}
+.topic-swiper {
+  padding: 5px 0;
+}
+.topic-swiper swiper-item {
+  height: 100%;
+  display: flex;
+  place-content: center;
+}
+.topic-swiper image {
+  width: 95%;
+  height: 100%;
+  border-radius: 8px;
+}
+.hot-classify-box {
+  border-top: 1px solid #f1f1f1;
+  border-bottom: 1px solid #f1f1f1;
+  padding: 15px 5px;
+}
+.hot-top-bar > text {
+  color: #525252;
+  font-size: 14px;
+  margin-left: 4px;
+}
+.hot-top-bar-right text {
+  color: #adadad;
+}
+.hot-bottom-bar {
+  margin-top: 6px;
+}
+.hot-bottom-bar text {
+  background: #f7f7f7;
+  color: #adadad;
+  padding: 3px 12px;
+  border-radius: 4px;
+}
+.nearly-update-list {
+  padding: 8px;
+}
+.nearly-update-title {
+  color: #000;
+  padding: 4px 8px;
+}
+.nearly-update-list-item {
+  padding: 10px 4px;
+  border-bottom: 1px solid #f1f1f1;
+  overflow: hidden;
+}
+.nearly-update-list-item .imageBox {
+  width: 120px;
+  height: 120px;
+  position: relative;
+  overflow: hidden;
+  border-radius: 15px;
+  flex: 1;
+}
+.nearly-update-list-item .imageBox image {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  display: block;
+  min-width: 100%;
+  min-height: 100%;
+  transform: translate(-50%, -50%);
+}
+.nearly-text {
+  height: 100px;
+  flex: 2;
+  padding: 5px 10px;
+}
+.nearly-text .nearly-title {
+  color: #000;
+  font-size: 18px;
+}
+.nearly-detail,
+.nearly-datebase {
+  color: #c0c0c0;
 }
 </style>

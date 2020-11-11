@@ -41,10 +41,16 @@
 					}
 				}
 			}
-		}, {
+		}, 
+		{
 			"path": "pages/news/news",
-			"style": {"app-plus":{"titleNView":false}}
-			},{
+			"style": {"app-plus":
+				{
+					"bounce": "none",
+					"titleNView":false
+					}}
+			},
+			{
 			"path": "pages/paper/paper",
 			"style": {}
 		}, {

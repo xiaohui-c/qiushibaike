@@ -55,3 +55,5 @@ uni.showToast({
 百度解决方案
 
 [微信开方者社区](https://developers.weixin.qq.com/community/develop/doc/00066e66324fd8a53e9acba165b400)
+
+问题五：父组件全局传递数组对象到子组件，导致子组件因为代码设计原因无法顺利更新

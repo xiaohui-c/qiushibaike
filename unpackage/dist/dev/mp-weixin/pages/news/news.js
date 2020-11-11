@@ -134,7 +134,62 @@ __webpack_require__.r(__webpack_exports__);
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-/* WEBPACK VAR INJECTION */(function(uni) {Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0;var uniNavBar = function uniNavBar() {__webpack_require__.e(/*! require.ensure | components/uni-nav-bar/uni-nav-bar */ "components/uni-nav-bar/uni-nav-bar").then((function () {return resolve(__webpack_require__(/*! ../../components/uni-nav-bar/uni-nav-bar.vue */ 81));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var commonList = function commonList() {__webpack_require__.e(/*! require.ensure | components/common/common-list */ "components/common/common-list").then((function () {return resolve(__webpack_require__(/*! ../../components/common/common-list.vue */ 88));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var loadMore = function loadMore() {__webpack_require__.e(/*! require.ensure | components/common/load-more */ "components/common/load-more").then((function () {return resolve(__webpack_require__(/*! ../../components/common/load-more.vue */ 67));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var noThing = function noThing() {__webpack_require__.e(/*! require.ensure | components/common/no-thing */ "components/common/no-thing").then((function () {return resolve(__webpack_require__(/*! ../../components/common/no-thing.vue */ 74));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var _default =
+/* WEBPACK VAR INJECTION */(function(uni) {Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0;var uniNavBar = function uniNavBar() {__webpack_require__.e(/*! require.ensure | components/uni-nav-bar/uni-nav-bar */ "components/uni-nav-bar/uni-nav-bar").then((function () {return resolve(__webpack_require__(/*! ../../components/uni-nav-bar/uni-nav-bar.vue */ 81));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var commonList = function commonList() {__webpack_require__.e(/*! require.ensure | components/common/common-list */ "components/common/common-list").then((function () {return resolve(__webpack_require__(/*! ../../components/common/common-list.vue */ 88));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var loadMore = function loadMore() {__webpack_require__.e(/*! require.ensure | components/common/load-more */ "components/common/load-more").then((function () {return resolve(__webpack_require__(/*! ../../components/common/load-more.vue */ 67));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var _default =
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -206,12 +261,12 @@ __webpack_require__.r(__webpack_exports__);
   components: {
     uniNavBar: uniNavBar,
     commonList: commonList,
-    loadMore: loadMore,
-    noThing: noThing },
+    loadMore: loadMore },
 
   data: function data() {
     return {
-      tabIndex: 0,
+      tabIndex: 1,
+      scrollTop: 0,
       // 主内容区域高度
       swiperHeight: 0,
       tabBars: [
@@ -278,11 +333,37 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
-      { loadtext: "上拉加载更多", list: [] },
-      { loadtext: "上拉加载更多", list: [] },
-      { loadtext: "上拉加载更多", list: [] },
-      { loadtext: "上拉加载更多", list: [] },
-      { loadtext: "上拉加载更多", list: [] }] };
+      { loadtext: "上拉加载更多", list: [] }],
+
+      hotClassfyImage: [
+      { img: "../../static/demo/banner1.jpg" },
+      { img: "../../static/demo/banner2.jpg" },
+      { img: "../../static/demo/banner3.jpg" }],
+
+      hotClassfybtn: ["最新", "游戏", "情感", "打卡", "故事", "喜爱"],
+      nearlyObj: [
+      {
+        img: "../../static/demo/datapic/35.jpg",
+        title: "淘宝记录",
+        detail: "120斤到85斤 我的反转人生",
+        newsnum: "545",
+        today: '720' },
+
+      {
+        img: "../../static/demo/datapic/35.jpg",
+        title: "你亲生经历的灵异事件",
+        detail: "走出去，才发现你跟别人差的不是一点两点",
+        newsnum: '577',
+        today: '821' },
+
+
+      {
+        img: "../../static/demo/datapic/35.jpg",
+        title: "天天打卡",
+        detail: "面试官，在电梯里巧遇码云你会做什么？90后女孩的回答当场被录用",
+        newsnum: '507',
+        today: '707' }] };
+
 
 
   },
@@ -298,11 +379,11 @@ __webpack_require__.r(__webpack_exports__);
     },
     // 上拉加载
     loadmore: function loadmore(index) {var _this = this;
-      if (this.newsList[index].loadtext != "上拉加载更多") {
+      if (this.newsList.loadtext != "上拉加载更多") {
         return;
       }
       // 修改状态
-      this.newsList[index].loadtext = "加载中...";
+      this.newsList.loadtext = "加载中...";
       // 获取数据
       setTimeout(function () {
         // 获取数据完成
@@ -321,16 +402,25 @@ __webpack_require__.r(__webpack_exports__);
           commentnum: 10,
           forward: 12 };
 
-        _this.newsList[index].list.push(obj);
-        _this.newsList[index].loadtext = "上拉加载更多";
+        _this.newsList.list.push(obj);
+        _this.newsList.loadtext = "上拉加载更多";
       }, 1000);
       // this.newsList[index].loadtext = "没有更多数据了";
     },
     // 图文列表滑动
     tabChange: function tabChange(e) {
       this.tabIndex = e.detail.current;
+    },
+    upper: function upper(e) {
+      console.log(e);
+    },
+    lower: function lower(e) {
+      console.log(e);
+    },
+    scroll: function scroll(e) {
+      console.log(e);
+      this.old.scrollTop = e.detail.scrollTop;
     } },
-
 
   onLoad: function onLoad() {var _this2 = this;
     // 计算并设置主要内容区域高度
