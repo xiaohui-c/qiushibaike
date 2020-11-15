@@ -1,0 +1,44 @@
+
+.userchat-list.data-v-624a3ad6 {
+  border-bottom: 1px solid #f2f2f2;
+  padding: 15px;
+  display: grid;
+  grid-template-rows: 40px;
+  grid-template-columns: 1fr 1.8fr 5fr;
+}
+.headerimg image.data-v-624a3ad6 {
+  -webkit-border-radius: 50%;
+          border-radius: 50%;
+  width: 50px;
+  height: 50px;
+  margin-right: 10px;
+}
+.age.data-v-624a3ad6 {
+  width: 30px;
+  height: 15px;
+  position: relative;
+  -webkit-border-radius: 20px;
+          border-radius: 20px;
+  color: #fff;
+  font-size: 7px;
+  top: 5px;
+  left: 4px;
+  line-height: 15px;
+}
+.icon-nv.data-v-624a3ad6 {
+  background: pink;
+}
+.icon-nan.data-v-624a3ad6 {
+  background: #44b3ff;
+}
+.userchat-list .isfollow.data-v-624a3ad6 {
+  justify-self: flex-end;
+  -webkit-align-self: center;
+          align-self: center;
+}
+
+
+.topbars.data-v-31482a6e {
+  margin-top: 12px;
+}
+

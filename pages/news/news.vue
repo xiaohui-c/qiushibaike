@@ -41,14 +41,12 @@
         :current="tabIndex"
         @change="tabChange"
       >
+        <!-- 关注 -->
         <swiper-item>
           <scroll-view scroll-y class="list" @scrolltolower="loadmore()">
-            <!-- 每一个话题区域 组件已封装-->
-            <block v-for="(item, index) in newsList" :key="index">
-              <common-list :list="item.list"></common-list>
-            </block>
-            <!-- 上拉加载区域 组件已封装-->
-            <loadMore :loadtext="newsList.loadtext"></loadMore>
+            <common-list :list="attention.list"></common-list>
+            <!-- 上拉加载 -->
+            <loadMore :loadtext="attention.loadtext"></loadMore>
           </scroll-view>
         </swiper-item>
         <!-- 话题 -->
@@ -81,7 +79,7 @@
             <view class="hot-classify-box">
               <view class="hot-top-bar u-f-ajb">
                 <text>热门分类</text>
-                <view class="hot-top-bar-right">
+                <view class="hot-top-bar-right" @tap="moreClassfy">
                   <text>更多</text>
                   <text class="icon iconfont icon-jinru"></text>
                 </view>
@@ -95,20 +93,7 @@
             <!-- 最近更新 -->
             <view class="nearly-update-list-box">
               <view class="nearly-update-title">最近更新</view>
-              <view class="nearly-update-list-item u-f-ajb" v-for="(item,index) in nearlyObj" :key="index">
-                <view class="imageBox">
-                  <image
-                    :src="item.img"
-                    mode="widthFix"
-                    lazy-load
-                  ></image>
-                </view>
-                <view class="nearly-text u-f-dasb">
-                  <view class="nearly-title">#{{item.title}}#</view>
-                  <view class="nearly-detail">{{item.detail}}</view>
-                  <view class="nearly-datebase">动态 {{item.newsnum}} 今日 {{item.today}}</view>
-                </view>
-              </view>
+              <news-list :nearlyObj="nearlyObj"></news-list>
             </view>
           </scroll-view>
         </swiper-item>
@@ -121,15 +106,19 @@
 import uniNavBar from "../../components/uni-nav-bar/uni-nav-bar.vue";
 import commonList from "../../components/common/common-list.vue";
 import loadMore from "../../components/common/load-more.vue";
+import newsList from "../../components/news/news-list.vue";
+import { statMixin } from "../../Mixin/loadmore.js";
 export default {
+  mixins: [statMixin],
   components: {
     uniNavBar,
     commonList,
     loadMore,
+    newsList,
   },
   data() {
     return {
-      tabIndex: 1,
+      tabIndex: 0,
       scrollTop: 0,
       // 主内容区域高度
       swiperHeight: 0,
@@ -137,68 +126,65 @@ export default {
         { name: "关注", id: "guanzhu" },
         { name: "话题", id: "topic" },
       ],
-      newsList: [
-        {
-          loadtext: "上拉加载更多",
-          list: [
-            // 图文
-            {
-              userpic: "../../static/demo/userpic/12.jpg",
-              username: "小灰",
-              sex: 1, //0 男 1 女
-              age: 25,
-              follow: false,
-              title: "关于加强思想层面深建设",
+      attention: {
+        loadtext: "上拉加载更多",
+        list: [
+          // 图文
+          {
+            userpic: "../../static/demo/userpic/12.jpg",
+            username: "小灰",
+            sex: 1, //0 男 1 女
+            age: 25,
+            follow: false,
+            title: "关于加强思想层面深建设",
+            titlepic: "../../static/demo/datapic/13.jpg",
+            video: false,
+            share: false,
+            path: "深圳 龙岗",
+            sharenum: 20,
+            commentnum: 30,
+            goodnum: 20,
+          },
+          // 视频
+          {
+            userpic: "../../static/demo/userpic/12.jpg",
+            username: "小灰",
+            sex: 0, //0 男 1 女
+            age: 25,
+            follow: false,
+            title: "关于加强思想层面深建设",
+            titlepic: "../../static/demo/datapic/13.jpg",
+            video: {
+              visitnum: "20w",
+              long: "2:47",
+            },
+            share: false,
+            path: "深圳 龙岗",
+            sharenum: 20,
+            commentnum: 30,
+            goodnum: 20,
+          },
+          // 分享
+          {
+            userpic: "../../static/demo/userpic/12.jpg",
+            username: "小灰",
+            sex: 0, //0 男 1 女
+            age: 25,
+            follow: false,
+            title: "关于加强思想层面深建设",
+            titlepic: "",
+            video: false,
+            share: {
+              title: "下一阶段面试计划",
               titlepic: "../../static/demo/datapic/13.jpg",
-              video: false,
-              share: false,
-              path: "深圳 龙岗",
-              sharenum: 20,
-              commentnum: 30,
-              goodnum: 20,
             },
-            // 视频
-            {
-              userpic: "../../static/demo/userpic/12.jpg",
-              username: "小灰",
-              sex: 0, //0 男 1 女
-              age: 25,
-              follow: false,
-              title: "关于加强思想层面深建设",
-              titlepic: "../../static/demo/datapic/13.jpg",
-              video: {
-                visitnum: "20w",
-                long: "2:47",
-              },
-              share: false,
-              path: "深圳 龙岗",
-              sharenum: 20,
-              commentnum: 30,
-              goodnum: 20,
-            },
-            // 分享
-            {
-              userpic: "../../static/demo/userpic/12.jpg",
-              username: "小灰",
-              sex: 0, //0 男 1 女
-              age: 25,
-              follow: false,
-              title: "关于加强思想层面深建设",
-              titlepic: "",
-              video: false,
-              share: {
-                title: "下一阶段面试计划",
-                titlepic: "../../static/demo/datapic/13.jpg",
-              },
-              path: "深圳 龙岗",
-              sharenum: 20,
-              commentnum: 30,
-              goodnum: 20,
-            },
-          ],
-        },
-        { loadtext: "上拉加载更多", list: [] },
-      ],
+            path: "深圳 龙岗",
+            sharenum: 20,
+            commentnum: 30,
+            goodnum: 20,
+          },
+        ],
+      },
       hotClassfyImage: [
         { img: "../../static/demo/banner1.jpg" },
         { img: "../../static/demo/banner2.jpg" },
@@ -211,24 +197,42 @@ export default {
           title: "淘宝记录",
           detail: "120斤到85斤 我的反转人生",
           newsnum: "545",
-          today:'720'
+          today: "720",
         },
         {
           img: "../../static/demo/datapic/35.jpg",
           title: "你亲生经历的灵异事件",
           detail: "走出去，才发现你跟别人差的不是一点两点",
-          newsnum:'577',
-          today:'821'
-          
+          newsnum: "577",
+          today: "821",
         },
         {
           img: "../../static/demo/datapic/35.jpg",
           title: "天天打卡",
-          detail: "面试官，在电梯里巧遇码云你会做什么？90后女孩的回答当场被录用",
-          newsnum:'507',
-          today:'707'
+          detail:
+            "面试官，在电梯里巧遇码云你会做什么？90后女孩的回答当场被录用",
+          newsnum: "507",
+          today: "707",
         },
       ],
+      obj: {
+        userpic: "../../static/demo/userpic/12.jpg",
+        username: "小灰",
+        sex: 0, //0 男 1 女
+        age: 25,
+        follow: false,
+        title: "关于加强思想层面深建设",
+        titlepic: "",
+        video: false,
+        share: {
+          title: "下一阶段面试计划",
+          titlepic: "../../static/demo/datapic/13.jpg",
+        },
+        path: "深圳 龙岗",
+        sharenum: 20,
+        commentnum: 30,
+        goodnum: 20,
+      },
     };
   },
   methods: {
@@ -241,35 +245,25 @@ export default {
         url: "../add-input/add-input",
       });
     },
-    // 上拉加载
-    loadmore(index) {
-      if (this.newsList.loadtext != "上拉加载更多") {
+    moreClassfy() {
+      // 打开发布页面
+      uni.navigateTo({
+        url: "../topic-classfy/topic-classfy",
+      });
+    },
+    // // 上拉加载
+    loadmore() {
+      if (this.attention.loadtext != "上拉加载更多") {
         return;
       }
       // 修改状态
-      this.newsList.loadtext = "加载中...";
+      this.attention.loadtext = "加载中...";
       // 获取数据
       setTimeout(() => {
         // 获取数据完成
-        let obj = {
-          userpic: require("../../static/demo/userpic/12.jpg"),
-          username: "小马",
-          follow: false,
-          title: "新时代社会主义",
-          type: "img", //img:图文,video:视频
-          titlepic: require("../../static/demo/datapic/11.jpg"),
-          infonum: {
-            index: 2, // !0表示没有操作，1表示已经顶了，2表示已经踩了
-            dingnum: 11,
-            cai: 10,
-          },
-          commentnum: 10,
-          forward: 12,
-        };
-        this.newsList.list.push(obj);
-        this.newsList.loadtext = "上拉加载更多";
+        this.attention.list.push(this.obj);
+        this.attention.loadtext = "上拉加载更多";
       }, 1000);
-      // this.newsList[index].loadtext = "没有更多数据了";
     },
     // 图文列表滑动
     tabChange(e) {
@@ -285,16 +279,7 @@ export default {
       console.log(e);
       this.old.scrollTop = e.detail.scrollTop;
     },
-  },
-  onLoad() {
-    // 计算并设置主要内容区域高度
-    uni.getSystemInfo({
-      success: (res) => {
-        let height = res.windowHeight - uni.upx2px(100);
-        this.swiperHeight = height;
-      },
-    });
-  },
+  }
 };
 </script>
 
@@ -388,40 +373,5 @@ export default {
 .nearly-update-title {
   color: #000;
   padding: 4px 8px;
-}
-.nearly-update-list-item {
-  padding: 10px 4px;
-  border-bottom: 1px solid #f1f1f1;
-  overflow: hidden;
-}
-.nearly-update-list-item .imageBox {
-  width: 120px;
-  height: 120px;
-  position: relative;
-  overflow: hidden;
-  border-radius: 15px;
-  flex: 1;
-}
-.nearly-update-list-item .imageBox image {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  display: block;
-  min-width: 100%;
-  min-height: 100%;
-  transform: translate(-50%, -50%);
-}
-.nearly-text {
-  height: 100px;
-  flex: 2;
-  padding: 5px 10px;
-}
-.nearly-text .nearly-title {
-  color: #000;
-  font-size: 18px;
-}
-.nearly-detail,
-.nearly-datebase {
-  color: #c0c0c0;
 }
 </style>

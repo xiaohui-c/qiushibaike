@@ -1,0 +1,24 @@
+
+.topic-bg image.data-v-b237504c {
+  width: 100%;
+  height: 100%;
+}
+view.data-v-b237504c {
+  margin-bottom: 25px;
+}
+.loginBtn button.data-v-b237504c {
+  width: 90%;
+}
+.middle-line.data-v-b237504c {
+  width: 50%;
+  border-bottom: 1px solid #9c9c9c;
+  position: relative;
+}
+.middle-line text.data-v-b237504c {
+  color: #9c9c9c;
+  position: absolute;
+  top: -10px;
+  background: #ffffff;
+  padding: 0 10px;
+}
+

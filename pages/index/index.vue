@@ -1,26 +1,26 @@
 <template>
-	<!-- 糗事页 -->
+  <!-- 糗事页 -->
   <!-- 页面整体容器 -->
   <view class="container">
-    <!-- view和text的使用方法 -->
-    <!-- <view class="view-box animated " hover-class="view-box-hover animate__bounceIn" hover-start-time="1000">
-			第一个view
-		</view>
-    <text>hao\nhao\nhao\nhao\n</text>-->
     <!-- 顶部导航栏 组件已封装-->
-    <topBar :tabBars="tabBars" :tabIndex="tabIndex" @topBar="topBar"></topBar>
+    <topBar
+      :tabBars="tabBars"
+      :tabIndex="tabIndex"
+      @topBar="topBar"
+      :newspage="newspage"
+    ></topBar>
 
     <!-- 图文列表区域 -->
     <view class="uni-tab-bar">
       <swiper
         class="swiper-box"
-        :style="{height:swiperHeight+'px'}"
+        :style="{ height: swiperHeight + 'px' }"
         :current="tabIndex"
         @change="tabChange"
       >
-        <swiper-item v-for="(item,index) in newsList" :key="index">
+        <swiper-item v-for="(item, index) in newsList" :key="index">
           <scroll-view scroll-y class="list" @scrolltolower="loadmore(index)">
-            <template v-if="item.list.length>0">
+            <template v-if="item.list.length > 0">
               <!-- 每一个话题区域 组件已封装-->
               <block>
                 <IndexList :list="item.list"></IndexList>
@@ -43,12 +43,14 @@ import IndexList from "../../components/index/index-list.vue";
 import topBar from "../../components/topbar/topbar.vue";
 import loadMore from "../../components/common/load-more.vue";
 import noThing from "../../components/common/no-thing.vue";
+import { statMixin } from "../../Mixin/loadmore.js";
 export default {
+  mixins: [statMixin],
   components: {
     IndexList,
     topBar,
     loadMore,
-    noThing
+    noThing,
   },
   data() {
     return {
@@ -56,6 +58,7 @@ export default {
       tabIndex: 0,
       // 主内容区域高度
       swiperHeight: 0,
+      newspage: true,
       tabBars: [
         { name: "关注", id: "guanzhu" },
         { name: "推荐", id: "tuijian" },
@@ -108,56 +111,41 @@ export default {
         { loadtext: "上拉加载更多", list: [] },
         { loadtext: "上拉加载更多", list: [] },
       ],
+      obj: {
+        userpic: require("../../static/demo/userpic/12.jpg"),
+        username: "小马",
+        follow: false,
+        title: "新时代社会主义",
+        type: "img", //img:图文,video:视频
+        titlepic: require("../../static/demo/datapic/11.jpg"),
+        infonum: {
+          index: 2, // !0表示没有操作，1表示已经顶了，2表示已经踩了
+          dingnum: 11,
+          cai: 10,
+        },
+        commentnum: 10,
+        forward: 12,
+      },
     };
   },
-   // 监听搜索框点击事件
+  // 监听搜索框点击事件
   onNavigationBarSearchInputClicked() {
-  	uni.navigateTo({
-  		url: '../search/search'
-  	});
+    uni.navigateTo({
+      url: "../search/search",
+    });
   },
   // 监听原生标题导航按钮点击事件
-  onNavigationBarButtonTap(e){
-  	switch (e.index){
-  		case 1:
-		// 打开发布页面
-		uni.navigateTo({
-			url: '../add-input/add-input'
-		});
-  			break;
-  	}
-  	},
+  onNavigationBarButtonTap(e) {
+    switch (e.index) {
+      case 1:
+        // 打开发布页面
+        uni.navigateTo({
+          url: "../add-input/add-input",
+        });
+        break;
+    }
+  },
   methods: {
-    // 上拉加载
-    loadmore(index) {
-      if (this.newsList[index].loadtext != "上拉加载更多") {
-        return;
-      }
-      // 修改状态
-      this.newsList[index].loadtext = "加载中...";
-      // 获取数据
-      setTimeout(() => {
-        // 获取数据完成
-        let obj = {
-          userpic: require("../../static/demo/userpic/12.jpg"),
-          username: "小马",
-          follow: false,
-          title: "新时代社会主义",
-          type: "img", //img:图文,video:视频
-          titlepic: require("../../static/demo/datapic/11.jpg"),
-          infonum: {
-            index: 2, // !0表示没有操作，1表示已经顶了，2表示已经踩了
-            dingnum: 11,
-            cai: 10,
-          },
-          commentnum: 10,
-          forward: 12,
-        };
-        this.newsList[index].list.push(obj);
-        this.newsList[index].loadtext = "上拉加载更多";
-      }, 1000);
-      // this.newsList[index].loadtext = "没有更多数据了";
-    },
     // 顶部导航点击事件
     topBar(index) {
       this.tabIndex = index;
@@ -167,15 +155,6 @@ export default {
       this.tabIndex = e.detail.current;
     },
   },
-  onLoad() {
-    // 计算并设置主要内容区域高度
-    uni.getSystemInfo({
-      success: (res) => {
-        let height = res.windowHeight - uni.upx2px(100);
-        this.swiperHeight = height;
-      },
-    });
-  }
 };
 </script>
 

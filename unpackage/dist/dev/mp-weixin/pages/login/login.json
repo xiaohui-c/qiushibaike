@@ -1,0 +1,9 @@
+{
+  "navigationBarTitleText": "",
+  "enablePullDownRefresh": false,
+  "navigationBarTextStyle": "black",
+  "usingComponents": {
+    "third-login": "/components/common/third-login",
+    "tip-login": "/components/common/tip-login"
+  }
+}

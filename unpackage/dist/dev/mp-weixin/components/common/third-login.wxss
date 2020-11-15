@@ -1,0 +1,25 @@
+
+.thirdLogin view.data-v-b38d4b4c {
+  width: 60px;
+  height: 60px;
+  text-align: center;
+  line-height: 60px;
+  -webkit-border-radius: 50%;
+          border-radius: 50%;
+  margin: 0 8px;
+}
+.thirdLogin view.data-v-b38d4b4c:first-child{
+  background: #2bd19b;
+}
+.thirdLogin view.data-v-b38d4b4c:nth-child(2){
+  background: #2caefc;
+}
+.thirdLogin view.data-v-b38d4b4c:last-child{
+  background: #fc7729;
+}
+.thirdLogin .icon.data-v-b38d4b4c{
+  font-size: 30px;
+  color: #fff;
+}
+    
+

@@ -39,8 +39,8 @@
 	-webkit-box-direction: normal;
 	-webkit-flex-direction: row;
 	        flex-direction: row;
-	height: 20px;
-	line-height: 20px;
+	height: 35px;
+	line-height: 35px;
 	font-size: 16px;
 }
 .uni-navbar__header-btns.data-v-4afea59e {
@@ -106,7 +106,7 @@
 	font-size: 14px;
 }
 .uni-navbar__placeholder-view.data-v-4afea59e {
-	height: 44px;
+	height: 35px;
 }
 .uni-navbar--fixed.data-v-4afea59e {
 	position: fixed;

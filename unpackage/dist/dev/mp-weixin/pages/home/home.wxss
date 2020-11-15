@@ -1,0 +1,163 @@
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* 仅适用于H5 */
+.unlogin.data-v-92bb8f34 {
+  row-gap: 40px;
+}
+.unlogin > view.data-v-92bb8f34:first-child {
+  margin-top: 16px;
+}
+.unlogin > view.data-v-92bb8f34 {
+  margin-bottom: 12px;
+}
+.userchat-list.data-v-92bb8f34 {
+  padding: 15px;
+  display: grid;
+  grid-template-rows: 40px;
+  grid-template-columns: 1fr 1.8fr 5fr;
+}
+.headerimg image.data-v-92bb8f34 {
+  -webkit-border-radius: 50%;
+          border-radius: 50%;
+  width: 50px;
+  height: 50px;
+  margin-right: 10px;
+}
+.username.data-v-92bb8f34 {
+  width: 90px;
+}
+.username .acessdata.data-v-92bb8f34 {
+  color: #a8a8a8;
+}
+.userchat-list .isfollow.data-v-92bb8f34 {
+  justify-self: flex-end;
+  -webkit-align-self: center;
+          align-self: center;
+}
+.current-data.data-v-92bb8f34 {
+  margin-top: 10px;
+}
+.num.data-v-92bb8f34 {
+  text-align: center;
+  color: #494949;
+  font-size: 16px;
+}
+.name.data-v-92bb8f34 {
+  color: #000;
+}
+.item-name.data-v-92bb8f34 {
+  color: #acacac;
+}
+.adimgbox.data-v-92bb8f34 {
+  padding: 10px;
+  border-bottom: 1px solid #f6f6f6;
+}
+.adimgbox image.data-v-92bb8f34 {
+  width: 98%;
+  -webkit-border-radius: 10px;
+          border-radius: 10px;
+}
+.setting-list.data-v-92bb8f34 {
+  padding: 10px 6px;
+}
+.setting-list-item.data-v-92bb8f34 {
+  padding: 12px 3px;
+  border-bottom: 1px solid #f6f6f6;
+}
+

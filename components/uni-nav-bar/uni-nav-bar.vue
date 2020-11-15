@@ -165,8 +165,8 @@
 		display: flex;
 		/* #endif */
 		flex-direction: row;
-		height: 20px;
-		line-height: 20px;
+		height: 35px;
+		line-height: 35px;
 		font-size: 16px;
 	}
 
@@ -213,7 +213,7 @@
 	}
 
 	.uni-navbar__placeholder-view {
-		height: 44px;
+		height: 35px;
 	}
 
 	.uni-navbar--fixed {

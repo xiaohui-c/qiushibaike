@@ -1,0 +1,95 @@
+
+.title.data-v-78527a40 {
+  width: 100%;
+}
+.chatting-box.data-v-78527a40 {
+  margin-top: 1rem;
+}
+.chating-item.data-v-78527a40 {
+  border-bottom: 1px solid #f6f6f6;
+  padding: 6px 5px;
+}
+.header-img.data-v-78527a40 {
+  -webkit-box-flex: 1;
+  -webkit-flex: 1;
+          flex: 1;
+}
+.header-img image.data-v-78527a40 {
+  -webkit-border-radius: 50%;
+          border-radius: 50%;
+  width: 50px;
+  height: 50px;
+}
+.chat-right.data-v-78527a40 {
+  -webkit-box-flex: 10;
+  -webkit-flex: 10;
+          flex: 10;
+  display: grid;
+  grid-template-columns: 4fr 1fr;
+  grid-template-rows: repeat(2, 1fr);
+}
+.chat-right view.data-v-78527a40 {
+  padding-left: 10px;
+}
+.chat-right .username.data-v-78527a40 {
+  color: #000;
+  font-weight: 600;
+  -webkit-transform: scale(0.8, 0.8) translateX(-14%);
+          transform: scale(0.8, 0.8) translateX(-14%);
+  font-size: 16px;
+}
+.chat-right .finaltime.data-v-78527a40 {
+  color: #dbdbdb;
+}
+.chat-right .ellipses-msg.data-v-78527a40 {
+  width: 240px;
+  height: 15px;
+  padding: 5px 10px;
+  line-height: 10px;
+  font-size: 13px;
+  overflow: hidden;
+  color: #ababab;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.chat-right .msgnum.data-v-78527a40 {
+  color: #fff;
+}
+.chat-right .msgnum text.data-v-78527a40 {
+  background: red;
+  padding: 2px 10px;
+  -webkit-transform: scale(0.5, 0.5) translateY(-10px);
+          transform: scale(0.5, 0.5) translateY(-10px);
+  -webkit-border-radius: 50%;
+          border-radius: 50%;
+}
+.drop-down-menu.data-v-78527a40 {
+  position: fixed;
+  z-index: 2000;
+  right: 0;
+  background: #fff;
+  -webkit-box-shadow: 0 0 15px #dfdfdf;
+          box-shadow: 0 0 15px #dfdfdf;
+  width: 150px;
+}
+.drop-down-menu view.data-v-78527a40 {
+  padding: 8px;
+}
+.drop-down-menu view.data-v-78527a40:hover {
+  -webkit-transition: 250ms;
+  transition: 250ms;
+  background: #f0f2f5;
+}
+.drop-down-menu .icon.data-v-78527a40 {
+  margin: 0 10px;
+  font-size: 14px;
+}
+.mask.data-v-78527a40 {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 1999;
+}
+

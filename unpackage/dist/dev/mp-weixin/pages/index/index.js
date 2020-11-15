@@ -133,7 +133,7 @@ __webpack_require__.r(__webpack_exports__);
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-/* WEBPACK VAR INJECTION */(function(uni) {Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0;var IndexList = function IndexList() {__webpack_require__.e(/*! require.ensure | components/index/index-list */ "components/index/index-list").then((function () {return resolve(__webpack_require__(/*! ../../components/index/index-list.vue */ 53));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var topBar = function topBar() {__webpack_require__.e(/*! require.ensure | components/topbar/topbar */ "components/topbar/topbar").then((function () {return resolve(__webpack_require__(/*! ../../components/topbar/topbar.vue */ 60));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var loadMore = function loadMore() {__webpack_require__.e(/*! require.ensure | components/common/load-more */ "components/common/load-more").then((function () {return resolve(__webpack_require__(/*! ../../components/common/load-more.vue */ 67));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var noThing = function noThing() {__webpack_require__.e(/*! require.ensure | components/common/no-thing */ "components/common/no-thing").then((function () {return resolve(__webpack_require__(/*! ../../components/common/no-thing.vue */ 74));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var _default =
+/* WEBPACK VAR INJECTION */(function(uni) {Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0;
 
 
 
@@ -178,7 +178,9 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
+var _loadmore = __webpack_require__(/*! ../../Mixin/loadmore.js */ 17);var IndexList = function IndexList() {__webpack_require__.e(/*! require.ensure | components/index/index-list */ "components/index/index-list").then((function () {return resolve(__webpack_require__(/*! ../../components/index/index-list.vue */ 148));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var topBar = function topBar() {__webpack_require__.e(/*! require.ensure | components/topbar/topbar */ "components/topbar/topbar").then((function () {return resolve(__webpack_require__(/*! ../../components/topbar/topbar.vue */ 155));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var loadMore = function loadMore() {__webpack_require__.e(/*! require.ensure | components/common/load-more */ "components/common/load-more").then((function () {return resolve(__webpack_require__(/*! ../../components/common/load-more.vue */ 162));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var noThing = function noThing() {__webpack_require__.e(/*! require.ensure | components/common/no-thing */ "components/common/no-thing").then((function () {return resolve(__webpack_require__(/*! ../../components/common/no-thing.vue */ 169));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var _default =
 {
+  mixins: [_loadmore.statMixin],
   components: {
     IndexList: IndexList,
     topBar: topBar,
@@ -191,6 +193,7 @@ __webpack_require__.r(__webpack_exports__);
       tabIndex: 0,
       // 主内容区域高度
       swiperHeight: 0,
+      newspage: true,
       tabBars: [
       { name: "关注", id: "guanzhu" },
       { name: "推荐", id: "tuijian" },
@@ -204,12 +207,12 @@ __webpack_require__.r(__webpack_exports__);
         loadtext: "上拉加载更多",
         list: [
         {
-          userpic: __webpack_require__(/*! ../../static/demo/userpic/12.jpg */ 17),
+          userpic: __webpack_require__(/*! ../../static/demo/userpic/12.jpg */ 18),
           username: "小马",
           follow: false,
           title: "新时代社会主义",
           type: "img", //img:图文,video:视频
-          titlepic: __webpack_require__(/*! ../../static/demo/datapic/11.jpg */ 18),
+          titlepic: __webpack_require__(/*! ../../static/demo/datapic/11.jpg */ 19),
           infonum: {
             index: 2, // !0表示没有操作，1表示已经顶了，2表示已经踩了
             dingnum: 11,
@@ -219,14 +222,14 @@ __webpack_require__.r(__webpack_exports__);
           forward: 12 },
 
         {
-          userpic: __webpack_require__(/*! ../../static/demo/userpic/12.jpg */ 17),
+          userpic: __webpack_require__(/*! ../../static/demo/userpic/12.jpg */ 18),
           username: "小马",
           follow: false,
           title: "新时代社会主义",
           type: "video", //*img:图文,video:视频
           playnum: "2w",
           long: "2:37",
-          titlepic: __webpack_require__(/*! ../../static/demo/datapic/11.jpg */ 18),
+          titlepic: __webpack_require__(/*! ../../static/demo/datapic/11.jpg */ 19),
           infonum: {
             index: 1, //?0表示没有操作，1表示已经顶了，2表示已经踩了
             dingnum: 11,
@@ -241,14 +244,29 @@ __webpack_require__.r(__webpack_exports__);
       { loadtext: "上拉加载更多", list: [] },
       { loadtext: "上拉加载更多", list: [] },
       { loadtext: "上拉加载更多", list: [] },
-      { loadtext: "上拉加载更多", list: [] }] };
+      { loadtext: "上拉加载更多", list: [] }],
+
+      obj: {
+        userpic: __webpack_require__(/*! ../../static/demo/userpic/12.jpg */ 18),
+        username: "小马",
+        follow: false,
+        title: "新时代社会主义",
+        type: "img", //img:图文,video:视频
+        titlepic: __webpack_require__(/*! ../../static/demo/datapic/11.jpg */ 19),
+        infonum: {
+          index: 2, // !0表示没有操作，1表示已经顶了，2表示已经踩了
+          dingnum: 11,
+          cai: 10 },
+
+        commentnum: 10,
+        forward: 12 } };
 
 
   },
   // 监听搜索框点击事件
   onNavigationBarSearchInputClicked: function onNavigationBarSearchInputClicked() {
     uni.navigateTo({
-      url: '../search/search' });
+      url: "../search/search" });
 
   },
   // 监听原生标题导航按钮点击事件
@@ -257,42 +275,12 @@ __webpack_require__.r(__webpack_exports__);
       case 1:
         // 打开发布页面
         uni.navigateTo({
-          url: '../add-input/add-input' });
+          url: "../add-input/add-input" });
 
         break;}
 
   },
   methods: {
-    // 上拉加载
-    loadmore: function loadmore(index) {var _this = this;
-      if (this.newsList[index].loadtext != "上拉加载更多") {
-        return;
-      }
-      // 修改状态
-      this.newsList[index].loadtext = "加载中...";
-      // 获取数据
-      setTimeout(function () {
-        // 获取数据完成
-        var obj = {
-          userpic: __webpack_require__(/*! ../../static/demo/userpic/12.jpg */ 17),
-          username: "小马",
-          follow: false,
-          title: "新时代社会主义",
-          type: "img", //img:图文,video:视频
-          titlepic: __webpack_require__(/*! ../../static/demo/datapic/11.jpg */ 18),
-          infonum: {
-            index: 2, // !0表示没有操作，1表示已经顶了，2表示已经踩了
-            dingnum: 11,
-            cai: 10 },
-
-          commentnum: 10,
-          forward: 12 };
-
-        _this.newsList[index].list.push(obj);
-        _this.newsList[index].loadtext = "上拉加载更多";
-      }, 1000);
-      // this.newsList[index].loadtext = "没有更多数据了";
-    },
     // 顶部导航点击事件
     topBar: function topBar(index) {
       this.tabIndex = index;
@@ -300,17 +288,7 @@ __webpack_require__.r(__webpack_exports__);
     // 图文列表滑动
     tabChange: function tabChange(e) {
       this.tabIndex = e.detail.current;
-    } },
-
-  onLoad: function onLoad() {var _this2 = this;
-    // 计算并设置主要内容区域高度
-    uni.getSystemInfo({
-      success: function success(res) {
-        var height = res.windowHeight - uni.upx2px(100);
-        _this2.swiperHeight = height;
-      } });
-
-  } };exports.default = _default;
+    } } };exports.default = _default;
 /* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./node_modules/@dcloudio/uni-mp-weixin/dist/index.js */ 1)["default"]))
 
 /***/ })

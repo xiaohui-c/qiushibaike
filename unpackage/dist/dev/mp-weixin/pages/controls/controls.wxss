@@ -1,0 +1,18 @@
+
+.configbox.data-v-7da2b974 {
+  padding: 15px 15px;
+  border-bottom: 1px solid #f7f7f7;
+}
+.configbox.data-v-7da2b974:hover {
+  -webkit-transition: 250ms;
+  transition: 250ms;
+  background: #f0f2f5;
+}
+.outLOginBtn.data-v-7da2b974 {
+  margin-top: 1rem;
+}
+.outLOginBtn button.data-v-7da2b974 {
+  width: 80%;
+  background: #ffe933;
+}
+

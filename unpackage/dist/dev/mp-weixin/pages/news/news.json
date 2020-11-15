@@ -1,7 +1,9 @@
 {
+  "navigationBarTextStyle": "black",
   "usingComponents": {
     "uni-nav-bar": "/components/uni-nav-bar/uni-nav-bar",
     "common-list": "/components/common/common-list",
-    "load-more": "/components/common/load-more"
+    "load-more": "/components/common/load-more",
+    "news-list": "/components/news/news-list"
   }
 }

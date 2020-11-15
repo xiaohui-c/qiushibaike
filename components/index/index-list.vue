@@ -13,7 +13,6 @@
         </view>
         <view v-show="item.follow === false" @tap="follow(index)">
           <view class="icon iconfont icon-zengjia">
-            <!-- <text >已关注</text> -->
             <text>关注</text>
           </view>
         </view>
@@ -120,8 +119,11 @@ export default {
     },
     // 进入详情页
     opendetail() {
-      console.log("进入详情页");
-    },
+		console.log('详情页被点击了')
+		// uni.navigateTo({
+		// 	url: '../../pages/content/content',
+		// });
+    }
   },
 };
 </script>
