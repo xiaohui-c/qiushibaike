@@ -1,18 +1,27 @@
 
 .topic-bg.data-v-8074c734 {
-  height: 160px;
+  height: 140px;
+  overflow: hidden;
+  position: relative;
+  width: 100%;
   overflow: hidden;
 }
 .topic-bg image.data-v-8074c734 {
   width: 100%;
   -webkit-filter: blur(11px);
           filter: blur(11px);
+  position: fixed;
+  top: 0;
+  z-index: 997;
 }
 .main-box.data-v-8074c734 {
-  -webkit-transform: translateY(-40px);
-          transform: translateY(-40px);
+  position: relative;
+  z-index: 2000;
+  background: #ffffff;
 }
 .main-box > view.data-v-8074c734 {
+  -webkit-transform: translateY(-40px);
+          transform: translateY(-40px);
   padding-left: 15px;
 }
 .title .imagebox image.data-v-8074c734 {
@@ -45,5 +54,30 @@
   margin-top: 8px;
   color: #a4a4a4;
   font-size: 13px;
+}
+.nav-left.data-v-8074c734,
+.nav-right.data-v-8074c734 {
+  top: 50px;
+  width: 40px;
+  height: 40px;
+  position: relative;
+}
+.icon.data-v-8074c734 {
+  -webkit-border-radius: 50%;
+          border-radius: 50%;
+  background: #605a59;
+  padding: 0 8px;
+}
+.nav-left .icon-fanhui.data-v-8074c734 {
+  color: #ffffff;
+  position: fixed;
+  font-size: 18px;
+  z-index: 1200;
+}
+.nav-right .icon-gengduo1.data-v-8074c734 {
+  color: #ffffff;
+  position: fixed;
+  font-size: 18px;
+  z-index: 1200;
 }
 

@@ -1,7 +1,7 @@
 <template>
   <!-- 糗事页顶栏分类 -->
   <view class="uni-tab-bar" style="height: 40px">
-    <scroll-view scroll-x>
+    <scroll-view scroll-x :scroll-left="scroll" scroll-with-animation="true">
       <view class="container-topBar u-f-aje" :class="{ padding: newspage }">
         <view
           v-for="(tab, index) in tobBars"
@@ -15,8 +15,11 @@
             style="transform: translateY(10px)"
           >
             {{ tab.name }}
-            <text v-if="tab.num" style="margin-left:5px;">{{tab.num}}</text>
-            <view class="swiper-tab-line"></view>
+            <text v-if="tab.num" style="margin-left: 5px">{{ tab.num }}</text>
+            <view
+              class="swiper-tab-line"
+              :style="{ width: linewidth + 'px' }"
+            ></view>
           </view>
         </view>
       </view>
@@ -33,7 +36,12 @@ export default {
         return [];
       },
     },
-    tabIndex: Number,
+    linewidth: Number,
+    scroll: Number,
+    tabIndex: {
+      type: Number,
+      default: 0,
+    },
     newspage: {
       type: Boolean,
       default: false,
@@ -47,7 +55,7 @@ export default {
   },
   methods: {
     tabtap(index) {
-      this.tabIndex = index;
+      this.topIndex = index;
       this.$emit("topBar", index);
     },
   },

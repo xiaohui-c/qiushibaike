@@ -1,5 +1,25 @@
 <template>
   <view>
+    <!-- 自定义导航栏 -->
+    <uni-nav-bar
+      :statusBar="true"
+      @clickLeft="back"
+      class="head-area"
+      :title="titleName"
+    >
+      <!-- 左边 -->
+      <block slot="left">
+        <view class="nav-left u-f-asb">
+          <view class="icon iconfont icon-fanhui"></view>
+        </view>
+      </block>
+      <!-- 右边 -->
+      <block slot="right">
+        <view class="nav-right u-f-asb">
+          <view class="icon iconfont icon-gengduo1"></view>
+        </view>
+      </block>
+    </uni-nav-bar>
     <!-- 模糊图片 -->
     <view class="topic-bg">
       <image :src="detailobj.bgimg" lazy-load mode="aspectFill"></image>
@@ -285,22 +305,36 @@ export default {
     tabChange(e) {
       this.tabIndex = e.detail.current;
     },
+    back(){
+      uni.navigateBack({
+      	delta: 1
+      });
+    }
   },
 };
 </script>
 <style scoped>
 .topic-bg {
-  height: 160px;
+  height: 140px;
+  overflow: hidden;
+  position: relative;
+  width: 100%;
   overflow: hidden;
 }
 .topic-bg image {
   width: 100%;
   filter: blur(11px);
+  position: fixed;
+  top: 0;
+  z-index: 997;
 }
 .main-box {
-  transform: translateY(-40px);
+  position: relative;
+  z-index: 2000;
+  background: #ffffff;
 }
 .main-box > view {
+  transform: translateY(-40px);
   padding-left: 15px;
 }
 .title .imagebox image {
@@ -328,5 +362,29 @@ export default {
   margin-top: 8px;
   color: #a4a4a4;
   font-size: 13px;
+}
+.nav-left,
+.nav-right {
+  top: 50px;
+  width: 40px;
+  height: 40px;
+  position: relative;
+}
+.icon {
+  border-radius: 50%;
+  background: #605a59;
+  padding: 0 8px;
+}
+.nav-left .icon-fanhui {
+  color: #ffffff;
+  position: fixed;
+  font-size: 18px;
+  z-index: 1200;
+}
+.nav-right .icon-gengduo1 {
+  color: #ffffff;
+  position: fixed;
+  font-size: 18px;
+  z-index: 1200;
 }
 </style>

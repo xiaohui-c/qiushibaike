@@ -1,5 +1,27 @@
 <template>
   <view class="container">
+       <!-- 自定义导航栏 -->
+    <uni-nav-bar
+      :fixed="true"
+      :statusBar="true"
+      @clickRight="userDetail"
+      @clickLeft="back"
+      class="head-area"
+      :title="titleName"
+    >
+      <!-- 左边 -->
+      <block slot="left">
+        <view class="nav-left" >
+          <view class="icon iconfont icon-fanhui" style="font-size:20px;margin-left:8px;"></view>
+        </view>
+      </block>
+      <!-- 右边 -->
+      <block slot="right" >
+        <view class="nav-right u-f-asb">
+          <view class="icon iconfont icon-geren"></view>
+        </view>
+      </block>
+    </uni-nav-bar>
     <view class="chatbox">
       <view class="chatbox-list">
         <scroll-view
@@ -23,6 +45,7 @@
 
 <script>
 import chatContain from "../../components/paper/chat-contain.vue";
+import time from "../../util/time.js";
 export default {
   components: { chatContain },
   data() {
@@ -32,25 +55,30 @@ export default {
         contentH: 0,
         itemH: 0,
       },
-      chatList: [
+      chatList: [],
+      list: [
         {
           isMe: true,
-          time: "11:30",
+          time: "1554970014",
           headerimg: "../../static/demo/demo6.jpg",
           chatimg: "../../static/demo/datapic/29.jpg",
         },
         {
           headerimg: "../../static/demo/userpic/19.jpg",
           msg: "万丈高楼平地起，勿在浮沙筑高层",
-          time: "20:30",
+          time: "1555146414",
         },
       ],
       text: "",
+      titleName:'聊天页'
     };
   },
   onReady() {
     this.initdata();
     this.pageToBottom();
+  },
+  onLoad() {
+    this.getData();
   },
   methods: {
     sendmessage() {
@@ -58,10 +86,10 @@ export default {
        * TODO:当点击发送按钮的时候要获取该事件的时间
        * *转换时间格式添加到obj
        * **/
-      let now = new Date().toLocaleTimeString();
+      let now = new Date().getTime()
       let obj = {
         isMe: true,
-        time: now,
+        // time: time.gettime.getChatTime(now,this.list[this.list.length-1].time),
         headerimg: "../../static/demo/demo6.jpg",
         msg: this.text,
       };
@@ -85,6 +113,7 @@ export default {
         // error
       }
     },
+    // 发送信息，页面滑动
     pageToBottom() {
       let query = uni.createSelectorQuery();
       query.select("#scrollview").boundingClientRect();
@@ -96,6 +125,21 @@ export default {
         this.scrollTop = this.style.itemH;
       }
     },
+    getData() {
+      let arr = this.list;
+      arr.forEach((element,index,arr) => {
+        element.time = time.gettime.getChatTime(element.time,index>0?arr[index-1].time:0);
+      });
+      this.chatList=arr
+    },
+    back(){
+      uni.navigateBack({
+        delta: 1,
+      });
+    },
+    userDetail(){
+      console.log('clicked right');
+    }
   },
 };
 </script>

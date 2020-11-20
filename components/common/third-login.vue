@@ -9,7 +9,10 @@
 </template>
 <script>
 export default {
-    data() {
+  props:{
+    commentDetail:Boolean
+  },
+      data() {
         return {
             
         }

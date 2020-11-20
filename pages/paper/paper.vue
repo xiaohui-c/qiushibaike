@@ -1,5 +1,26 @@
 <template>
   <view class="container">
+      <uni-nav-bar
+      :fixed="true"
+      :statusBar="true"
+      @clickRight="openAdd"
+      @clickLeft="chatListView"
+      class="head-area"
+      :title="titleName"
+    >
+      <!-- 左边 -->
+      <block slot="left">
+        <view class="nav-left" >
+          <view class="icon iconfont icon-user-detail" style="font-size:20px;margin-left:8px;"></view>
+        </view>
+      </block>
+      <!-- 右边 -->
+      <block slot="right" >
+        <view class="nav-right u-f-asb">
+          <view class="icon iconfont icon-zengjia" style="font-size:20px;"></view>
+        </view>
+      </block>
+    </uni-nav-bar>
     <!--遮罩层 -->
     <view class="mask" v-show="dropMeun" @tap="dropclick"></view>
     <!-- 下拉列表 -->
@@ -52,6 +73,7 @@ export default {
   data() {
     return {
       dropMeun: false,
+      titleName:'小纸条',
       chatList: [
         {
           img: "../../static/demo/userpic/4.jpg",
@@ -319,6 +341,14 @@ export default {
         url: "../chating/chating",
       });
     },
+    chatListView(){
+       uni.navigateTo({
+          url: "../chat-list/chat-list",
+        });
+    },
+    openAdd(){
+      this.dropMeun = !this.dropMeun;
+    }
   },
 };
 </script>

@@ -1,11 +1,25 @@
 <template>
   <view class="container">
+     <uni-nav-bar
+      :fixed="true"
+      :statusBar="true"
+      @clickRight="toSetting"
+      class="head-area"
+      :title="titleName"
+    >
+      <!-- 右边 -->
+      <block slot="right" >
+        <view class="nav-right u-f-asb">
+          <view class="icon iconfont icon-gengduo"></view>
+        </view>
+      </block>
+    </uni-nav-bar>
     <view class="unlogin u-f-dasb u-f-ajc u-f-ac" v-show="!login">
       <view class="text"> 登录仿糗事百科，体验更多功能 </view>
       <thirdLogin></thirdLogin>
       <tip-login @toLogin="toLogin" :type="type"></tip-login>
     </view>
-    <view class="login" v-show="login">
+    <view class="login" v-show="login" @tap="personDetail">
       <view class="userchat-list u-f">
         <view class="headerimg">
           <image :src="userobj.headerimg" mode="widthFix" lazy-load></image>
@@ -13,8 +27,8 @@
         <view class="username">
           <view class="name">{{ userobj.username }}</view>
           <view class="acessdata u-f-ajb">
-            <text>总访客{{ userobj.allnum }}</text>
-            <text>今日{{ userobj.todaynum }}</text>
+            <text style="min-width:60px">总访客{{ userobj.allnum }}</text>
+            <text style="min-width:60px">今日{{ userobj.todaynum }}</text>
           </view>
         </view>
         <view class="isfollow icon iconfont icon-jinru" style="color: #c0c0c0">
@@ -52,13 +66,14 @@
 
 <script>
 import thirdLogin from "../../components/common/third-login.vue";
-import tipLogin from "../../components/common/tip-login.vue"
+import tipLogin from "../../components/common/tip-login.vue";
 export default {
-  components: { thirdLogin,tipLogin },
+  components: { thirdLogin, tipLogin },
   data() {
     return {
-      login: false,
-      type:"账号密码",
+      login: true,
+      type: "账号密码",
+      titleName:'我',
       userobj: {
         headerimg: "../../static/demo/userpic/4.jpg",
         username: "刘小灰",
@@ -78,19 +93,23 @@ export default {
       ],
     };
   },
-  // 监听原生标题导航按钮点击事件
-  onNavigationBarButtonTap() {
-    // 打开发布页面
-    uni.navigateTo({
-      url: "../controls/controls",
-    });
-  },
+  
   methods: {
     toLogin() {
       uni.navigateTo({
         url: "../login/login",
       });
     },
+    personDetail() {
+      uni.navigateTo({
+        url: "../person-details/person-details",
+      });
+    },
+    toSetting(){
+      uni.navigateTo({
+      url: "../controls/controls",
+    });
+    }
   },
 };
 </script>
@@ -106,7 +125,6 @@ export default {
 .unlogin > view {
   margin-bottom: 12px;
 }
-
 
 .userchat-list {
   padding: 15px;

@@ -4,7 +4,14 @@
     <uni-nav-bar :statusBar="true" left-icon="back" @clickLeft="back">
       <view class="title u-f-asb" style="width: 100%"> 话题分类 </view>
     </uni-nav-bar>
-    <topBar :tabBars="tabBars" :tabIndex="tabIndex" @topBar="topBar" :newspage="newspage"></topBar>
+    <topBar
+      :linewidth="linewidth"
+      :scroll="scroll"
+      :tabBars="tabBars"
+      :tabIndex="tabIndex"
+      @topBar="topBar"
+      :newspage="newspage"
+    ></topBar>
     <!-- 图文列表区域 -->
     <view class="uni-tab-bar">
       <swiper
@@ -38,7 +45,7 @@ import newsList from "../../components/news/news-list.vue";
 import uniNavBar from "../../components/uni-nav-bar/uni-nav-bar.vue";
 import loadMore from "../../components/common/load-more.vue";
 import noThing from "../../components/common/no-thing.vue";
-import { statMixin } from "../../Mixin/loadmore.js"
+import { statMixin } from "../../Mixin/loadmore.js";
 export default {
   mixins: [statMixin],
   components: {
@@ -54,6 +61,10 @@ export default {
       tabIndex: 0,
       // 主内容区域高度
       swiperHeight: 0,
+      scroll: 0,
+      // 视口宽度(width)
+      scrollwidth: 360,
+      linewidth: 38,
       newspage: true,
       tabBars: [
         { name: "关注", id: "guanzhu" },
@@ -133,13 +144,12 @@ export default {
         { loadtext: "上拉加载更多", list: [] },
       ],
       obj: {
-          img: "../../static/demo/datapic/35.jpg",
-          title: "天天打卡",
-          detail:
-            "面试官，在电梯里巧遇马云你会做什么？90后女孩的回答当场被录用",
-          newsnum: "507",
-          today: "707",
-        }
+        img: "../../static/demo/datapic/35.jpg",
+        title: "天天打卡",
+        detail: "面试官，在电梯里巧遇马云你会做什么？90后女孩的回答当场被录用",
+        newsnum: "507",
+        today: "707",
+      },
     };
   },
   methods: {

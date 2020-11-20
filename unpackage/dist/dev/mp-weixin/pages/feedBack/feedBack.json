@@ -2,5 +2,8 @@
   "navigationBarTextStyle": "black",
   "navigationBarTitleText": "意见反馈",
   "enablePullDownRefresh": false,
-  "usingComponents": {}
+  "usingComponents": {
+    "uni-collapse": "/components/uni-collapse/uni-collapse",
+    "uni-collapse-item": "/components/uni-collapse-item/uni-collapse-item"
+  }
 }

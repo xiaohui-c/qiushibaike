@@ -2,5 +2,7 @@
   "navigationBarTextStyle": "black",
   "navigationBarTitleText": "修改资料",
   "enablePullDownRefresh": false,
-  "usingComponents": {}
+  "usingComponents": {
+    "mpvue-city-picker": "/components/mpvue-citypicker/mpvueCityPicker"
+  }
 }

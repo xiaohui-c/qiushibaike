@@ -19,7 +19,7 @@
 </view>
 ```
 
-
+==问号前面的属性千万不要加引号==
 
 ##### 问题二：animate.css 特效库怎么使用
 
@@ -276,6 +276,59 @@ attention:
 
 
 
+##### 问题十五：根据页面高度计算页面滑动实施步骤还没有理清
+
+
+
+##### 问题十六：内容详情页图片应该为一个数组展示，并且提供图片的具体全屏展示
+
+
+
+##### 问题十七：对于底部输入聊天框组件的封装无法实现，对于输入框父子组件通信的技术还处于缺失状态
+
+建议解决方案：
+
+暂时先采用CV大法
+
+
+
+
+
+阶段计划：
+
+1：首页内容详情页评论功能
+
+2：设置部分的每一个选项的内容（完成）
+
+* 资料编辑不能简化操作，需要一行一行
+* 声明公共数组，通过不同类型的点击替换函数里面数组
+* 直接在文字上面添加输入框
+
+
+
+3：解决类型滑动导航栏无法跟随页面滑动问题（完成）
+
+4：解决聊天和评论时间格式问题（完成）
+
+**4：解决在pages.json中配置的顶部导航栏无法在微信小程序和H5页面成功显示问题**
+
+
+
+建议解决方案：把全部在pages.json中配置的顶部栏模仿动态页自定义导航栏一个页面一个页面全部替换
+
+待修改的页面：
+
+1：首页(完成)    2：搜索页 (完成)    3：首页内容详情页 (完成)
+
+4：动态页内容详情页(完成)
+
+问题：怎么让自定义导航栏变透明
+
+  5：小纸条首页(完成)  6：小纸条聊天列表 (完成) 
+
+7：小纸条聊天页(完成)   8：个人首页(完成)
+
+实现步骤：修改pages.json中titleView为false  ---->  CV顶部栏组件并修改到对应内容图标
 
 
 
@@ -289,10 +342,204 @@ attention:
 
 
 
+5：解决项目选题冲突情况（更改主题，比如主体颜色，对一些功能进行CURD）
+
+6：开始搭建后台环境进行后端开发
+
+
+
+监听pages.json中定义的导航栏图标的点击事件
+
+```js
+// 监听原生标题导航按钮点击事件
+  onNavigationBarButtonTap(e) {
+    switch (e.index) {
+      case 1:
+        // 打开发布页面
+        uni.navigateTo({
+          url: "../add-input/add-input",
+        });
+        break;
+    }
+  }
+
+ // 监听搜索框点击事件
+  onNavigationBarSearchInputClicked() {
+    uni.navigateTo({
+      url: "../search/search",
+    });
+  }
+```
+
+
+
+##### 问题18：如何封装自定义导航栏公用组件
+
+每一个自定义导航栏都要重复设置图标大小
+
+
+
+##### 问题19：优化if-else代码
+
+原来
+
+```js
+ if (id == 6) {
+        uni.navigateTo({
+          url: "../about/about",
+        });
+      }
+      if (id == 5) {
+        uni.navigateTo({
+          url: "../feedBack/feedBack",
+        });
+      }
+      if (id == 2) {
+        uni.navigateTo({
+          url: "../editmeans/editmeans",
+        });
+      }
+      if (id == 1) {
+        uni.navigateTo({
+          url: "../emailbind/emailbind",
+        });
+      }
+      if (id == 0) {
+        uni.navigateTo({
+          url: "../changepassword/changepassword",
+        });
+    }
+```
+
+
+
+优化一
+
+```js
+//抽象出数据对象方法
+const ACTIONS={
+  '0':'changepassword',
+  '1':'emailbind',
+  '2':"editmeans",
+  '5':"feedBack",
+  '6':"about"
+}
+
+//函数调用
+config(id) {
+      let ids = id + "";
+      let action = ACTIONS[ids];
+
+      uni.navigateTo({
+      url: `../${action}/${action}`,
+  });
+ }
+```
 
 
 
 
+
+优化二
+
+```js
+const ACTIONS = new Map([
+  [0, "changepassword"],
+  [1, "emailbind"],
+  [2, "editmeans"],
+  [5, "feedBack"],
+  [6, "about"],
+]);
+
+config(id) {
+      let action = ACTIONS.get(id);
+
+      uni.navigateTo({
+        url: `../${action}/${action}`,
+      });
+}
+```
+
+
+
+原来
+
+```js
+ // 顶踩
+    control(type, index) {
+      switch (type) {
+        case "ding":
+          // 如果已经顶过了就不能再顶，直接return
+          if (this.indexlist[index].infonum.index === 1) {
+            return;
+          }
+          // 如果此时的状态是踩，那么点击顶就会让踩减1
+          if (this.indexlist[index].infonum.index === 2) {
+            this.indexlist[index].infonum.cai--;
+          }
+          // 如果顶和踩都没有操作，或者已经操作了踩，就让顶加一
+          this.indexlist[index].infonum.dingnum++;
+          // 并且修改状态为顶
+          this.indexlist[index].infonum.index = 1;
+          break;
+        case "cai":
+          if (this.indexlist[index].infonum.index === 2) {
+            return;
+          }
+
+          if (this.indexlist[index].infonum.index === 1) {
+            this.indexlist[index].infonum.dingnum--;
+          }
+          this.indexlist[index].infonum.cai++;
+          this.indexlist[index].infonum.index = 2;
+          break;
+      }
+}
+```
+
+
+
+优化一
+
+```js
+control(type, index) {
+      const CONSTANT = this.indexlist[index].infonum;
+      switch (type) {
+        case "ding":
+          // 如果已经顶过了就不能再顶，直接return
+          if (CONSTANT.index === 1) return;
+
+          // 如果此时的状态是踩，那么点击顶就会让踩减1
+          if (CONSTANT.index === 2) CONSTANT.cai--;
+
+          // 如果顶和踩都没有操作，或者已经操作了踩，就让顶加一
+          CONSTANT.dingnum++;
+          // 并且修改状态为顶
+          CONSTANT.index = 1;
+          break;
+        case "cai":
+          if (CONSTANT.index === 2) return;
+
+          if (CONSTANT.index === 1) CONSTANT.dingnum--;
+
+          CONSTANT.cai++;
+          CONSTANT.index = 2;
+          break;
+      }
+    }
+```
+
+因为涉及到后台数据的关系，所以暂时不要过度优化
+
+优化二
+
+```js
+   
+```
+
+
+
+##### 问题20：优化每个页面的组件导入
 
 
 

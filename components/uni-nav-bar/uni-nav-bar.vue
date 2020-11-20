@@ -3,15 +3,17 @@
 		<view :class="{ 'uni-navbar--fixed': fixed, 'uni-navbar--shadow': shadow, 'uni-navbar--border': border }" :style="{ 'background-color': backgroundColor }" class="uni-navbar__content">
 			<uni-status-bar v-if="statusBar" />
 			<view :style="{ color: color,backgroundColor: backgroundColor }" class="uni-navbar__header uni-navbar__content_view">
+				<!-- 左边内容 -->
 				<view @tap="onClickLeft" class="uni-navbar__header-btns uni-navbar__header-btns-left uni-navbar__content_view">
 					<view class="uni-navbar__content_view" v-if="leftIcon.length">
 						<uni-icons :color="color" :type="leftIcon" size="24" />
 					</view>
 					<view :class="{ 'uni-navbar-btn-icon-left': !leftIcon.length }" class="uni-navbar-btn-text uni-navbar__content_view" v-if="leftText.length">
-						<text :style="{ color: color, fontSize: '14px' }">{{ leftText }}</text>
+						<text :style="{ color: color, fontSize: '14x' }">{{ leftText }}</text>
 					</view>
 					<slot name="left" />
 				</view>
+				<!-- 中间标题 -->
 				<view class="uni-navbar__header-container uni-navbar__content_view" @tap="onClickTitle">
 					<view class="uni-navbar__header-container-inner uni-navbar__content_view" v-if="title.length">
 						<text class="uni-nav-bar-text" :style="{color: color }">{{ title }}</text>
@@ -19,6 +21,7 @@
 					<!-- 标题插槽 -->
 					<slot />
 				</view>
+				<!-- 右边 -->
 				<view :class="title.length ? 'uni-navbar__header-btns-right' : ''" @tap="onClickRight" class="uni-navbar__header-btns uni-navbar__content_view">
 					<view class="uni-navbar__content_view" v-if="rightIcon.length">
 						<uni-icons :color="color" :type="rightIcon" size="24" />
@@ -227,9 +230,9 @@
 		/* #endif */
 	}
 
-	.uni-navbar--border {
+	/* .uni-navbar--border {
 		border-bottom-width: 1rpx;
 		border-bottom-style: solid;
 		border-bottom-color: #e5e5e5;
-	}
+	} */
 </style>

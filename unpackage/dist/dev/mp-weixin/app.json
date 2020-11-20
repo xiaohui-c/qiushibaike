@@ -18,7 +18,8 @@
     "pages/emailbind/emailbind",
     "pages/editmeans/editmeans",
     "pages/feedBack/feedBack",
-    "pages/login/login"
+    "pages/login/login",
+    "pages/person-details/person-details"
   ],
   "subPackages": [],
   "window": {
@@ -60,5 +61,6 @@
       }
     ]
   },
-  "usingComponents": {}
+  "usingComponents": {},
+  "sitemapLocation": "sitemap67.json"
 }

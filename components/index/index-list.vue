@@ -18,9 +18,11 @@
         </view>
       </view>
       <!-- 标题 -->
-      <view class="index-list2" @tap="opendetail">{{ item.title }}</view>
+      <view class="index-list2" @tap="opendetail(item.title)">{{
+        item.title
+      }}</view>
       <!-- 视频图像 -->
-      <view class="index-list3" @tap="opendetail">
+      <view class="index-list3" @tap="opendetail(item.title)">
         <image :src="item.titlepic" mode="widthFix" lazy-load></image>
         <template v-if="item.type == 'video'">
           <view class="icon iconfont icon-bofang index-list-play"></view>
@@ -89,41 +91,36 @@ export default {
     },
     // 顶踩
     control(type, index) {
+      const CONSTANT = this.indexlist[index].infonum;
       switch (type) {
         case "ding":
           // 如果已经顶过了就不能再顶，直接return
-          if (this.indexlist[index].infonum.index === 1) {
-            return;
-          }
+          if (CONSTANT.index === 1) return;
+
           // 如果此时的状态是踩，那么点击顶就会让踩减1
-          if (this.indexlist[index].infonum.index === 2) {
-            this.indexlist[index].infonum.cai--;
-          }
+          if (CONSTANT.index === 2) CONSTANT.cai--;
+
           // 如果顶和踩都没有操作，或者已经操作了踩，就让顶加一
-          this.indexlist[index].infonum.dingnum++;
+          CONSTANT.dingnum++;
           // 并且修改状态为顶
-          this.indexlist[index].infonum.index = 1;
+          CONSTANT.index = 1;
           break;
         case "cai":
-          if (this.indexlist[index].infonum.index === 2) {
-            return;
-          }
+          if (CONSTANT.index === 2) return;
 
-          if (this.indexlist[index].infonum.index === 1) {
-            this.indexlist[index].infonum.dingnum--;
-          }
-          this.indexlist[index].infonum.cai++;
-          this.indexlist[index].infonum.index = 2;
+          if (CONSTANT.index === 1) CONSTANT.dingnum--;
+
+          CONSTANT.cai++;
+          CONSTANT.index = 2;
           break;
       }
     },
     // 进入详情页
-    opendetail() {
-		console.log('详情页被点击了')
-		// uni.navigateTo({
-		// 	url: '../../pages/content/content',
-		// });
-    }
+    opendetail(title) {
+      uni.navigateTo({
+        url: "../../pages/content/content?detailData=" + title,
+      });
+    },
   },
 };
 </script>

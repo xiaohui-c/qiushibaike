@@ -41,4 +41,20 @@
 .topbars.data-v-31482a6e {
   margin-top: 12px;
 }
+.search-input.data-v-31482a6e {
+  padding: 4px 10px;
+}
+.uni-input.data-v-31482a6e {
+  background: #f4f4f4;
+  -webkit-border-radius: 6px;
+          border-radius: 6px;
+  height: 10px;
+  text-align: left;
+  line-height: 10px;
+  width: 250px;
+  margin-left: -70px;
+}
+.topic-search.data-v-31482a6e {
+  font-size: 12px;
+}
 

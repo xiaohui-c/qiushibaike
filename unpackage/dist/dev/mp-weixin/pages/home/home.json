@@ -3,6 +3,7 @@
   "navigationBarBackgroundColor": "#ffffff",
   "navigationBarTextStyle": "black",
   "usingComponents": {
+    "uni-nav-bar": "/components/uni-nav-bar/uni-nav-bar",
     "third-login": "/components/common/third-login",
     "tip-login": "/components/common/tip-login"
   }

@@ -1,66 +1,96 @@
 <template>
   <!-- 糗事页主要内容列表 -->
   <view>
-  <view class="common-list u-f animate__animated animate__fadeInLeft fast" v-for="(item,index) in indexlist" :key="index">
-    <!-- 左侧头像 -->
-    <view class="common-list-left">
-      <image :src="item.userpic" mode="widthFix" lazy-load></image>
-    </view>
-    <!-- 右侧主要内容 -->
-    <view class="common-list-right">
-      <!-- 个人信息栏 -->
-      <view class="u-f u-f-jc u-f-ac">
-        <view class="u-f nickName"
-          >{{ item.username
-          }}<view
-            class="icon iconfont u-f-asb"
-            :class="[item.sex ? 'icon-nv' : 'icon-nan']"
-            >{{ item.age }}</view
-          ></view
-        >
-        <view
-          class="icon iconfont icon-zengjia follow"
-          v-show="item.follow === false"
-          @tap="attention(index)"
-          >关注</view
-        >
+    <view
+      class="common-list u-f animate__animated animate__fadeInLeft fast"
+      v-for="(item, index) in indexlist"
+      :key="index"
+      :class="{ 'border-bottom': commentDetail }"
+    >
+      <!-- 左侧头像 -->
+      <view class="common-list-left">
+        <image :src="item.userpic" mode="widthFix" lazy-load></image>
       </view>
-      <!-- 文章标题 -->
-      <view>{{ item.title }}</view>
-      <!-- 图片视频 -->
-      <view class="videoImg u-f-asb">
-        <template v-if="!item.share">
-          <!-- 图片 -->
-          <image
-            src="../../static/demo/datapic/13.jpg"
-            mode="widthFix"
-            lazy-load
-          ></image>
-          <!-- 视频 -->
-          <template v-if="item.video">
-            <view class="common-list-play icon iconfont icon-bofang"></view>
-            <view class="common-list-playinfo"
-              >{{ item.video.visitnum }} {{ item.video.long }}</view
+      <!-- 右侧主要内容 -->
+      <view class="common-list-right" :class="{ 'border-none': commentDetail }">
+        <!-- 个人信息栏 -->
+        <view class="u-f u-f-jc u-f-ac">
+          <view class="u-f nickName">
+            <view>
+              <view style="color: #a5a5a5; font-size: 16px">{{
+                item.username
+              }}</view>
+              <view
+                v-if="commentDetail"
+                style="color: #d7d7d7; font-size: 13px"
+                >{{ item.releaseTime }}</view
+              >
+            </view>
+            <view
+              class="icon iconfont u-f-asb sex"
+              :class="[item.sex ? 'icon-nv' : 'icon-nan']"
             >
-          </template>
-          <!-- 分享样式 -->
-        </template>
-        <view class="common-list-share u-f-asb" v-else>
-          <image :src="item.share.titlepic" mode="widthFix" lazy-load></image>
-          <view>{{ item.share.title }}</view>
+              {{ item.age }}
+            </view></view
+          >
+          <view
+            class="icon iconfont icon-zengjia follow"
+            v-show="item.follow === false"
+            v-if="!commentDetail"
+            @tap="attention(index)"
+          >
+            关注
+          </view>
+          <view class="icon iconfont icon-guanbi" v-if="commentDetail"></view>
         </view>
-      </view>
-      <!-- 发布地点及阅览数据 -->
-      <view class="u-f-ajb address-data">
-        <view>{{ item.path }}</view>
-        <view class="u-f-aje followdata">
-          <view class="icon iconfont icon-zhuanfa">{{ item.sharenum }}</view>
-          <view class="icon iconfont icon-pinglun1">{{ item.commentnum }}</view>
-          <view class="icon iconfont icon-dianzan1">{{ item.goodnum }}</view>
+        <!-- 文章标题 -->
+        <view>{{ item.title }}</view>
+        <!-- 图片视频 -->
+        <view class="videoImg u-f-asb" :class="[morePic?'grid-layout':'']">
+          <template v-if="!item.share">
+            <!-- 图片 -->
+            <image
+              src="../../static/demo/datapic/13.jpg"
+              mode="widthFix"
+              lazy-load
+              v-if="!item.morepic"
+            ></image>
+            <image
+              mode="widthFix"
+              v-for="(itemImg, idx) in item.morepic"
+              :src="itemImg"
+              :key="idx"
+              lazy-load
+              v-show="morePic"
+              @tap="imgDetail(idx)"
+            ></image>
+            <!-- 视频 -->
+            <template v-if="item.video">
+              <view class="common-list-play icon iconfont icon-bofang"></view>
+              <view class="common-list-playinfo"
+                >{{ item.video.visitnum }} {{ item.video.long }}</view
+              >
+            </template>
+            <!-- 分享样式 -->
+          </template>
+          <view class="common-list-share u-f-asb" v-else>
+            <image :src="item.share.titlepic" mode="widthFix" lazy-load v-if="!morePic"></image>
+            <view>{{ item.share.title }}</view>
+          </view>
+        </view>
+        <!-- 发布地点及阅览数据 -->
+        <view class="u-f-ajb address-data">
+          <view>{{ item.path }}</view>
+          <view class="u-f-aje followdata">
+            <view class="icon iconfont icon-zhuanfa">{{ item.sharenum }}</view>
+            <view class="icon iconfont icon-pinglun1">{{
+              item.commentnum
+            }}</view>
+            <view class="icon iconfont icon-dianzan1">{{ item.goodnum }}</view>
+          </view>
         </view>
       </view>
     </view>
-  </view>
   </view>
 </template>
 <script>
@@ -68,9 +98,11 @@ export default {
   props: {
     // 父组件传递过来的是数组对象的每一项
     list: Array,
-     default: () => {
-        return [];
-      },
+    default: () => {
+      return [];
+    },
+    commentDetail: Boolean,
+    morePic: Boolean,
   },
   data() {
     return {
@@ -83,6 +115,10 @@ export default {
       uni.showToast({
         title: "关注成功",
       });
+    },
+    imgDetail(index) {
+      console.log("son", index);
+      this.$emit("imgDetail", index);
     },
   },
 };
@@ -109,7 +145,7 @@ export default {
 .nickName {
   color: #a5a5a5;
 }
-.nickName view {
+.nickName .sex {
   width: 30px;
   height: 15px;
   background: #44b3ff;
@@ -174,5 +210,25 @@ export default {
 .followdata > view {
   font-size: 12px;
   margin: 0 4px;
+}
+.icon-guanbi {
+  font-size: 13px;
+  color: #d5d5d5;
+  margin-right: 10px;
+}
+.border-none {
+  border: none;
+}
+.border-bottom {
+  border-bottom: 1rpx solid #f9f9f9;
+}
+.grid-layout{
+  display: grid;
+  grid-template-rows: repeat(1,1fr);
+  grid-template-columns: repeat(3,1fr);
+  gap: 10px;
+}
+.grid-layout image{
+  height: 90px!important;
 }
 </style>

@@ -16,6 +16,13 @@
 </template>
 
 <script>
+const ACTIONS = new Map([
+  [0, "changepassword"],
+  [1, "emailbind"],
+  [2, "editmeans"],
+  [5, "feedBack"],
+  [6, "about"],
+]);
 export default {
   data() {
     return {
@@ -32,33 +39,11 @@ export default {
   },
   methods: {
     config(id) {
-      console.log(id);
+      let action = ACTIONS.get(id);
 
-      if (id == 6) {
-        uni.navigateTo({
-          url: "../about/about",
-        });
-      }
-      if (id == 5) {
-        uni.navigateTo({
-          url: "../feedBack/feedBack",
-        });
-      }
-      if (id == 2) {
-        uni.navigateTo({
-          url: "../editmeans/editmeans",
-        });
-      }
-      if (id == 1) {
-        uni.navigateTo({
-          url: "../emailbind/emailbind",
-        });
-      }
-      if (id == 0) {
-        uni.navigateTo({
-          url: "../changepassword/changepassword",
-        });
-      }
+      uni.navigateTo({
+        url: `../${action}/${action}`,
+      });
     },
   },
 };

@@ -1,13 +1,44 @@
 <template>
-  <!-- 糗事页 -->
   <!-- 页面整体容器 -->
   <view class="container">
+    <!-- 糗事页 -->
+    <!-- 自定义导航栏 -->
+    <uni-nav-bar
+      :fixed="true"
+      :statusBar="true"
+      @clickRight="openAdd"
+      class="head-area"
+    >
+      <!-- 左边 -->
+      <block slot="left">
+        <view class="nav-left" >
+          <view class="icon iconfont icon-qiandao"></view>
+        </view>
+      </block>
+      <!-- 中间 -->
+      <view class="nav-tab-bar u-f-asb serach-input" @tap="serachContainer">
+        <input
+          class="uni-input u-f-asb"
+          disabled
+          placeholder-class="icon iconfont icon-sousuo topic-search"
+          placeholder="搜索糗事"
+        />
+      </view>
+      <!-- 右边 -->
+      <block slot="right" >
+        <view class="nav-right u-f-asb">
+          <view class="icon iconfont icon-bianji1"></view>
+        </view>
+      </block>
+    </uni-nav-bar>
     <!-- 顶部导航栏 组件已封装-->
     <topBar
       :tabBars="tabBars"
       :tabIndex="tabIndex"
       @topBar="topBar"
       :newspage="newspage"
+      :linewidth="linewidth"
+      :scroll="scroll"
     ></topBar>
 
     <!-- 图文列表区域 -->
@@ -39,6 +70,8 @@
 </template>
 
 <script>
+import uniNavBar from "../../components/uni-nav-bar/uni-nav-bar.vue";
+
 import IndexList from "../../components/index/index-list.vue";
 import topBar from "../../components/topbar/topbar.vue";
 import loadMore from "../../components/common/load-more.vue";
@@ -51,6 +84,8 @@ export default {
     topBar,
     loadMore,
     noThing,
+
+    uniNavBar,
   },
   data() {
     return {
@@ -58,6 +93,10 @@ export default {
       tabIndex: 0,
       // 主内容区域高度
       swiperHeight: 0,
+      scroll: 0,
+      // 视口宽度(width)
+      scrollwidth: 360,
+      linewidth: 38,
       newspage: true,
       tabBars: [
         { name: "关注", id: "guanzhu" },
@@ -128,23 +167,8 @@ export default {
       },
     };
   },
-  // 监听搜索框点击事件
-  onNavigationBarSearchInputClicked() {
-    uni.navigateTo({
-      url: "../search/search",
-    });
-  },
-  // 监听原生标题导航按钮点击事件
-  onNavigationBarButtonTap(e) {
-    switch (e.index) {
-      case 1:
-        // 打开发布页面
-        uni.navigateTo({
-          url: "../add-input/add-input",
-        });
-        break;
-    }
-  },
+ 
+
   methods: {
     // 顶部导航点击事件
     topBar(index) {
@@ -154,9 +178,44 @@ export default {
     tabChange(e) {
       this.tabIndex = e.detail.current;
     },
+    openAdd() {
+      uni.navigateTo({
+        url: "../add-input/add-input",
+      });
+    },
+    serachContainer(){
+       uni.navigateTo({
+      url: "../search/search",
+    });
+    }
   },
 };
 </script>
 
-<style>
+<style scoped>
+.icon-qiandao {
+  color: #ffab48;
+}
+.icon-bianji1 {
+  position: relative;
+  right: -4px;
+}
+.icon-qiandao,
+.icon-bianji1 {
+  font-size: 18px !important;
+}
+.search-input {
+  padding: 4px 10px;
+}
+.uni-input {
+  background: #f4f4f4;
+  border-radius: 6px;
+  height: 10px;
+  text-align: center;
+  line-height: 10px;
+  width: 250px;
+}
+.topic-search{
+  font-size: 12px;
+}
 </style>

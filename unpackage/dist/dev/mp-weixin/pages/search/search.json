@@ -1,4 +1,10 @@
 {
+  "enablePullDownRefresh": true,
   "navigationBarTextStyle": "black",
-  "usingComponents": {}
+  "usingComponents": {
+    "uni-nav-bar": "/components/uni-nav-bar/uni-nav-bar",
+    "index-list": "/components/index/index-list",
+    "no-thing": "/components/common/no-thing",
+    "load-more": "/components/common/load-more"
+  }
 }

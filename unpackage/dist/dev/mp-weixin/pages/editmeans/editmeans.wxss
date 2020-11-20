@@ -1,0 +1,28 @@
+
+image.data-v-78f7d160 {
+  width: 40px;
+  height: 40px;
+  -webkit-border-radius: 50%;
+          border-radius: 50%;
+}
+.info-left.data-v-78f7d160 {
+  font-size: 17px;
+  color: #9f9f9f;
+}
+.info-list-item.data-v-78f7d160 {
+  padding: 15px;
+  border-bottom: 1px solid #f5f5f5;
+}
+.icon.data-v-78f7d160 {
+  margin-left: 15px;
+  color: #d6d6d6;
+}
+button.data-v-78f7d160 {
+  width: 90%;
+  margin-top: 15px;
+  background: #ffe933;
+}
+.info-detail > input.data-v-78f7d160 {
+  text-align: right;
+}
+

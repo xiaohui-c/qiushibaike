@@ -21,4 +21,53 @@ view.data-v-b237504c {
   background: #ffffff;
   padding: 0 10px;
 }
+.login-input >view.data-v-b237504c:last-child{
+  position: relative;
+  top: -10px;
+}
+.login-input > view>input.data-v-b237504c {
+  height: 50px;
+  border-bottom: 1px solid #f7f7f7;
+}
+.password>input.data-v-b237504c{
+  -webkit-box-flex: 4;
+  -webkit-flex: 4;
+          flex: 4;
+}
+.password>text.data-v-b237504c{
+  -webkit-box-flex: 1;
+  -webkit-flex: 1;
+          flex: 1;
+  border-bottom: 1px solid #f7f7f7;
+  text-align: center;
+  line-height: 50px;
+}
+.phone.data-v-b237504c,.veri-code.data-v-b237504c{
+  position: relative;
+}
+.phone>text.data-v-b237504c{
+  position: absolute;
+  top: 10px;
+  font-size: 18px;
+}
+.phone>input.data-v-b237504c{
+  padding-left: 40px;
+}
+.veri-code.data-v-b237504c{
+}
+.veri-code>button.data-v-b237504c{
+  position: absolute;
+  right: 10px;
+  top: 10px;
+  width: 100px;
+  height: 30px;
+  color: #b1b1b1;
+  -webkit-border-radius: 5px;
+          border-radius: 5px;
+  background: #f4f4f4;
+  font-size: 12px;
+  border: none;
+  padding: 0;
+  line-height: 30px;
+}
 

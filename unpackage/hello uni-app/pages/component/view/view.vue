@@ -87,7 +87,7 @@
 			</view>
 			<view class="uni-flex uni-row">
 				<view class="text uni-flex" style="width: 200rpx;height: 220rpx;-webkit-justify-content: center;justify-content: center;-webkit-align-items: center;align-items: center;">
-					<image src="../../../static/plus.png" style="width: 150rpx;height: 150rpx;"></image>
+					<image  style="width: 150rpx;height: 150rpx;"></image>
 				</view>
 				<view class="uni-flex uni-column" style="-webkit-flex: 1;flex: 1;-webkit-justify-content: space-between;justify-content: space-between;">
 					<view class="text" style="height: 120rpx;text-align: left;padding-left: 20rpx;padding-top: 10rpx;">

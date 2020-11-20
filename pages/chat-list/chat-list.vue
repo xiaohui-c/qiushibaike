@@ -1,5 +1,23 @@
 <template>
   <view>
+    <!-- 自定义导航栏 -->
+    <uni-nav-bar :fixed="true" @clickRight="clickRight" :statusBar="true" class="head-area u-f">
+      <!-- 左边 -->
+      <view class="nav-tab-bar u-f-asb serach-input">
+        <input
+          class="uni-input u-f-asb"
+          placeholder-class="icon iconfont icon-sousuo topic-search"
+          placeholder="搜索糗事"
+          v-model="serachtext"
+        />
+      </view>
+      <!-- 右边 -->
+      <block slot="right">
+        <view class="nav-right u-f-asb">
+          <view class="cancel">取消</view>
+        </view>
+      </block>
+    </uni-nav-bar>
     <view class="topbars">
       <topBar :tabBars="tabBars" :tabIndex="tabIndex" @topBar="topBar"></topBar>
     </view>
@@ -41,47 +59,28 @@ import userChatList from "../../components/userchat-list/userchat-list.vue";
 export default {
   components: {
     topBar,
-	userChatList,
-	noThing
+    userChatList,
+    noThing,
   },
   data() {
     return {
       swiperHeight: 0,
+      serachtext:'',
       tabIndex: 0,
       tabBars: [
         { name: "互关", id: "Murelations", num: 10 },
         { name: "关注", id: "follow", num: 10 },
         { name: "粉丝", id: "fans", num: 10 },
       ],
-      userlist: [
+      userlist:[
         {
-          headerimg: "../../static/demo/userpic/4.jpg",
-          name: "Supzeol",
-          sex: 0,
-          age: 26,
-        },
-        {
-          headerimg: "../../static/demo/userpic/14.jpg",
-          name: "Supzeol",
-          sex: 1,
-          age: 13,
-        },
-        {
-          headerimg: "../../static/demo/userpic/5.jpg",
-          name: "Supzeol",
-          sex: 0,
-          age: 16,
-        },
-      ],
+          headerimg:'../../static/demo/userpic/19.jpg',
+          name:'Supzeol',
+          sex:0,
+          age:20
+        }
+      ]
     };
-  },
-  // 监听原生标题导航按钮点击事件
-  onNavigationBarButtonTap(e) {
-    if (e.index == 0) {
-      uni.navigateBack({
-        delta: 1,
-      });
-    }
   },
   // 监听搜索框文本变化
   onNavigationBarSearchInputChanged() {
@@ -109,6 +108,11 @@ export default {
     // 图文列表滑动
     tabChange(e) {
       this.tabIndex = e.detail.current;
+    },
+    clickRight(){
+      uni.navigateBack({
+        delta: 1,
+      });
     },
     // 上拉加载
     loadmore(index) {
@@ -147,5 +151,20 @@ export default {
 <style scoped>
 .topbars {
   margin-top: 12px;
+}
+.search-input {
+  padding: 4px 10px;
+}
+.uni-input {
+  background: #f4f4f4;
+  border-radius: 6px;
+  height: 10px;
+  text-align: left;
+  line-height: 10px;
+  width: 250px;
+  margin-left: -70px;
+}
+.topic-search {
+  font-size: 12px;
 }
 </style>

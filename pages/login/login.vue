@@ -7,10 +7,28 @@
         mode="widthFix"
       ></image>
     </view>
-
-    <view class="login-input">
-      <input type="text" placeholder="昵称/手机号/邮箱" />
-      <input type="password" placeholder="请输入密码" />
+    <view v-if="type == '验证码'">
+      <view class="login-input">
+        <view class="name">
+          <input type="text" placeholder="昵称/手机号/邮箱" />
+        </view>
+        <view class="password u-f">
+          <input type="password" placeholder="请输入密码" />
+          <text>忘记密码？</text>
+        </view>
+      </view>
+    </view>
+    <view v-if="type == '账号密码'">
+      <view class="login-input">
+        <view class="phone">
+          <text>+86</text>
+          <input type="text" placeholder="输入手机号码" />
+        </view>
+        <view class="veri-code">
+          <input type="password" placeholder="请输入验证码" />
+          <button>获取验证码</button>
+        </view>
+      </view>
     </view>
 
     <view class="loginBtn u-f-asb">
@@ -40,8 +58,7 @@ export default {
   },
   methods: {
     toLogin() {
-		console.log(1);
-      this.type == "验证码" ? this.type == "账号密码" : this.type == "验证码";
+      this.type == "验证码" ? (this.type = "账号密码") : (this.type = "验证码");
     },
   },
 };
@@ -69,5 +86,49 @@ view {
   top: -10px;
   background: #ffffff;
   padding: 0 10px;
+}
+.login-input >view:last-child{
+  position: relative;
+  top: -10px;
+}
+.login-input > view>input {
+  height: 50px;
+  border-bottom: 1px solid #f7f7f7;
+}
+.password>input{
+  flex: 4;
+}
+.password>text{
+  flex: 1;
+  border-bottom: 1px solid #f7f7f7;
+  text-align: center;
+  line-height: 50px;
+}
+.phone,.veri-code{
+  position: relative;
+}
+.phone>text{
+  position: absolute;
+  top: 10px;
+  font-size: 18px;
+}
+.phone>input{
+  padding-left: 40px;
+}
+.veri-code{
+}
+.veri-code>button{
+  position: absolute;
+  right: 10px;
+  top: 10px;
+  width: 100px;
+  height: 30px;
+  color: #b1b1b1;
+  border-radius: 5px;
+  background: #f4f4f4;
+  font-size: 12px;
+  border: none;
+  padding: 0;
+  line-height: 30px;
 }
 </style>

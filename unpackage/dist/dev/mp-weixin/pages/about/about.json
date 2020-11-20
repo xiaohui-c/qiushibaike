@@ -2,5 +2,8 @@
   "navigationBarTitleText": "关于仿糗百",
   "enablePullDownRefresh": false,
   "navigationBarTextStyle": "black",
-  "usingComponents": {}
+  "usingComponents": {
+    "uni-collapse": "/components/uni-collapse/uni-collapse",
+    "uni-collapse-item": "/components/uni-collapse-item/uni-collapse-item"
+  }
 }
