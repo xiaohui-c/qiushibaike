@@ -3,7 +3,7 @@
     <!-- 自定义导航栏 -->
     <uni-nav-bar :fixed="true" :statusBar="true" class="head-area u-f">
       <!-- 左边 -->
-      <view class="nav-tab-bar u-f-asb serach-input" @tap="serachContainer">
+      <view class="nav-tab-bar u-f-asb serach-input" style="margin-top:20px;margin-bottom:10px;height:5px;width:260px" @tap="serachContainer">
         <input
           class="uni-input u-f-asb"
           placeholder-class="icon iconfont icon-sousuo topic-search"

@@ -147,7 +147,14 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-var _default =
+
+var ACTIONS = new Map([
+[0, "changepassword"],
+[1, "emailbind"],
+[2, "editmeans"],
+[5, "feedBack"],
+[6, "about"]]);var _default =
+
 {
   data: function data() {
     return {
@@ -164,33 +171,11 @@ var _default =
   },
   methods: {
     config: function config(id) {
-      console.log(id);
+      var action = ACTIONS.get(id);
 
-      if (id == 6) {
-        uni.navigateTo({
-          url: "../about/about" });
+      uni.navigateTo({
+        url: "../".concat(action, "/").concat(action) });
 
-      }
-      if (id == 5) {
-        uni.navigateTo({
-          url: "../feedBack/feedBack" });
-
-      }
-      if (id == 2) {
-        uni.navigateTo({
-          url: "../editmeans/editmeans" });
-
-      }
-      if (id == 1) {
-        uni.navigateTo({
-          url: "../emailbind/emailbind" });
-
-      }
-      if (id == 0) {
-        uni.navigateTo({
-          url: "../changepassword/changepassword" });
-
-      }
     } } };exports.default = _default;
 /* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./node_modules/@dcloudio/uni-mp-weixin/dist/index.js */ 1)["default"]))
 

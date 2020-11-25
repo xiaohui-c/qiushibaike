@@ -6,7 +6,7 @@
         <view class="info-left">头像</view>
         <view class="right">
           <view class="info-detail u-f-asb" @tap="changeHeader">
-            <image :src="headerimg" mode="aspectFill" lazy-load></image>
+            <image :src="demo.userpic.nineteen" mode="aspectFill" lazy-load></image>
             <view class="icon iconfont icon-bianji1"></view>
           </view>
         </view>
@@ -15,7 +15,7 @@
         <view class="info-left">昵称</view>
         <view class="right">
           <view class="info-detail u-f-asb">
-            <input type="text" v-model="username" style="font-size:13px;"/>
+            <input type="text" v-model="username" style="font-size: 13px" />
             <view class="icon iconfont icon-bianji1"></view>
           </view>
         </view>
@@ -86,7 +86,7 @@
 
 <script>
 import mpvueCityPicker from "../../components/mpvue-citypicker/mpvueCityPicker.vue";
-
+import { mapState } from "vuex";
 var SEX = ["不限", "男", "女"];
 var MARRIAGE = ["未婚", "已婚"];
 var JOB = ["前端开发工程师", "教师", "公务员"];
@@ -99,7 +99,7 @@ export default {
       format: true,
     });
     return {
-      headerimg: "../../static/demo/userpic/19.jpg",
+      defaultHeaderImg:'',
       username: "哈哈哈",
       sex: "不限",
       marriage: "未婚",
@@ -127,6 +127,8 @@ export default {
     endDate() {
       return this.getDate("end");
     },
+
+    ...mapState(["demo"]),
   },
   methods: {
     // 头像设置

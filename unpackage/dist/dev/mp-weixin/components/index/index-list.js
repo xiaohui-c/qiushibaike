@@ -180,6 +180,8 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
 var _default2 =
 {
   props: {
@@ -205,38 +207,34 @@ var _default2 =
     },
     // 顶踩
     control: function control(type, index) {
+      var CONSTANT = this.indexlist[index].infonum;
       switch (type) {
         case "ding":
           // 如果已经顶过了就不能再顶，直接return
-          if (this.indexlist[index].infonum.index === 1) {
-            return;
-          }
+          if (CONSTANT.index === 1) return;
+
           // 如果此时的状态是踩，那么点击顶就会让踩减1
-          if (this.indexlist[index].infonum.index === 2) {
-            this.indexlist[index].infonum.cai--;
-          }
+          if (CONSTANT.index === 2) CONSTANT.cai--;
+
           // 如果顶和踩都没有操作，或者已经操作了踩，就让顶加一
-          this.indexlist[index].infonum.dingnum++;
+          CONSTANT.dingnum++;
           // 并且修改状态为顶
-          this.indexlist[index].infonum.index = 1;
+          CONSTANT.index = 1;
           break;
         case "cai":
-          if (this.indexlist[index].infonum.index === 2) {
-            return;
-          }
+          if (CONSTANT.index === 2) return;
 
-          if (this.indexlist[index].infonum.index === 1) {
-            this.indexlist[index].infonum.dingnum--;
-          }
-          this.indexlist[index].infonum.cai++;
-          this.indexlist[index].infonum.index = 2;
+          if (CONSTANT.index === 1) CONSTANT.dingnum--;
+
+          CONSTANT.cai++;
+          CONSTANT.index = 2;
           break;}
 
     },
     // 进入详情页
     opendetail: function opendetail(title) {
       uni.navigateTo({
-        url: '../../pages/content/content?detailData=' + title });
+        url: "../../pages/content/content?detailData=" + title });
 
     } } };exports.default = _default2;
 /* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./node_modules/@dcloudio/uni-mp-weixin/dist/index.js */ 1)["default"]))

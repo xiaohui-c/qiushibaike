@@ -64,6 +64,7 @@
 import uniBadge from "../../components/uni-badge/uni-badge.vue";
 import loadMore from "../../components/common/load-more.vue";
 import { statMixin } from "../../Mixin/loadmore.js";
+ import {mapState} from 'vuex';
 export default {
   mixins: [statMixin],
   components: {
@@ -76,7 +77,7 @@ export default {
       titleName:'小纸条',
       chatList: [
         {
-          img: "../../static/demo/userpic/4.jpg",
+          img: this.$store.state.demo.userpic.four,
           username: "JIA一勺",
           finaltime: "13:58",
           ellipsesmsg:
@@ -207,6 +208,9 @@ export default {
   onPullDownRefresh() {
     this.getData();
   },
+   computed:{
+            ...mapState(['demo'])
+        },
   methods: {
     getData() {
       setTimeout(() => {

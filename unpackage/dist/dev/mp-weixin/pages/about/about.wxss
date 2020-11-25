@@ -213,12 +213,12 @@
 }
 
 
-.bgimg.data-v-92c79dbc{
-	padding: 40px 0 20px 0;
+.bgimg.data-v-92c79dbc {
+  padding: 40px 0 20px 0;
 }
-.bgimg>image.data-v-92c79dbc{
-	height: 150px;
-	width: 200px;
+.bgimg > image.data-v-92c79dbc {
+  height: 150px;
+  width: 200px;
 }
 .version.data-v-92c79dbc {
   width: 100%;

@@ -11,12 +11,12 @@
     >
       <!-- 左边 -->
       <block slot="left">
-        <view class="nav-left" >
+        <view class="nav-left">
           <view class="icon iconfont icon-qiandao"></view>
         </view>
       </block>
       <!-- 中间 -->
-      <view class="nav-tab-bar u-f-asb serach-input" @tap="serachContainer">
+      <view class="nav-tab-bar u-f-asb serach-input" style="margin-top:20px;margin-bottom:10px;height:5px;" @tap="serachContainer">
         <input
           class="uni-input u-f-asb"
           disabled
@@ -25,7 +25,7 @@
         />
       </view>
       <!-- 右边 -->
-      <block slot="right" >
+      <block slot="right">
         <view class="nav-right u-f-asb">
           <view class="icon iconfont icon-bianji1"></view>
         </view>
@@ -71,7 +71,6 @@
 
 <script>
 import uniNavBar from "../../components/uni-nav-bar/uni-nav-bar.vue";
-
 import IndexList from "../../components/index/index-list.vue";
 import topBar from "../../components/topbar/topbar.vue";
 import loadMore from "../../components/common/load-more.vue";
@@ -167,7 +166,6 @@ export default {
       },
     };
   },
- 
 
   methods: {
     // 顶部导航点击事件
@@ -183,11 +181,11 @@ export default {
         url: "../add-input/add-input",
       });
     },
-    serachContainer(){
-       uni.navigateTo({
-      url: "../search/search",
-    });
-    }
+    serachContainer() {
+      uni.navigateTo({
+        url: "../search/search",
+      });
+    },
   },
 };
 </script>
@@ -215,7 +213,7 @@ export default {
   line-height: 10px;
   width: 250px;
 }
-.topic-search{
+.topic-search {
   font-size: 12px;
 }
 </style>

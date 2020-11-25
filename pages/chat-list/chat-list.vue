@@ -9,6 +9,7 @@
           placeholder-class="icon iconfont icon-sousuo topic-search"
           placeholder="搜索糗事"
           v-model="serachtext"
+          style="margin-top:20px;margin-bottom:10px;height:5px;width:300px;"
         />
       </view>
       <!-- 右边 -->

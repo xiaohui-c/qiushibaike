@@ -1,6 +1,6 @@
 <template>
   <view class="container">
-     <uni-nav-bar
+    <uni-nav-bar
       :fixed="true"
       :statusBar="true"
       @clickRight="toSetting"
@@ -8,7 +8,7 @@
       :title="titleName"
     >
       <!-- 右边 -->
-      <block slot="right" >
+      <block slot="right">
         <view class="nav-right u-f-asb">
           <view class="icon iconfont icon-gengduo"></view>
         </view>
@@ -27,8 +27,8 @@
         <view class="username">
           <view class="name">{{ userobj.username }}</view>
           <view class="acessdata u-f-ajb">
-            <text style="min-width:60px">总访客{{ userobj.allnum }}</text>
-            <text style="min-width:60px">今日{{ userobj.todaynum }}</text>
+            <text style="min-width: 60px">总访客{{ userobj.allnum }}</text>
+            <text style="min-width: 60px">今日{{ userobj.todaynum }}</text>
           </view>
         </view>
         <view class="isfollow icon iconfont icon-jinru" style="color: #c0c0c0">
@@ -42,11 +42,7 @@
       </view>
     </view>
     <view class="adimgbox u-f-asb">
-      <image
-        src="../../static/demo/demo20.jpg"
-        mode="widthFix"
-        lazy-load
-      ></image
+      <image :src="ads" mode="widthFix" lazy-load></image
     ></view>
     <view class="setting-list">
       <view
@@ -67,15 +63,17 @@
 <script>
 import thirdLogin from "../../components/common/third-login.vue";
 import tipLogin from "../../components/common/tip-login.vue";
+
 export default {
   components: { thirdLogin, tipLogin },
   data() {
     return {
       login: true,
       type: "账号密码",
-      titleName:'我',
+      titleName: "我",
+      ads: "",
       userobj: {
-        headerimg: "../../static/demo/userpic/4.jpg",
+        headerimg: "",
         username: "刘小灰",
         allnum: 0,
         todaynum: 0,
@@ -93,7 +91,9 @@ export default {
       ],
     };
   },
-  
+  onShow() {
+    this.getImage();
+  },
   methods: {
     toLogin() {
       uni.navigateTo({
@@ -105,11 +105,21 @@ export default {
         url: "../person-details/person-details",
       });
     },
-    toSetting(){
+    toSetting() {
       uni.navigateTo({
-      url: "../controls/controls",
-    });
-    }
+        url: "../controls/controls",
+      });
+    },
+    getImage() {
+      uni.request({
+        url: "http://127.0.0.1:3000/api/home/header",
+        success: (res) => {
+          console.log(res);
+          this.userobj.headerimg = res.data.urlhead;
+          this.ads = res.data.urlads;
+        },
+      });
+    },
   },
 };
 </script>
