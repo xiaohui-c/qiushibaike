@@ -7,7 +7,7 @@
       @tap="opendetail"
     >
       <view class="imageBox">
-        <image :src="item.img" mode="widthFix" lazy-load></image>
+        <image :src="nearlyObjImg" mode="widthFix" lazy-load></image>
       </view>
       <view class="nearly-text u-f-dasb">
         <view class="nearly-title">#{{ item.title }}#</view>
@@ -23,6 +23,7 @@
 export default {
   props: {
     nearlyObj: Array,
+    nearlyObjImg:String
   },
   data() {
     return {

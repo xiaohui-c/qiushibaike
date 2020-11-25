@@ -22,11 +22,14 @@
         </view>
       </block>
     </uni-nav-bar>
+    <!-- 多图显示 -->
     <common-list
       :commentDetail="commentDetail"
       @imgDetail="imgDetail"
       :list="attention.list"
       :morePic="morePic"
+      :imgcontain="imgcontain"
+      :viewPicArr="viewPicArr"
     ></common-list>
     <view class="uni-padding-wrap">
       <view class="title">最新评论 1</view>
@@ -101,13 +104,15 @@ import View from "../../unpackage/hello uni-app/pages/component/view/view.vue";
 export default {
   components: {
     commonList,
-    thirdLogin,
+    thirdLogin
   },
   data() {
     return {
       commentDetail: true,
       text: "",
       bottomShow: false,
+      viewPicArr:[],
+      imgcontain:[],
       morePic:true,
       titleName:'',
       attention: {
@@ -138,6 +143,11 @@ export default {
   onLoad(e) {
   this.titleName= e.detailData;
   },
+  onShow() {
+    this.getPersonImgInfo();
+    this.getDetailImg()
+  },
+  
   methods: {
     bottomView() {
       this.bottomShow = !this.bottomShow;
@@ -158,6 +168,24 @@ export default {
     back(){
       uni.navigateBack({
         delta: 1,
+      });
+    },
+     getPersonImgInfo(){
+      uni.request({
+        url: "http://127.0.0.1:3002/api/news/follow", 
+        success: (res) => {
+          console.log(res);
+          this.imgcontain = res.data.objHead;
+        },
+      });
+    },
+    getDetailImg(){
+      uni.request({
+        url: "http://127.0.0.1:3002/api/index/maindetail", 
+        success: (res) => {
+          console.log(res);
+          this.viewPicArr = res.data.viewPicArr;
+        },
       });
     }
   },

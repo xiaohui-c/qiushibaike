@@ -31,7 +31,7 @@
           :scroll-with-animation="true"
           :style="{ height: style.contentH + 'px' }"
         >
-          <chatContain id="userItem" :chatList="chatList"></chatContain>
+          <chatContain id="userItem" :objHead="objHead" :chatList="chatList"></chatContain>
         </scroll-view>
       </view>
     </view>
@@ -56,6 +56,7 @@ export default {
         itemH: 0,
       },
       chatList: [],
+      objHead:[],
       list: [
         {
           isMe: true,
@@ -79,6 +80,9 @@ export default {
   },
   onLoad() {
     this.getData();
+  },
+    onShow() {
+    this.getPersonImgInfo();
   },
   methods: {
     sendmessage() {
@@ -112,6 +116,15 @@ export default {
       } catch (e) {
         // error
       }
+    },
+     getPersonImgInfo(){
+      uni.request({
+        url: "http://127.0.0.1:3002/api/paper/chat", 
+        success: (res) => {
+          console.log(res);
+          this.objHead = res.data.objHead;
+        },
+      });
     },
     // 发送信息，页面滑动
     pageToBottom() {

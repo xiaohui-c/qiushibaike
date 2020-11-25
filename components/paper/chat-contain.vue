@@ -4,13 +4,14 @@
       <view class="lasttime u-f-asb">{{ item.time }}</view>
       <view class="msg u-f" :class="{ mestyle: item.isMe }">
         <view class="imgbox">
-          <image :src="item.headerimg" mode="widthFix" lazy-load></image>
+          <image v-if="item.isMe" :src="objHead[0]" mode="widthFix" lazy-load></image>
+          <image v-else :src="objHead[1]" mode="widthFix" lazy-load></image>
         </view>
         <view class="msg-detail u-f-asb animate__animated animate__bounceIn">
           <text v-if="item.msg">{{ item.msg }}</text>
           <image
             v-if="item.chatimg"
-            :src="item.chatimg"
+            :src="objHead[2]"
             mode="widthFix"
             lazy-load
           ></image>
@@ -23,6 +24,7 @@
 export default {
   props: {
     chatList: Array,
+    objHead:Array
   },
   data() {
     return {};

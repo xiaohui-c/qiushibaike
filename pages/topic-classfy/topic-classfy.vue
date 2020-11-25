@@ -25,7 +25,7 @@
             <template v-if="item.list.length > 0">
               <!-- 每一个话题区域-->
               <block>
-                <newsList :nearlyObj="item.list"></newsList>
+                <newsList :nearlyObjImg="nearlyObjImg"  :nearlyObj="item.list"></newsList>
               </block>
               <!-- 上拉加载区域-->
               <loadMore :loadtext="item.loadtext"></loadMore>
@@ -61,6 +61,7 @@ export default {
       tabIndex: 0,
       // 主内容区域高度
       swiperHeight: 0,
+      nearlyObjImg:'',
       scroll: 0,
       // 视口宽度(width)
       scrollwidth: 360,
@@ -152,7 +153,19 @@ export default {
       },
     };
   },
+     onShow() {
+    this.getPersonImgInfo();
+  },
   methods: {
+     getPersonImgInfo(){
+      uni.request({
+        url: "http://127.0.0.1:3002/api/news/follow", 
+        success: (res) => {
+          console.log(res);
+          this.nearlyObjImg=res.data.nearlyObjImg
+        },
+      });
+    },
     back() {
       uni.navigateBack({ delta: 1 });
     },

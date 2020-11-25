@@ -24,7 +24,7 @@
     </view>
     <view class="topic-bg">
       <image
-        src="../../static/demo/datapic/41.jpg"
+        :src="bg"
         lazy-load
         mode="aspectFill"
       ></image>
@@ -32,7 +32,7 @@
     <!-- 头像区域 -->
     <view class="header-container u-f-dasb u-f-ac">
       <view class="img">
-        <image src="../../static/demo/userpic/19.jpg"></image>
+        <image :src="headerimg"></image>
       </view>
       <view class="name u-f">
         <view style="color: #ffffff">JIA一勺</view>
@@ -114,7 +114,6 @@
 import topBar from "../../components/topbar/topbar.vue";
 import noThing from "../../components/common/no-thing.vue";
 import userChatList from "../../components/userchat-list/userchat-list.vue";
-
 export default {
   components: {
     topBar,
@@ -124,32 +123,14 @@ export default {
   data() {
     return {
       dropMeun: false,
+      headerimg:'',
+      bg:'',
       tabIndex: 0,
       swiperHeight: 0,
       tabBars: [
         { name: "主页", id: "main" },
         { name: "糗事", id: "funnyThing" },
         { name: "动态", id: "news" },
-      ],
-      userlist: [
-        {
-          headerimg: "../../static/demo/userpic/4.jpg",
-          name: "Supzeol",
-          sex: 0,
-          age: 26,
-        },
-        {
-          headerimg: "../../static/demo/userpic/14.jpg",
-          name: "Supzeol",
-          sex: 1,
-          age: 13,
-        },
-        {
-          headerimg: "../../static/demo/userpic/5.jpg",
-          name: "Supzeol",
-          sex: 0,
-          age: 16,
-        },
       ],
     };
   },
@@ -162,6 +143,9 @@ export default {
         this.swiperHeight = height;
       },
     });
+  },
+   onShow() {
+    this.getPersonImgInfo();
   },
   methods: {
     // 顶部导航点击事件
@@ -184,6 +168,16 @@ export default {
     back(){
       uni.navigateBack({
         delta: 1,
+      });
+    },
+    getPersonImgInfo(){
+      uni.request({
+        url: "http://127.0.0.1:3002/api/home/person", 
+        success: (res) => {
+          console.log(res);
+          this.headerimg = res.data.urlhead;
+          this.bg = res.data.urlgb;
+        },
       });
     }
   },

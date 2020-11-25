@@ -8,7 +8,7 @@
       <!-- 个人信息 -->
       <view class="index-list1 u-f u-f-ac">
         <view class="u-f u-f-ac">
-          <image :src="item.userpic" mode="widthFix" lazy-load></image>
+          <image :src="urlhead" mode="widthFix" lazy-load></image>
           {{ item.username }}
         </view>
         <view v-show="item.follow === false" @tap="follow(index)">
@@ -23,7 +23,7 @@
       }}</view>
       <!-- 视频图像 -->
       <view class="index-list3" @tap="opendetail(item.title)">
-        <image :src="item.titlepic" mode="widthFix" lazy-load></image>
+        <image :src="urlTopImg" mode="widthFix" lazy-load></image>
         <template v-if="item.type == 'video'">
           <view class="icon iconfont icon-bofang index-list-play"></view>
           <view class="index-list-playinfo"
@@ -75,6 +75,8 @@ export default {
         return [];
       },
     },
+    urlTopImg:String,
+    urlhead:String
   },
   data() {
     return {

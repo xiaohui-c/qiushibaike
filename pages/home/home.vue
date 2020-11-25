@@ -112,7 +112,7 @@ export default {
     },
     getImage() {
       uni.request({
-        url: "http://127.0.0.1:3000/api/home/header",
+        url: "http://127.0.0.1:3002/api/home/header",
         success: (res) => {
           console.log(res);
           this.userobj.headerimg = res.data.urlhead;

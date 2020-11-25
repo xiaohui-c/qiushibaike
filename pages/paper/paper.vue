@@ -61,10 +61,10 @@
 </template>
 
 <script>
+ let headerimg=[];
 import uniBadge from "../../components/uni-badge/uni-badge.vue";
 import loadMore from "../../components/common/load-more.vue";
 import { statMixin } from "../../Mixin/loadmore.js";
- import {mapState} from 'vuex';
 export default {
   mixins: [statMixin],
   components: {
@@ -77,7 +77,7 @@ export default {
       titleName:'小纸条',
       chatList: [
         {
-          img: this.$store.state.demo.userpic.four,
+          img: '',
           username: "JIA一勺",
           finaltime: "13:58",
           ellipsesmsg:
@@ -85,7 +85,7 @@ export default {
           msgnum: 1,
         },
         {
-          img: "../../static/demo/userpic/15.jpg",
+          img: '',
           username: "低头看鱼",
           finaltime: "13:58",
           ellipsesmsg:
@@ -93,7 +93,7 @@ export default {
           msgnum: 3,
         },
         {
-          img: "../../static/demo/userpic/12.jpg",
+          img: '',
           username: "刘小慧",
           finaltime: "13:58",
           ellipsesmsg:
@@ -101,93 +101,13 @@ export default {
           msgnum: 18,
         },
         {
-          img: "../../static/demo/userpic/6.jpg",
+          img: '',
           username: "鲁大师",
           finaltime: "13:58",
           ellipsesmsg:
             "三个代表重要思想是江泽民同志2000年2月25日在广东省考察工作时，从全面总结党的历史经验和如何适应新形势新任务的要求出发，首次对“三个代表”重要思想进行了比较全面的阐述。具体内容为中国共产党始终代表中国先进生产力的发展要求、中国先进文化的前进方向、中国最广大人民的根本利益，是我们党的立党之本、执政之基、力量之源。",
           msgnum: 28,
-        },
-        {
-          img: "../../static/demo/userpic/6.jpg",
-          username: "鲁大师",
-          finaltime: "13:58",
-          ellipsesmsg:
-            "三个代表重要思想是江泽民同志2000年2月25日在广东省考察工作时，从全面总结党的历史经验和如何适应新形势新任务的要求出发，首次对“三个代表”重要思想进行了比较全面的阐述。具体内容为中国共产党始终代表中国先进生产力的发展要求、中国先进文化的前进方向、中国最广大人民的根本利益，是我们党的立党之本、执政之基、力量之源。",
-          msgnum: 28,
-        },
-        {
-          img: "../../static/demo/userpic/6.jpg",
-          username: "鲁大师",
-          finaltime: "13:58",
-          ellipsesmsg:
-            "三个代表重要思想是江泽民同志2000年2月25日在广东省考察工作时，从全面总结党的历史经验和如何适应新形势新任务的要求出发，首次对“三个代表”重要思想进行了比较全面的阐述。具体内容为中国共产党始终代表中国先进生产力的发展要求、中国先进文化的前进方向、中国最广大人民的根本利益，是我们党的立党之本、执政之基、力量之源。",
-          msgnum: 28,
-        },
-        {
-          img: "../../static/demo/userpic/6.jpg",
-          username: "鲁大师",
-          finaltime: "13:58",
-          ellipsesmsg:
-            "三个代表重要思想是江泽民同志2000年2月25日在广东省考察工作时，从全面总结党的历史经验和如何适应新形势新任务的要求出发，首次对“三个代表”重要思想进行了比较全面的阐述。具体内容为中国共产党始终代表中国先进生产力的发展要求、中国先进文化的前进方向、中国最广大人民的根本利益，是我们党的立党之本、执政之基、力量之源。",
-          msgnum: 28,
-        },
-        {
-          img: "../../static/demo/userpic/6.jpg",
-          username: "鲁大师",
-          finaltime: "13:58",
-          ellipsesmsg:
-            "三个代表重要思想是江泽民同志2000年2月25日在广东省考察工作时，从全面总结党的历史经验和如何适应新形势新任务的要求出发，首次对“三个代表”重要思想进行了比较全面的阐述。具体内容为中国共产党始终代表中国先进生产力的发展要求、中国先进文化的前进方向、中国最广大人民的根本利益，是我们党的立党之本、执政之基、力量之源。",
-          msgnum: 28,
-        },
-        {
-          img: "../../static/demo/userpic/6.jpg",
-          username: "鲁大师",
-          finaltime: "13:58",
-          ellipsesmsg:
-            "三个代表重要思想是江泽民同志2000年2月25日在广东省考察工作时，从全面总结党的历史经验和如何适应新形势新任务的要求出发，首次对“三个代表”重要思想进行了比较全面的阐述。具体内容为中国共产党始终代表中国先进生产力的发展要求、中国先进文化的前进方向、中国最广大人民的根本利益，是我们党的立党之本、执政之基、力量之源。",
-          msgnum: 28,
-        },
-        {
-          img: "../../static/demo/userpic/6.jpg",
-          username: "鲁大师",
-          finaltime: "13:58",
-          ellipsesmsg:
-            "三个代表重要思想是江泽民同志2000年2月25日在广东省考察工作时，从全面总结党的历史经验和如何适应新形势新任务的要求出发，首次对“三个代表”重要思想进行了比较全面的阐述。具体内容为中国共产党始终代表中国先进生产力的发展要求、中国先进文化的前进方向、中国最广大人民的根本利益，是我们党的立党之本、执政之基、力量之源。",
-          msgnum: 28,
-        },
-        {
-          img: "../../static/demo/userpic/6.jpg",
-          username: "鲁大师",
-          finaltime: "13:58",
-          ellipsesmsg:
-            "三个代表重要思想是江泽民同志2000年2月25日在广东省考察工作时，从全面总结党的历史经验和如何适应新形势新任务的要求出发，首次对“三个代表”重要思想进行了比较全面的阐述。具体内容为中国共产党始终代表中国先进生产力的发展要求、中国先进文化的前进方向、中国最广大人民的根本利益，是我们党的立党之本、执政之基、力量之源。",
-          msgnum: 28,
-        },
-        {
-          img: "../../static/demo/userpic/6.jpg",
-          username: "鲁大师",
-          finaltime: "13:58",
-          ellipsesmsg:
-            "三个代表重要思想是江泽民同志2000年2月25日在广东省考察工作时，从全面总结党的历史经验和如何适应新形势新任务的要求出发，首次对“三个代表”重要思想进行了比较全面的阐述。具体内容为中国共产党始终代表中国先进生产力的发展要求、中国先进文化的前进方向、中国最广大人民的根本利益，是我们党的立党之本、执政之基、力量之源。",
-          msgnum: 28,
-        },
-        {
-          img: "../../static/demo/userpic/6.jpg",
-          username: "鲁大师",
-          finaltime: "13:58",
-          ellipsesmsg:
-            "三个代表重要思想是江泽民同志2000年2月25日在广东省考察工作时，从全面总结党的历史经验和如何适应新形势新任务的要求出发，首次对“三个代表”重要思想进行了比较全面的阐述。具体内容为中国共产党始终代表中国先进生产力的发展要求、中国先进文化的前进方向、中国最广大人民的根本利益，是我们党的立党之本、执政之基、力量之源。",
-          msgnum: 28,
-        },
-        {
-          img: "../../static/demo/userpic/6.jpg",
-          username: "鲁大师",
-          finaltime: "13:58",
-          ellipsesmsg:
-            "三个代表重要思想是江泽民同志2000年2月25日在广东省考察工作时，从全面总结党的历史经验和如何适应新形势新任务的要求出发，首次对“三个代表”重要思想进行了比较全面的阐述。具体内容为中国共产党始终代表中国先进生产力的发展要求、中国先进文化的前进方向、中国最广大人民的根本利益，是我们党的立党之本、执政之基、力量之源。",
-          msgnum: 28,
-        },
+        }
       ],
     };
   },
@@ -208,9 +128,9 @@ export default {
   onPullDownRefresh() {
     this.getData();
   },
-   computed:{
-            ...mapState(['demo'])
-        },
+  onShow() {
+    this.getPersonImgInfo();
+  },
   methods: {
     getData() {
       setTimeout(() => {
@@ -352,6 +272,20 @@ export default {
     },
     openAdd(){
       this.dropMeun = !this.dropMeun;
+    },
+    getPersonImgInfo(){
+      uni.request({
+        url: "http://127.0.0.1:3002/api/paper/header", 
+        success: (res) => {
+          console.log(res);
+          headerimg=res.data.objHead
+          console.log(headerimg);
+          this.chatList[0].img=headerimg[0]
+          this.chatList[1].img=headerimg[1]
+          this.chatList[2].img=headerimg[2]
+          this.chatList[3].img=headerimg[3]
+        },
+      });
     }
   },
 };

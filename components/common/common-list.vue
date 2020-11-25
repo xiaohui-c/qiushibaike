@@ -1,5 +1,6 @@
 <template>
   <!-- 糗事页主要内容列表 -->
+
   <view>
     <view
       class="common-list u-f animate__animated animate__fadeInLeft fast"
@@ -9,7 +10,7 @@
     >
       <!-- 左侧头像 -->
       <view class="common-list-left">
-        <image :src="item.userpic" mode="widthFix" lazy-load></image>
+        <image :src="imgcontain[0]" mode="widthFix" lazy-load></image>
       </view>
       <!-- 右侧主要内容 -->
       <view class="common-list-right" :class="{ 'border-none': commentDetail }">
@@ -50,14 +51,14 @@
           <template v-if="!item.share">
             <!-- 图片 -->
             <image
-              src="../../static/demo/datapic/13.jpg"
+              :src="imgcontain[1]"
               mode="widthFix"
               lazy-load
               v-if="!item.morepic"
             ></image>
             <image
               mode="widthFix"
-              v-for="(itemImg, idx) in item.morepic"
+              v-for="(itemImg, idx) in viewPicArr"
               :src="itemImg"
               :key="idx"
               lazy-load
@@ -74,7 +75,7 @@
             <!-- 分享样式 -->
           </template>
           <view class="common-list-share u-f-asb" v-else>
-            <image :src="item.share.titlepic" mode="widthFix" lazy-load v-if="!morePic"></image>
+            <image :src="imgcontain[1]" mode="widthFix" lazy-load v-if="!morePic"></image>
             <view>{{ item.share.title }}</view>
           </view>
         </view>
@@ -103,6 +104,8 @@ export default {
     },
     commentDetail: Boolean,
     morePic: Boolean,
+    imgcontain:Array,
+    viewPicArr:Array
   },
   data() {
     return {

@@ -1,7 +1,7 @@
 <template>
    	<!-- 糗事页无内容默认显示 -->
 				<view class="nothing">
-			<image src="../../static/common/nothing.png" mode="widthFix"></image>		
+			<image src="https://i.loli.net/2020/11/25/bvVgLux13KqzapA.png" mode="widthFix"></image>		
 				</view>
 </template>
 <style scoped>

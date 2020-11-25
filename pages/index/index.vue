@@ -54,7 +54,7 @@
             <template v-if="item.list.length > 0">
               <!-- 每一个话题区域 组件已封装-->
               <block>
-                <IndexList :list="item.list"></IndexList>
+                <IndexList :urlTopImg="urlTopImg" :urlhead="urlhead" :list="item.list"></IndexList>
               </block>
               <!-- 上拉加载区域 组件已封装-->
               <loadMore :loadtext="item.loadtext"></loadMore>
@@ -97,6 +97,8 @@ export default {
       scrollwidth: 360,
       linewidth: 38,
       newspage: true,
+      urlTopImg:'',
+      urlhead:'',
       tabBars: [
         { name: "关注", id: "guanzhu" },
         { name: "推荐", id: "tuijian" },
@@ -166,7 +168,9 @@ export default {
       },
     };
   },
-
+  onShow() {
+    this.getPersonImgInfo();
+  },
   methods: {
     // 顶部导航点击事件
     topBar(index) {
@@ -186,6 +190,16 @@ export default {
         url: "../search/search",
       });
     },
+     getPersonImgInfo(){
+      uni.request({
+        url: "http://127.0.0.1:3002/api/index/main", 
+        success: (res) => {
+          console.log(res);
+          this.urlhead = res.data.urlhead;
+          this.urlTopImg=res.data.urlTopImg;
+        },
+      });
+    }
   },
 };
 </script>

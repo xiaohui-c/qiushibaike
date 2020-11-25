@@ -33,7 +33,7 @@
         <!-- 互关 -->
         <swiper-item>
           <scroll-view scroll-y class="list" @scrolltolower="loadmore()">
-            <userChatList :userlist="userlist"></userChatList>
+            <userChatList :headerimg="headerimg" :userlist="userlist"></userChatList>
           </scroll-view>
         </swiper-item>
         <!-- 关注 -->
@@ -73,9 +73,10 @@ export default {
         { name: "关注", id: "follow", num: 10 },
         { name: "粉丝", id: "fans", num: 10 },
       ],
+      headerimg:'',
       userlist:[
         {
-          headerimg:'../../static/demo/userpic/19.jpg',
+          headerimg:'',
           name:'Supzeol',
           sex:0,
           age:20
@@ -83,7 +84,7 @@ export default {
       ]
     };
   },
-  // 监听搜索框文本变化
+    // 监听搜索框文本变化
   onNavigationBarSearchInputChanged() {
     console.log(e.text);
   },
@@ -101,6 +102,10 @@ export default {
       },
     });
   },
+  onShow() {
+    this.getPersonImgInfo();
+  },
+
   methods: {
     // 顶部导航点击事件
     topBar(index) {
@@ -113,6 +118,15 @@ export default {
     clickRight(){
       uni.navigateBack({
         delta: 1,
+      });
+    },
+        getPersonImgInfo(){
+      uni.request({
+        url: "http://127.0.0.1:3002/api/paper/chatlist", 
+        success: (res) => {
+          console.log(res);
+          this.headerimg = res.data.urlhead;
+        },
       });
     },
     // 上拉加载

@@ -44,7 +44,7 @@
         <!-- 关注 -->
         <swiper-item>
           <scroll-view scroll-y class="list" @scrolltolower="loadmore()">
-            <common-list :list="attention.list"></common-list>
+            <common-list :imgcontain="imgcontain" :list="attention.list"></common-list>
             <!-- 上拉加载 -->
             <loadMore :loadtext="attention.loadtext"></loadMore>
           </scroll-view>
@@ -93,7 +93,7 @@
             <!-- 最近更新 -->
             <view class="nearly-update-list-box">
               <view class="nearly-update-title">最近更新</view>
-              <news-list :nearlyObj="nearlyObj"></news-list>
+              <news-list :nearlyObjImg="nearlyObjImg" :nearlyObj="nearlyObj"></news-list>
             </view>
           </scroll-view>
         </swiper-item>
@@ -122,6 +122,8 @@ export default {
       scrollTop: 0,
       // 主内容区域高度
       swiperHeight: 0,
+      nearlyObjImg:'',
+      imgcontain:[],
       tabBars: [
         { name: "关注", id: "guanzhu" },
         { name: "话题", id: "topic" },
@@ -185,11 +187,7 @@ export default {
           },
         ],
       },
-      hotClassfyImage: [
-        { img: "../../static/demo/banner1.jpg" },
-        { img: "../../static/demo/banner2.jpg" },
-        { img: "../../static/demo/banner3.jpg" },
-      ],
+      hotClassfyImage: [],
       hotClassfybtn: ["最新", "游戏", "情感", "打卡", "故事", "喜爱"],
       nearlyObj: [
         {
@@ -235,6 +233,9 @@ export default {
       },
     };
   },
+    onShow() {
+    this.getPersonImgInfo();
+  },
   methods: {
     changeTab(index) {
       this.tabIndex = index;
@@ -279,6 +280,18 @@ export default {
       console.log(e);
       this.old.scrollTop = e.detail.scrollTop;
     },
+
+     getPersonImgInfo(){
+      uni.request({
+        url: "http://127.0.0.1:3002/api/news/follow", 
+        success: (res) => {
+          console.log(res);
+          this.imgcontain = res.data.objHead;
+          this.hotClassfyImage=res.data.hotClassfyImage;
+          this.nearlyObjImg=res.data.nearlyObjImg
+        },
+      });
+    }
   }
 };
 </script>

@@ -6,7 +6,7 @@
       :key="index"
     >
       <view class="headerimg">
-        <image :src="item.headerimg" mode="widthFix" lazy-load></image>
+        <image :src="headerimg" mode="widthFix" lazy-load></image>
       </view>
       <view class="username">
         <view class="name">{{ item.name }}</view>
@@ -30,10 +30,13 @@
 export default {
   props: {
     userlist: Array,
+    headerimg:String
   },
   data() {
-    return {};
+    return {
+    };
   },
+
   methods: {},
 };
 </script>

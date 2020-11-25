@@ -587,6 +587,12 @@ control(type, index) {
 
 
 
+![addinput](https://i.loli.net/2020/11/25/ogPRUafQ5FOlErL.png)
+
+
+
+![nothing](https://i.loli.net/2020/11/25/bvVgLux13KqzapA.png)
+
 2：底部导航栏小纸条图标种类和样式需要重新选择和优化
 
 
