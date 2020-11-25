@@ -1,0 +1,119 @@
+
+.common-list.data-v-bb0890d2 {
+  padding: 5px 5px;
+}
+.common-list-left.data-v-bb0890d2 {
+  padding-top: 10px;
+  -webkit-flex-shrink: 0;
+          flex-shrink: 0;
+}
+.common-list-left > image.data-v-bb0890d2 {
+  width: 38px;
+  height: 38px;
+  -webkit-border-radius: 50%;
+          border-radius: 50%;
+}
+.common-list-right.data-v-bb0890d2 {
+  padding: 5px;
+  width: 90%;
+  -webkit-box-flex: 1;
+  -webkit-flex: 1;
+          flex: 1;
+  border-bottom: 1rpx solid #eeeeee;
+}
+.nickName.data-v-bb0890d2 {
+  color: #a5a5a5;
+}
+.nickName .sex.data-v-bb0890d2 {
+  width: 30px;
+  height: 15px;
+  background: #44b3ff;
+  position: relative;
+  -webkit-border-radius: 20px;
+          border-radius: 20px;
+  color: #fff;
+  font-size: 10px;
+  top: 5px;
+  left: 4px;
+}
+.nickName view.icon-nv.data-v-bb0890d2 {
+  background: pink;
+}
+.follow.data-v-bb0890d2 {
+  font-size: 12px;
+  background: #f4f4f4;
+  -webkit-border-radius: 4px;
+          border-radius: 4px;
+  margin-right: 8px;
+  padding: 2px 4px;
+}
+.videoImg.data-v-bb0890d2 {
+  position: relative;
+}
+.videoImg > image.data-v-bb0890d2 {
+  width: 100%;
+  -webkit-border-radius: 4px;
+          border-radius: 4px;
+}
+.common-list-play.data-v-bb0890d2 {
+  color: #fff;
+  font-size: 60px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
+}
+.common-list-playinfo.data-v-bb0890d2 {
+  position: absolute;
+  left: 70%;
+  top: 80%;
+  color: #fff;
+  font-size: 10px;
+  background: rgba(0, 0, 0, 0.6);
+  padding: 3px 4px;
+  -webkit-border-radius: 7px;
+          border-radius: 7px;
+}
+.common-list-share.data-v-bb0890d2 {
+  background: #f7f7f7;
+  padding: 7px 5px;
+  width: 100%;
+  -webkit-border-radius: 7px;
+          border-radius: 7px;
+}
+.common-list-share image.data-v-bb0890d2 {
+  width: 30%;
+  height: 20%;
+}
+.common-list-share view.data-v-bb0890d2 {
+  margin-left: 8px;
+}
+.address-data.data-v-bb0890d2 {
+  color: #c5c5c5;
+}
+.followdata > view.data-v-bb0890d2 {
+  font-size: 12px;
+  margin: 0 4px;
+}
+.icon-guanbi.data-v-bb0890d2 {
+  font-size: 13px;
+  color: #d5d5d5;
+  margin-right: 10px;
+}
+.border-none.data-v-bb0890d2 {
+  border: none;
+}
+.border-bottom.data-v-bb0890d2 {
+  border-bottom: 1rpx solid #f9f9f9;
+}
+.grid-layout.data-v-bb0890d2{
+  display: grid;
+  grid-template-rows: repeat(1,1fr);
+  grid-template-columns: repeat(3,1fr);
+  gap: 10px;
+}
+.grid-layout image.data-v-bb0890d2{
+  height: 90px!important;
+}
+

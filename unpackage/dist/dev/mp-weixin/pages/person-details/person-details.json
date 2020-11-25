@@ -1,0 +1,10 @@
+{
+  "enablePullDownRefresh": false,
+  "navigationBarTextStyle": "black",
+  "usingComponents": {
+    "uni-nav-bar": "/components/uni-nav-bar/uni-nav-bar",
+    "top-bar": "/components/topbar/topbar",
+    "no-thing": "/components/common/no-thing",
+    "user-chat-list": "/components/userchat-list/userchat-list"
+  }
+}

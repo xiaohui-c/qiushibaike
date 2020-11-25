@@ -1,11 +1,25 @@
 <template>
-  <view class="uni-tab-bar">
-    <scroll-view scroll-x class="uni-swiper-tab">
-      <view class="container-topBar">
-        <view v-for="(tab,index) in tobBars" :key="tab.id">
-          <view class="swiper-tab-list" :class="{'active':tabIndex==index}" @tap="tabtap(index)">
-            {{tab.name}}
-            <view class="swiper-tab-line"></view>
+  <!-- 糗事页顶栏分类 -->
+  <view class="uni-tab-bar" style="height: 40px">
+    <scroll-view scroll-x :scroll-left="scroll" scroll-with-animation="true">
+      <view class="container-topBar u-f-aje" :class="{ padding: newspage }">
+        <view
+          v-for="(tab, index) in tobBars"
+          style="height: 40px"
+          :key="tab.id"
+        >
+          <view
+            class="swiper-tab-list"
+            :class="{ active: tabIndex == index }"
+            @tap="tabtap(index)"
+            style="transform: translateY(10px)"
+          >
+            {{ tab.name }}
+            <text v-if="tab.num" style="margin-left: 5px">{{ tab.num }}</text>
+            <view
+              class="swiper-tab-line"
+              :style="{ width: linewidth + 'px' }"
+            ></view>
           </view>
         </view>
       </view>
@@ -22,17 +36,26 @@ export default {
         return [];
       },
     },
-    tabIndex: Number,
+    linewidth: Number,
+    scroll: Number,
+    tabIndex: {
+      type: Number,
+      default: 0,
+    },
+    newspage: {
+      type: Boolean,
+      default: false,
+    },
   },
   data() {
     return {
-      tobBars:this.tabBars,
-      // topIndex:this.tapIndex
+      tobBars: this.tabBars,
+      topIndex: this.tapIndex,
     };
   },
   methods: {
     tabtap(index) {
-      this.tabIndex = index;
+      this.topIndex = index;
       this.$emit("topBar", index);
     },
   },
@@ -41,9 +64,11 @@ export default {
 
 <style scoped>
 .container-topBar {
-  display: flex;
   height: 100%;
   align-items: center;
+}
+.padding {
+  margin-left: 70px !important;
 }
 .swiper-tab-list {
   color: #969696;

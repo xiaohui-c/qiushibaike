@@ -1,0 +1,9 @@
+{
+  "navigationBarTextStyle": "black",
+  "usingComponents": {
+    "uni-nav-bar": "/components/uni-nav-bar/uni-nav-bar",
+    "top-bar": "/components/topbar/topbar",
+    "user-chat-list": "/components/userchat-list/userchat-list",
+    "no-thing": "/components/common/no-thing"
+  }
+}

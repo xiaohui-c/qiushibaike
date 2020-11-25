@@ -30,8 +30,69 @@
   border-bottom: 5rpx solid #fede33;
   border-top: 5rpx solid #fede33;
   width: 70rpx;
-  border-radius: 20rpx;
+  -webkit-border-radius: 20rpx;
+          border-radius: 20rpx;
   position: absolute;
   bottom: 10rpx;
+}
+.search-input {
+  padding: 4px 10px;
+}
+.uni-input {
+  background: #f4f4f4;
+  -webkit-border-radius: 6px;
+          border-radius: 6px;
+  height: 10px;
+  text-align: center;
+  line-height: 10px;
+}
+.icon {
+  font-size: 12px;
+}
+.topic-swiper {
+  padding: 5px 0;
+}
+.topic-swiper swiper-item {
+  height: 100%;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: flex;
+  place-content: center;
+}
+.topic-swiper image {
+  width: 95%;
+  height: 100%;
+  -webkit-border-radius: 8px;
+          border-radius: 8px;
+}
+.hot-classify-box {
+  border-top: 1px solid #f1f1f1;
+  border-bottom: 1px solid #f1f1f1;
+  padding: 15px 5px;
+}
+.hot-top-bar > text {
+  color: #525252;
+  font-size: 14px;
+  margin-left: 4px;
+}
+.hot-top-bar-right text {
+  color: #adadad;
+}
+.hot-bottom-bar {
+  margin-top: 6px;
+}
+.hot-bottom-bar text {
+  background: #f7f7f7;
+  color: #adadad;
+  padding: 3px 12px;
+  -webkit-border-radius: 4px;
+          border-radius: 4px;
+}
+.nearly-update-list {
+  padding: 8px;
+}
+.nearly-update-title {
+  color: #000;
+  padding: 4px 8px;
 }
 

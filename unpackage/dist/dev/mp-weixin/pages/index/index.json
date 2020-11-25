@@ -1,5 +1,8 @@
 {
+  "navigationBarBackgroundColor": "#ffffff",
+  "navigationBarTextStyle": "black",
   "usingComponents": {
+    "uni-nav-bar": "/components/uni-nav-bar/uni-nav-bar",
     "index-list": "/components/index/index-list",
     "top-bar": "/components/topbar/topbar",
     "load-more": "/components/common/load-more",

@@ -5,14 +5,29 @@
     "pages/paper/paper",
     "pages/home/home",
     "pages/search/search",
-    "pages/add-input/add-input"
+    "pages/add-input/add-input",
+    "pages/topic-classfy/topic-classfy",
+    "pages/topic-detail/topic-detail",
+    "pages/chating/chating",
+    "pages/chat-list/chat-list",
+    "components/userchat-list/userchat-list",
+    "pages/content/content",
+    "pages/controls/controls",
+    "pages/about/about",
+    "pages/changepassword/changepassword",
+    "pages/emailbind/emailbind",
+    "pages/editmeans/editmeans",
+    "pages/feedBack/feedBack",
+    "pages/login/login",
+    "pages/person-details/person-details"
   ],
   "subPackages": [],
   "window": {
     "navigationBarTextStyle": "white",
     "navigationBarTitleText": "仿糗事百科",
-    "navigationBarBackgroundColor": "#428FFE",
-    "backgroundColor": "#FFFFFF"
+    "navigationBarBackgroundColor": "#fff",
+    "backgroundColor": "#FFFFFF",
+    "titlePenetrate": "YES"
   },
   "tabBar": {
     "color": "#B5B5B5",
@@ -46,5 +61,6 @@
       }
     ]
   },
-  "usingComponents": {}
+  "usingComponents": {},
+  "sitemapLocation": "sitemap74.json"
 }

@@ -1,0 +1,1 @@
+<view class="data-v-869cef64"><view data-event-opts="{{[['tap',[['toLogin',['$event']]]]]}}" class="password data-v-869cef64" bindtap="__e">{{''+type+'登录'}}<text class="icon iconfont icon-jinru data-v-869cef64"></text></view></view>

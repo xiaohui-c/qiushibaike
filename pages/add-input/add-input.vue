@@ -15,9 +15,9 @@
 		<uploud-images @uploud="uploud"></uploud-images>
 		<!-- 弹出公告 -->
 		<uni-popup :show="showpopup" position="middle" mode="fixed" @hidePopup="hidePopup">
-			<view class="gonggao">
+			<view class="gonggao" v-show="showpopup">
 				<view class="u-f-asb">
-					<image src="../../static/common/addinput.png" mode="widthFix"></image>
+					<image src="https://i.loli.net/2020/11/25/ogPRUafQ5FOlErL.png" mode="widthFix"></image>
 				</view>
 				<view>1.涉及黄色，政治，广告及骚扰信息</view>
 				<view>2.涉及人身攻击</view>
@@ -81,6 +81,7 @@
 			},
 			hidePopup(){
 				this.showpopup=false;
+				console.log('yes ok');
 			},
 			// 保存为草稿
 		savafile(){
