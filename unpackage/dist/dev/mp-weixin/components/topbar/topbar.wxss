@@ -29,4 +29,14 @@
   -webkit-transition: all 250ms;
   transition: all 250ms;
 }
+.isfixedconfirm.data-v-76c6baf8 {
+  position: fixed !important;
+  z-index: 10000;
+  background: #ffffff;
+}
+#wxtopbar.data-v-76c6baf8 {
+  position: absolute;
+  top: 100px;
+}
+
 

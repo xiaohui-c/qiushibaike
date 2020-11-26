@@ -1,5 +1,5 @@
 <template>
-  <view class="container">
+  <view class="container status_bar">
       <uni-nav-bar
       :fixed="true"
       :statusBar="true"
@@ -275,7 +275,7 @@ export default {
     },
     getPersonImgInfo(){
       uni.request({
-        url: "http://127.0.0.1:3002/api/paper/header", 
+        url: "https://www.xiaohui.ac.cn/netdata/api/paper/header", 
         success: (res) => {
           console.log(res);
           headerimg=res.data.objHead
@@ -312,6 +312,7 @@ export default {
 }
 .chat-right {
   flex: 10;
+  position: relative;
   display: grid;
   grid-template-columns: 4fr 1fr;
   grid-template-rows: repeat(2, 1fr);
@@ -327,6 +328,12 @@ export default {
 }
 .chat-right .finaltime {
   color: #dbdbdb;
+  transform: translateX(-10px);
+}
+.chat-right .uni-badge-left-margin{
+  position: absolute;
+  right: 20px;
+  top: 30px;
 }
 .chat-right .ellipses-msg {
   width: 240px;

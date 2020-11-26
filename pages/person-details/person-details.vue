@@ -1,7 +1,12 @@
 <template>
   <view class="person-container">
     <!-- 自定义导航栏 -->
-    <uni-nav-bar :statusBar="true" @clickRight="dropDownMenu" @clickLeft="back" class="head-area">
+    <uni-nav-bar
+      :statusBar="true"
+      @clickRight="dropDownMenu"
+      @clickLeft="back"
+      class="head-area"
+    >
       <!-- 左边 -->
       <block slot="left">
         <view class="nav-left u-f-asb">
@@ -23,11 +28,7 @@
       <view id="2"><text class="icon iconfont icon-qingchu"></text>拉黑</view>
     </view>
     <view class="topic-bg">
-      <image
-        :src="bg"
-        lazy-load
-        mode="aspectFill"
-      ></image>
+      <image :src="bg" lazy-load mode="aspectFill"></image>
     </view>
     <!-- 头像区域 -->
     <view class="header-container u-f-dasb u-f-ac">
@@ -93,13 +94,13 @@
             </scroll-view>
           </swiper-item>
           <!-- 糗事 -->
-          <swiper-item>
+          <swiper-item style="height:50%;">
             <scroll-view scroll-y class="list">
               <no-thing></no-thing>
             </scroll-view>
           </swiper-item>
           <!-- 动态 -->
-          <swiper-item>
+          <swiper-item style="height:50%;">
             <scroll-view scroll-y class="list">
               <no-thing></no-thing>
             </scroll-view>
@@ -111,7 +112,7 @@
 </template>
 
 <script>
-import topBar from "../../components/topbar/topbar.vue";
+import topBar from "../../components/topbar/topbar-detail.vue";
 import noThing from "../../components/common/no-thing.vue";
 import userChatList from "../../components/userchat-list/userchat-list.vue";
 export default {
@@ -123,8 +124,8 @@ export default {
   data() {
     return {
       dropMeun: false,
-      headerimg:'',
-      bg:'',
+      headerimg: "",
+      bg: "",
       tabIndex: 0,
       swiperHeight: 0,
       tabBars: [
@@ -144,7 +145,7 @@ export default {
       },
     });
   },
-   onShow() {
+  onShow() {
     this.getPersonImgInfo();
   },
   methods: {
@@ -165,21 +166,21 @@ export default {
     dropDownMenu() {
       this.dropMeun = !this.dropMeun;
     },
-    back(){
+    back() {
       uni.navigateBack({
         delta: 1,
       });
     },
-    getPersonImgInfo(){
+    getPersonImgInfo() {
       uni.request({
-        url: "http://127.0.0.1:3002/api/home/person", 
+        url: "https://www.xiaohui.ac.cn/netdata/api/home/person",
         success: (res) => {
           console.log(res);
           this.headerimg = res.data.urlhead;
           this.bg = res.data.urlgb;
         },
       });
-    }
+    },
   },
 };
 </script>

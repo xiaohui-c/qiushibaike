@@ -1,5 +1,5 @@
 <template>
-	<view>
+	<view class="status_bar">
 		<!-- 自定义导航栏 -->
 		<uni-nav-bar :statusBar="true" rightText="发布" left-icon="back" @clickLeft="back" @clickRight="submit">
 			<view class="title u-f-asb" @tap="changelook">
@@ -8,7 +8,7 @@
 			</view>
 		</uni-nav-bar>
 		<!-- 多行输入框 -->
-		<view>
+		<view style="padding:15px 15px 0 15px">
 			<textarea v-model="text" placeholder="说一句话吧~" />
 		</view>
 		<!-- 上传多图 -->

@@ -1,22 +1,29 @@
 <template>
   <!-- 糗事页顶栏分类 -->
-  <view class="uni-tab-bar" style="height: 40px">
-    <scroll-view scroll-x :scroll-left="scroll" scroll-with-animation="true">
+  <view class="uni-tab-bar">
+    <scroll-view
+      scroll-x
+      :scroll-left="scroll"
+      scroll-with-animation="true"
+      class="scrollView"
+      style="position:fixed;z-index:10000;background:#ffffff;"
+    >
       <view class="container-topBar u-f-aje" :class="{ padding: newspage }">
         <view
           v-for="(tab, index) in tobBars"
-          style="height: 40px"
+          style="height: 40px;"
           :key="tab.id"
         >
           <view
             class="swiper-tab-list"
             :class="{ active: tabIndex == index }"
+            style="transform:translateY(10px)"
             @tap="tabtap(index)"
-            style="transform: translateY(10px)"
           >
             {{ tab.name }}
             <text v-if="tab.num" style="margin-left: 5px">{{ tab.num }}</text>
             <view
+              id="wxtopbar"
               class="swiper-tab-line"
               :style="{ width: linewidth + 'px' }"
             ></view>
@@ -63,6 +70,11 @@ export default {
 </script>
 
 <style scoped>
+/* #ifdef H5 */
+.scrollView {
+  top: 40px;
+}
+/* #endif */
 .container-topBar {
   height: 100%;
   align-items: center;
@@ -90,4 +102,16 @@ export default {
   top: -7px;
   transition: all 250ms;
 }
+
+.isfixedconfirm {
+  position: fixed !important;
+  z-index: 10000;
+  background: #ffffff;
+}
+/* #ifdef MP-WEIXIN */
+#wxtopbar {
+  position: absolute;
+  top: 100px;
+}
+/* #endif */
 </style>

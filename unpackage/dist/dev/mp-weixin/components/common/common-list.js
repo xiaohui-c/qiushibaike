@@ -209,6 +209,7 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
 var _default2 =
 {
   props: {
@@ -218,7 +219,9 @@ var _default2 =
       return [];
     },
     commentDetail: Boolean,
-    morePic: Boolean },
+    morePic: Boolean,
+    imgcontain: Array,
+    viewPicArr: Array },
 
   data: function data() {
     return {

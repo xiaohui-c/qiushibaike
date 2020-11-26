@@ -1,5 +1,5 @@
 <template>
-  <view class="container">
+  <view class="container status_bar">
        <!-- 自定义导航栏 -->
     <uni-nav-bar
       :fixed="true"
@@ -119,7 +119,7 @@ export default {
     },
      getPersonImgInfo(){
       uni.request({
-        url: "http://127.0.0.1:3002/api/paper/chat", 
+        url: "https://www.xiaohui.ac.cn/netdata/api/paper/chat", 
         success: (res) => {
           console.log(res);
           this.objHead = res.data.objHead;

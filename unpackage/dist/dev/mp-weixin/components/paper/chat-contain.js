@@ -135,10 +135,12 @@ Object.defineProperty(exports, "__esModule", { value: true });exports.default = 
 //
 //
 //
+//
 var _default =
 {
   props: {
-    chatList: Array },
+    chatList: Array,
+    objHead: Array },
 
   data: function data() {
     return {};

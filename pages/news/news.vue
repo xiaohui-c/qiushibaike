@@ -1,5 +1,5 @@
 <template>
-  <view>
+  <view class="status_bar">
     <!-- 自定义导航栏 -->
     <uni-nav-bar
       :fixed="true"
@@ -29,7 +29,7 @@
       <!-- 右边 -->
       <block slot="right">
         <view class="nav-right u-f-asb">
-          <view class="icon iconfont icon-bianji1"></view>
+          <view class="icon iconfont icon-bianji1" style="transform:translateX(14px)"></view>
         </view>
       </block>
     </uni-nav-bar>
@@ -55,7 +55,7 @@
             <!-- 搜索框 -->
             <view class="search-input">
               <input
-                class="uni-input u-f-asb"
+                class="uni-input"
                 placeholder-class="icon iconfont icon-sousuo topic-search"
                 placeholder="搜索内容"
               />
@@ -283,7 +283,7 @@ export default {
 
      getPersonImgInfo(){
       uni.request({
-        url: "http://127.0.0.1:3002/api/news/follow", 
+        url: "https://www.xiaohui.ac.cn/netdata/api/news/follow", 
         success: (res) => {
           console.log(res);
           this.imgcontain = res.data.objHead;

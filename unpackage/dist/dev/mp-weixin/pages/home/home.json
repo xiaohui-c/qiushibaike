@@ -2,6 +2,7 @@
   "navigationBarTitleText": "我",
   "navigationBarBackgroundColor": "#ffffff",
   "navigationBarTextStyle": "black",
+  "navigationStyle": "custom",
   "usingComponents": {
     "uni-nav-bar": "/components/uni-nav-bar/uni-nav-bar",
     "third-login": "/components/common/third-login",

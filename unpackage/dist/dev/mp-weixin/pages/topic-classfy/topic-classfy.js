@@ -179,7 +179,7 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
-var _loadmore = __webpack_require__(/*! ../../Mixin/loadmore.js */ 19);var topBar = function topBar() {__webpack_require__.e(/*! require.ensure | components/topbar/topbar */ "components/topbar/topbar").then((function () {return resolve(__webpack_require__(/*! ../../components/topbar/topbar.vue */ 210));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var newsList = function newsList() {__webpack_require__.e(/*! require.ensure | components/news/news-list */ "components/news/news-list").then((function () {return resolve(__webpack_require__(/*! ../../components/news/news-list.vue */ 238));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var uniNavBar = function uniNavBar() {__webpack_require__.e(/*! require.ensure | components/uni-nav-bar/uni-nav-bar */ "components/uni-nav-bar/uni-nav-bar").then((function () {return resolve(__webpack_require__(/*! ../../components/uni-nav-bar/uni-nav-bar.vue */ 196));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var loadMore = function loadMore() {__webpack_require__.e(/*! require.ensure | components/common/load-more */ "components/common/load-more").then((function () {return resolve(__webpack_require__(/*! ../../components/common/load-more.vue */ 217));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var noThing = function noThing() {__webpack_require__.e(/*! require.ensure | components/common/no-thing */ "components/common/no-thing").then((function () {return resolve(__webpack_require__(/*! ../../components/common/no-thing.vue */ 224));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var _default =
+var _loadmore = __webpack_require__(/*! ../../Mixin/loadmore.js */ 21);var topBar = function topBar() {__webpack_require__.e(/*! require.ensure | components/topbar/topbar */ "components/topbar/topbar").then((function () {return resolve(__webpack_require__(/*! ../../components/topbar/topbar.vue */ 210));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var newsList = function newsList() {__webpack_require__.e(/*! require.ensure | components/news/news-list */ "components/news/news-list").then((function () {return resolve(__webpack_require__(/*! ../../components/news/news-list.vue */ 238));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var uniNavBar = function uniNavBar() {__webpack_require__.e(/*! require.ensure | components/uni-nav-bar/uni-nav-bar */ "components/uni-nav-bar/uni-nav-bar").then((function () {return resolve(__webpack_require__(/*! ../../components/uni-nav-bar/uni-nav-bar.vue */ 196));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var loadMore = function loadMore() {__webpack_require__.e(/*! require.ensure | components/common/load-more */ "components/common/load-more").then((function () {return resolve(__webpack_require__(/*! ../../components/common/load-more.vue */ 217));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var noThing = function noThing() {__webpack_require__.e(/*! require.ensure | components/common/no-thing */ "components/common/no-thing").then((function () {return resolve(__webpack_require__(/*! ../../components/common/no-thing.vue */ 224));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var _default =
 {
   mixins: [_loadmore.statMixin],
   components: {
@@ -195,6 +195,7 @@ var _loadmore = __webpack_require__(/*! ../../Mixin/loadmore.js */ 19);var topBa
       tabIndex: 0,
       // 主内容区域高度
       swiperHeight: 0,
+      nearlyObjImg: '',
       scroll: 0,
       // 视口宽度(width)
       scrollwidth: 360,
@@ -286,7 +287,19 @@ var _loadmore = __webpack_require__(/*! ../../Mixin/loadmore.js */ 19);var topBa
 
 
   },
+  onShow: function onShow() {
+    this.getPersonImgInfo();
+  },
   methods: {
+    getPersonImgInfo: function getPersonImgInfo() {var _this = this;
+      uni.request({
+        url: "https://www.xiaohui.ac.cn/netdata/api/news/follow",
+        success: function success(res) {
+          console.log(res);
+          _this.nearlyObjImg = res.data.nearlyObjImg;
+        } });
+
+    },
     back: function back() {
       uni.navigateBack({ delta: 1 });
     },

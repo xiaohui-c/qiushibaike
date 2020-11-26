@@ -192,6 +192,7 @@ var _time = _interopRequireDefault(__webpack_require__(/*! ../../util/time.js */
         itemH: 0 },
 
       chatList: [],
+      objHead: [],
       list: [
       {
         isMe: true,
@@ -215,6 +216,9 @@ var _time = _interopRequireDefault(__webpack_require__(/*! ../../util/time.js */
   },
   onLoad: function onLoad() {
     this.getData();
+  },
+  onShow: function onShow() {
+    this.getPersonImgInfo();
   },
   methods: {
     sendmessage: function sendmessage() {
@@ -249,13 +253,22 @@ var _time = _interopRequireDefault(__webpack_require__(/*! ../../util/time.js */
         // error
       }
     },
+    getPersonImgInfo: function getPersonImgInfo() {var _this2 = this;
+      uni.request({
+        url: "https://www.xiaohui.ac.cn/netdata/api/paper/chat",
+        success: function success(res) {
+          console.log(res);
+          _this2.objHead = res.data.objHead;
+        } });
+
+    },
     // 发送信息，页面滑动
-    pageToBottom: function pageToBottom() {var _this2 = this;
+    pageToBottom: function pageToBottom() {var _this3 = this;
       var query = uni.createSelectorQuery();
       query.select("#scrollview").boundingClientRect();
       query.select("#userItem").boundingClientRect();
       query.exec(function (res) {
-        _this2.style.itemH = res[1].height;
+        _this3.style.itemH = res[1].height;
       });
       if (this.style.itemH > this.style.contentH) {
         this.scrollTop = this.style.itemH;

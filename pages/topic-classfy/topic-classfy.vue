@@ -1,5 +1,5 @@
 <template>
-  <view>
+  <view class="status_bar_classify">
     <!-- 自定义导航栏 -->
     <uni-nav-bar :statusBar="true" left-icon="back" @clickLeft="back">
       <view class="title u-f-asb" style="width: 100%"> 话题分类 </view>
@@ -13,7 +13,7 @@
       :newspage="newspage"
     ></topBar>
     <!-- 图文列表区域 -->
-    <view class="uni-tab-bar">
+    <view class="uni-tab-bar" style="margin-top:20px;">
       <swiper
         class="swiper-box"
         :style="{ height: swiperHeight + 'px' }"
@@ -159,7 +159,7 @@ export default {
   methods: {
      getPersonImgInfo(){
       uni.request({
-        url: "http://127.0.0.1:3002/api/news/follow", 
+        url: "https://www.xiaohui.ac.cn/netdata/api/news/follow", 
         success: (res) => {
           console.log(res);
           this.nearlyObjImg=res.data.nearlyObjImg

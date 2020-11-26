@@ -3,6 +3,7 @@
   "enablePullDownRefresh": true,
   "navigationBarTextStyle": "black",
   "navigationBarBackgroundColor": "#ffffff",
+  "navigationStyle": "custom",
   "usingComponents": {
     "uni-nav-bar": "/components/uni-nav-bar/uni-nav-bar",
     "uni-badge": "/components/uni-badge/uni-badge",

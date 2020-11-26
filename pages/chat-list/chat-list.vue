@@ -1,5 +1,5 @@
 <template>
-  <view>
+  <view class="status_bar">
     <!-- 自定义导航栏 -->
     <uni-nav-bar :fixed="true" @clickRight="clickRight" :statusBar="true" class="head-area u-f">
       <!-- 左边 -->
@@ -19,7 +19,7 @@
         </view>
       </block>
     </uni-nav-bar>
-    <view class="topbars">
+    <view class="topbars" style="margin-bottom: 20px;">
       <topBar :tabBars="tabBars" :tabIndex="tabIndex" @topBar="topBar"></topBar>
     </view>
 
@@ -122,7 +122,7 @@ export default {
     },
         getPersonImgInfo(){
       uni.request({
-        url: "http://127.0.0.1:3002/api/paper/chatlist", 
+        url: "https://www.xiaohui.ac.cn/netdata/api/paper/chatlist", 
         success: (res) => {
           console.log(res);
           this.headerimg = res.data.urlhead;

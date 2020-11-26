@@ -170,7 +170,11 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
-var _loadmore = __webpack_require__(/*! ../../Mixin/loadmore.js */ 19);var uniNavBar = function uniNavBar() {__webpack_require__.e(/*! require.ensure | components/uni-nav-bar/uni-nav-bar */ "components/uni-nav-bar/uni-nav-bar").then((function () {return resolve(__webpack_require__(/*! ../../components/uni-nav-bar/uni-nav-bar.vue */ 196));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var IndexList = function IndexList() {__webpack_require__.e(/*! require.ensure | components/index/index-list */ "components/index/index-list").then((function () {return resolve(__webpack_require__(/*! ../../components/index/index-list.vue */ 203));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var loadMore = function loadMore() {__webpack_require__.e(/*! require.ensure | components/common/load-more */ "components/common/load-more").then((function () {return resolve(__webpack_require__(/*! ../../components/common/load-more.vue */ 217));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var noThing = function noThing() {__webpack_require__.e(/*! require.ensure | components/common/no-thing */ "components/common/no-thing").then((function () {return resolve(__webpack_require__(/*! ../../components/common/no-thing.vue */ 224));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var _default =
+
+
+
+
+var _loadmore = __webpack_require__(/*! ../../Mixin/loadmore.js */ 21);var uniNavBar = function uniNavBar() {__webpack_require__.e(/*! require.ensure | components/uni-nav-bar/uni-nav-bar */ "components/uni-nav-bar/uni-nav-bar").then((function () {return resolve(__webpack_require__(/*! ../../components/uni-nav-bar/uni-nav-bar.vue */ 196));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var IndexList = function IndexList() {__webpack_require__.e(/*! require.ensure | components/index/index-list */ "components/index/index-list").then((function () {return resolve(__webpack_require__(/*! ../../components/index/index-list.vue */ 203));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var loadMore = function loadMore() {__webpack_require__.e(/*! require.ensure | components/common/load-more */ "components/common/load-more").then((function () {return resolve(__webpack_require__(/*! ../../components/common/load-more.vue */ 217));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var noThing = function noThing() {__webpack_require__.e(/*! require.ensure | components/common/no-thing */ "components/common/no-thing").then((function () {return resolve(__webpack_require__(/*! ../../components/common/no-thing.vue */ 224));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var _default =
 
 {
   mixins: [_loadmore.statMixin],
@@ -188,12 +192,12 @@ var _loadmore = __webpack_require__(/*! ../../Mixin/loadmore.js */ 19);var uniNa
       swiperHeight: 0,
       list: [],
       obj: {
-        userpic: __webpack_require__(/*! ../../static/demo/userpic/12.jpg */ 20),
+        // userpic: require("../../static/demo/userpic/12.jpg"),
         username: "小马",
         follow: false,
         title: "新时代社会主义",
         type: "img", //img:图文,video:视频
-        titlepic: __webpack_require__(/*! ../../static/demo/datapic/11.jpg */ 21),
+        // titlepic: require("../../static/demo/datapic/11.jpg"),
         infonum: {
           index: 2, // !0表示没有操作，1表示已经顶了，2表示已经踩了
           dingnum: 11,

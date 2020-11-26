@@ -243,7 +243,7 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
-var _loadmore = __webpack_require__(/*! ../../Mixin/loadmore.js */ 19);var uniNavBar = function uniNavBar() {__webpack_require__.e(/*! require.ensure | components/uni-nav-bar/uni-nav-bar */ "components/uni-nav-bar/uni-nav-bar").then((function () {return resolve(__webpack_require__(/*! ../../components/uni-nav-bar/uni-nav-bar.vue */ 196));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var commonList = function commonList() {__webpack_require__.e(/*! require.ensure | components/common/common-list */ "components/common/common-list").then((function () {return resolve(__webpack_require__(/*! ../../components/common/common-list.vue */ 231));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var loadMore = function loadMore() {__webpack_require__.e(/*! require.ensure | components/common/load-more */ "components/common/load-more").then((function () {return resolve(__webpack_require__(/*! ../../components/common/load-more.vue */ 217));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var newsList = function newsList() {__webpack_require__.e(/*! require.ensure | components/news/news-list */ "components/news/news-list").then((function () {return resolve(__webpack_require__(/*! ../../components/news/news-list.vue */ 238));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var _default =
+var _loadmore = __webpack_require__(/*! ../../Mixin/loadmore.js */ 21);var uniNavBar = function uniNavBar() {__webpack_require__.e(/*! require.ensure | components/uni-nav-bar/uni-nav-bar */ "components/uni-nav-bar/uni-nav-bar").then((function () {return resolve(__webpack_require__(/*! ../../components/uni-nav-bar/uni-nav-bar.vue */ 196));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var commonList = function commonList() {__webpack_require__.e(/*! require.ensure | components/common/common-list */ "components/common/common-list").then((function () {return resolve(__webpack_require__(/*! ../../components/common/common-list.vue */ 231));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var loadMore = function loadMore() {__webpack_require__.e(/*! require.ensure | components/common/load-more */ "components/common/load-more").then((function () {return resolve(__webpack_require__(/*! ../../components/common/load-more.vue */ 217));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var newsList = function newsList() {__webpack_require__.e(/*! require.ensure | components/news/news-list */ "components/news/news-list").then((function () {return resolve(__webpack_require__(/*! ../../components/news/news-list.vue */ 238));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var _default =
 {
   mixins: [_loadmore.statMixin],
   components: {
@@ -258,6 +258,8 @@ var _loadmore = __webpack_require__(/*! ../../Mixin/loadmore.js */ 19);var uniNa
       scrollTop: 0,
       // 主内容区域高度
       swiperHeight: 0,
+      nearlyObjImg: '',
+      imgcontain: [],
       tabBars: [
       { name: "关注", id: "guanzhu" },
       { name: "话题", id: "topic" }],
@@ -321,11 +323,7 @@ var _loadmore = __webpack_require__(/*! ../../Mixin/loadmore.js */ 19);var uniNa
 
 
 
-      hotClassfyImage: [
-      { img: "../../static/demo/banner1.jpg" },
-      { img: "../../static/demo/banner2.jpg" },
-      { img: "../../static/demo/banner3.jpg" }],
-
+      hotClassfyImage: [],
       hotClassfybtn: ["最新", "游戏", "情感", "打卡", "故事", "喜爱"],
       nearlyObj: [
       {
@@ -371,6 +369,9 @@ var _loadmore = __webpack_require__(/*! ../../Mixin/loadmore.js */ 19);var uniNa
 
 
   },
+  onShow: function onShow() {
+    this.getPersonImgInfo();
+  },
   methods: {
     changeTab: function changeTab(index) {
       this.tabIndex = index;
@@ -414,6 +415,18 @@ var _loadmore = __webpack_require__(/*! ../../Mixin/loadmore.js */ 19);var uniNa
     scroll: function scroll(e) {
       console.log(e);
       this.old.scrollTop = e.detail.scrollTop;
+    },
+
+    getPersonImgInfo: function getPersonImgInfo() {var _this2 = this;
+      uni.request({
+        url: "https://www.xiaohui.ac.cn/netdata/api/news/follow",
+        success: function success(res) {
+          console.log(res);
+          _this2.imgcontain = res.data.objHead;
+          _this2.hotClassfyImage = res.data.hotClassfyImage;
+          _this2.nearlyObjImg = res.data.nearlyObjImg;
+        } });
+
     } } };exports.default = _default;
 /* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./node_modules/@dcloudio/uni-mp-weixin/dist/index.js */ 1)["default"]))
 

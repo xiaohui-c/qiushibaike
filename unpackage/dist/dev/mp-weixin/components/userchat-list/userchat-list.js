@@ -161,11 +161,14 @@ Object.defineProperty(exports, "__esModule", { value: true });exports.default = 
 var _default =
 {
   props: {
-    userlist: Array },
+    userlist: Array,
+    headerimg: String },
 
   data: function data() {
     return {};
+
   },
+
   methods: {} };exports.default = _default;
 
 /***/ }),

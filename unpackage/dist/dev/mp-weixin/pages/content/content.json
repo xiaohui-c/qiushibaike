@@ -2,6 +2,7 @@
   "navigationBarTextStyle": "black",
   "navigationBarTitleText": "内容页",
   "enablePullDownRefresh": false,
+  "navigationStyle": "custom",
   "usingComponents": {
     "uni-nav-bar": "/components/uni-nav-bar/uni-nav-bar",
     "common-list": "/components/common/common-list",

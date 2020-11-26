@@ -80,4 +80,8 @@
   font-size: 18px;
   z-index: 1200;
 }
+.topbars.data-v-8074c734 {
+  position: relative;
+  height: 50px;
+}
 

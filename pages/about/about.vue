@@ -37,7 +37,7 @@ export default {
   methods: {
     getImage() {
       uni.request({
-        url: "http://127.0.0.1:3002/api/logo/about", 
+        url: "https://www.xiaohui.ac.cn/netdata/api/logo/about", 
         success: (res) => {
           console.log(res);
           this.logo=res.data.url

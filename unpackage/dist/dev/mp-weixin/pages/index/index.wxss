@@ -1,4 +1,10 @@
 
+.container.data-v-57280228 {
+  position: relative;
+}
+.status_bar.data-v-57280228 {
+ margin-top: 40px;
+}
 .icon-qiandao.data-v-57280228 {
   color: #ffab48;
 }
@@ -24,5 +30,8 @@
 }
 .topic-search.data-v-57280228 {
   font-size: 12px;
+}
+.uni-tab-bar.data-v-57280228{
+  margin-top: 30px;
 }
 

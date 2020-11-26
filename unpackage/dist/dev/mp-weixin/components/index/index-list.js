@@ -189,8 +189,10 @@ var _default2 =
       type: Array,
       default: function _default() {
         return [];
-      } } },
+      } },
 
+    urlTopImg: String,
+    urlhead: String },
 
   data: function data() {
     return {

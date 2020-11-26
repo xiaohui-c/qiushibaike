@@ -24,6 +24,7 @@
   -webkit-box-flex: 10;
   -webkit-flex: 10;
           flex: 10;
+  position: relative;
   display: grid;
   grid-template-columns: 4fr 1fr;
   grid-template-rows: repeat(2, 1fr);
@@ -40,6 +41,13 @@
 }
 .chat-right .finaltime.data-v-78527a40 {
   color: #dbdbdb;
+  -webkit-transform: translateX(-10px);
+          transform: translateX(-10px);
+}
+.chat-right .uni-badge-left-margin.data-v-78527a40{
+  position: absolute;
+  right: 20px;
+  top: 30px;
 }
 .chat-right .ellipses-msg.data-v-78527a40 {
   width: 240px;

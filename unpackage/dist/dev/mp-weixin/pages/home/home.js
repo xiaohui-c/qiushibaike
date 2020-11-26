@@ -134,7 +134,7 @@ __webpack_require__.r(__webpack_exports__);
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-/* WEBPACK VAR INJECTION */(function(uni) {Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0;
+/* WEBPACK VAR INJECTION */(function(uni) {Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0;var thirdLogin = function thirdLogin() {__webpack_require__.e(/*! require.ensure | components/common/third-login */ "components/common/third-login").then((function () {return resolve(__webpack_require__(/*! ../../components/common/third-login.vue */ 252));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var tipLogin = function tipLogin() {__webpack_require__.e(/*! require.ensure | components/common/tip-login */ "components/common/tip-login").then((function () {return resolve(__webpack_require__(/*! ../../components/common/tip-login.vue */ 259));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var _default =
 
 
 
@@ -200,17 +200,14 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
-
-
-
-var _vuex = __webpack_require__(/*! vuex */ 355);function ownKeys(object, enumerableOnly) {var keys = Object.keys(object);if (Object.getOwnPropertySymbols) {var symbols = Object.getOwnPropertySymbols(object);if (enumerableOnly) symbols = symbols.filter(function (sym) {return Object.getOwnPropertyDescriptor(object, sym).enumerable;});keys.push.apply(keys, symbols);}return keys;}function _objectSpread(target) {for (var i = 1; i < arguments.length; i++) {var source = arguments[i] != null ? arguments[i] : {};if (i % 2) {ownKeys(Object(source), true).forEach(function (key) {_defineProperty(target, key, source[key]);});} else if (Object.getOwnPropertyDescriptors) {Object.defineProperties(target, Object.getOwnPropertyDescriptors(source));} else {ownKeys(Object(source)).forEach(function (key) {Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key));});}}return target;}function _defineProperty(obj, key, value) {if (key in obj) {Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true });} else {obj[key] = value;}return obj;}var thirdLogin = function thirdLogin() {__webpack_require__.e(/*! require.ensure | components/common/third-login */ "components/common/third-login").then((function () {return resolve(__webpack_require__(/*! ../../components/common/third-login.vue */ 252));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var tipLogin = function tipLogin() {__webpack_require__.e(/*! require.ensure | components/common/tip-login */ "components/common/tip-login").then((function () {return resolve(__webpack_require__(/*! ../../components/common/tip-login.vue */ 259));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var _default =
 {
   components: { thirdLogin: thirdLogin, tipLogin: tipLogin },
   data: function data() {
     return {
       login: true,
       type: "账号密码",
-      titleName: '我',
+      titleName: "我",
+      ads: "",
       userobj: {
         headerimg: "",
         username: "刘小灰",
@@ -230,9 +227,9 @@ var _vuex = __webpack_require__(/*! vuex */ 355);function ownKeys(object, enumer
 
 
   },
-  computed: _objectSpread({},
-  (0, _vuex.mapState)(['demo'])),
-
+  onShow: function onShow() {
+    this.getImage();
+  },
   methods: {
     toLogin: function toLogin() {
       uni.navigateTo({
@@ -247,6 +244,16 @@ var _vuex = __webpack_require__(/*! vuex */ 355);function ownKeys(object, enumer
     toSetting: function toSetting() {
       uni.navigateTo({
         url: "../controls/controls" });
+
+    },
+    getImage: function getImage() {var _this = this;
+      uni.request({
+        url: "https://www.xiaohui.ac.cn/netdata/api/home/header",
+        success: function success(res) {
+          console.log(res);
+          _this.userobj.headerimg = res.data.urlhead;
+          _this.ads = res.data.urlads;
+        } });
 
     } } };exports.default = _default;
 /* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./node_modules/@dcloudio/uni-mp-weixin/dist/index.js */ 1)["default"]))

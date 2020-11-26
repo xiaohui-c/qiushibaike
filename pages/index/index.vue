@@ -1,46 +1,54 @@
 <template>
   <!-- 页面整体容器 -->
   <view class="container">
-    <!-- 糗事页 -->
-    <!-- 自定义导航栏 -->
-    <uni-nav-bar
-      :fixed="true"
-      :statusBar="true"
-      @clickRight="openAdd"
-      class="head-area"
-    >
-      <!-- 左边 -->
-      <block slot="left">
-        <view class="nav-left">
-          <view class="icon iconfont icon-qiandao"></view>
-        </view>
-      </block>
-      <!-- 中间 -->
-      <view class="nav-tab-bar u-f-asb serach-input" style="margin-top:20px;margin-bottom:10px;height:5px;" @tap="serachContainer">
-        <input
-          class="uni-input u-f-asb"
-          disabled
-          placeholder-class="icon iconfont icon-sousuo topic-search"
-          placeholder="搜索糗事"
-        />
-      </view>
-      <!-- 右边 -->
-      <block slot="right">
-        <view class="nav-right u-f-asb">
-          <view class="icon iconfont icon-bianji1"></view>
-        </view>
-      </block>
-    </uni-nav-bar>
-    <!-- 顶部导航栏 组件已封装-->
-    <topBar
-      :tabBars="tabBars"
-      :tabIndex="tabIndex"
-      @topBar="topBar"
-      :newspage="newspage"
-      :linewidth="linewidth"
-      :scroll="scroll"
-    ></topBar>
+    <view class="status_bar">
+      <!-- 这里是状态栏 -->
 
+      <!-- 糗事页 -->
+      <!-- 自定义导航栏 -->
+      <uni-nav-bar
+        :fixed="true"
+        :statusBar="true"
+        @clickRight="openAdd"
+        class="head-area"
+      >
+        <!-- 左边 -->
+        <block slot="left">
+          <view class="nav-left">
+            <view class="icon iconfont icon-qiandao"></view>
+          </view>
+        </block>
+        <!-- 中间 -->
+        <view
+          class="nav-tab-bar u-f-asb serach-input"
+
+          @tap="serachContainer"
+        >
+          <input
+            class="uni-input"
+            disabled
+            placeholder-class="icon iconfont icon-sousuo topic-search"
+            placeholder="搜索糗事"
+          />
+        </view>
+        <!-- 右边 -->
+        <block slot="right">
+          <view class="nav-right u-f-asb">
+            <view class="icon iconfont icon-bianji1"></view>
+          </view>
+        </block>
+      </uni-nav-bar>
+
+      <!-- 顶部导航栏 组件已封装-->
+      <topBar
+        :tabBars="tabBars"
+        :tabIndex="tabIndex"
+        @topBar="topBar"
+        :newspage="newspage"
+        :linewidth="linewidth"
+        :scroll="scroll"
+      ></topBar>
+    </view>
     <!-- 图文列表区域 -->
     <view class="uni-tab-bar">
       <swiper
@@ -54,7 +62,11 @@
             <template v-if="item.list.length > 0">
               <!-- 每一个话题区域 组件已封装-->
               <block>
-                <IndexList :urlTopImg="urlTopImg" :urlhead="urlhead" :list="item.list"></IndexList>
+                <IndexList
+                  :urlTopImg="urlTopImg"
+                  :urlhead="urlhead"
+                  :list="item.list"
+                ></IndexList>
               </block>
               <!-- 上拉加载区域 组件已封装-->
               <loadMore :loadtext="item.loadtext"></loadMore>
@@ -95,10 +107,11 @@ export default {
       scroll: 0,
       // 视口宽度(width)
       scrollwidth: 360,
+      fixedconfirm:true,
       linewidth: 38,
       newspage: true,
-      urlTopImg:'',
-      urlhead:'',
+      urlTopImg: "",
+      urlhead: "",
       tabBars: [
         { name: "关注", id: "guanzhu" },
         { name: "推荐", id: "tuijian" },
@@ -112,12 +125,12 @@ export default {
           loadtext: "上拉加载更多",
           list: [
             {
-              userpic: require("../../static/demo/userpic/12.jpg"),
+              // userpic: require("../../static/demo/userpic/12.jpg"),
               username: "小马",
               follow: false,
               title: "新时代社会主义",
               type: "img", //img:图文,video:视频
-              titlepic: require("../../static/demo/datapic/11.jpg"),
+              // titlepic: require("../../static/demo/datapic/11.jpg"),
               infonum: {
                 index: 2, // !0表示没有操作，1表示已经顶了，2表示已经踩了
                 dingnum: 11,
@@ -127,14 +140,14 @@ export default {
               forward: 12,
             },
             {
-              userpic: require("../../static/demo/userpic/12.jpg"),
+              // userpic: require("../../static/demo/userpic/12.jpg"),
               username: "小马",
               follow: false,
               title: "新时代社会主义",
               type: "video", //*img:图文,video:视频
               playnum: "2w",
               long: "2:37",
-              titlepic: require("../../static/demo/datapic/11.jpg"),
+              // titlepic: require("../../static/demo/datapic/11.jpg"),
               infonum: {
                 index: 1, //?0表示没有操作，1表示已经顶了，2表示已经踩了
                 dingnum: 11,
@@ -151,21 +164,21 @@ export default {
         { loadtext: "上拉加载更多", list: [] },
         { loadtext: "上拉加载更多", list: [] },
       ],
-      obj: {
-        userpic: require("../../static/demo/userpic/12.jpg"),
-        username: "小马",
-        follow: false,
-        title: "新时代社会主义",
-        type: "img", //img:图文,video:视频
-        titlepic: require("../../static/demo/datapic/11.jpg"),
-        infonum: {
-          index: 2, // !0表示没有操作，1表示已经顶了，2表示已经踩了
-          dingnum: 11,
-          cai: 10,
-        },
-        commentnum: 10,
-        forward: 12,
-      },
+      // obj: {
+      //   userpic: require("../../static/demo/userpic/12.jpg"),
+      //   username: "小马",
+      //   follow: false,
+      //   title: "新时代社会主义",
+      //   type: "img", //img:图文,video:视频
+      //   titlepic: require("../../static/demo/datapic/11.jpg"),
+      //   infonum: {
+      //     index: 2, // !0表示没有操作，1表示已经顶了，2表示已经踩了
+      //     dingnum: 11,
+      //     cai: 10,
+      //   },
+      //   commentnum: 10,
+      //   forward: 12,
+      // },
     };
   },
   onShow() {
@@ -190,21 +203,38 @@ export default {
         url: "../search/search",
       });
     },
-     getPersonImgInfo(){
+    getPersonImgInfo() {
       uni.request({
-        url: "http://127.0.0.1:3002/api/index/main", 
+        url: "https://www.xiaohui.ac.cn/netdata/api/index/main",
         success: (res) => {
           console.log(res);
           this.urlhead = res.data.urlhead;
-          this.urlTopImg=res.data.urlTopImg;
+          this.urlTopImg = res.data.urlTopImg;
         },
       });
-    }
+    },
   },
 };
 </script>
 
 <style scoped>
+.container {
+  position: relative;
+}
+
+/* #ifdef MP-WEIXIN */
+
+.status_bar {
+ margin-top: 40px;
+}
+/* #endif */
+
+/* #ifdef H5 */
+.status_bar {
+ margin-top: 8px;
+}
+/* #endif */
+
 .icon-qiandao {
   color: #ffab48;
 }
@@ -229,5 +259,8 @@ export default {
 }
 .topic-search {
   font-size: 12px;
+}
+.uni-tab-bar{
+  margin-top: 30px;
 }
 </style>

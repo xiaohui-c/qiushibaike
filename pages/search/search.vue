@@ -1,9 +1,13 @@
 <template>
-  <view>
+  <view class="status_bar">
     <!-- 自定义导航栏 -->
     <uni-nav-bar :fixed="true" :statusBar="true" class="head-area u-f">
       <!-- 左边 -->
-      <view class="nav-tab-bar u-f-asb serach-input" style="margin-top:20px;margin-bottom:10px;height:5px;width:260px" @tap="serachContainer">
+      <view
+        class="nav-tab-bar u-f-asb serach-input"
+        style="margin-top: 20px; margin-bottom: 10px; height: 5px; width: 260px"
+        @tap="serachContainer"
+      >
         <input
           class="uni-input u-f-asb"
           placeholder-class="icon iconfont icon-sousuo topic-search"
@@ -52,12 +56,12 @@ export default {
       swiperHeight: 0,
       list: [],
       obj: {
-        userpic: require("../../static/demo/userpic/12.jpg"),
+        // userpic: require("../../static/demo/userpic/12.jpg"),
         username: "小马",
         follow: false,
         title: "新时代社会主义",
         type: "img", //img:图文,video:视频
-        titlepic: require("../../static/demo/datapic/11.jpg"),
+        // titlepic: require("../../static/demo/datapic/11.jpg"),
         infonum: {
           index: 2, // !0表示没有操作，1表示已经顶了，2表示已经踩了
           dingnum: 11,
@@ -104,17 +108,20 @@ export default {
 </script>
 
 <style scoped>
+.head-area {
+  height: 40px;
+}
 .search-input {
   padding: 4px 10px;
 }
 .uni-input {
   background: #f4f4f4;
-  border-radius: 6px;
+  border-radius: 16px;
   height: 10px;
   text-align: left;
   line-height: 10px;
-  width: 250px;
-  margin-left: -70px;
+  /* width: 250px; */
+  transform: translateY(-3px) translateX(-20px);
 }
 .topic-search {
   font-size: 12px;

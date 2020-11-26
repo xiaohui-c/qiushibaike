@@ -3921,70 +3921,78 @@ to {
   content: "\eb97";
 }
 /*引入高频可复用样式 */
-.u-f{
-    display: -webkit-box;
-    display: -webkit-flex;
-    display: flex;
+/* flex布局 */
+.u-f {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: flex;
 }
-.u-f-ac{
-    -webkit-box-align: center;
-    -webkit-align-items: center;
-            align-items: center;
+.u-f-ac {
+  -webkit-box-align: center;
+  -webkit-align-items: center;
+          align-items: center;
 }
-.u-f-jc{
-    -webkit-box-pack: justify;
-    -webkit-justify-content: space-between;
-            justify-content: space-between;
+.u-f-jc {
+  -webkit-box-pack: justify;
+  -webkit-justify-content: space-between;
+          justify-content: space-between;
 }
-.u-f-ajc{
-    -webkit-box-pack: center;
-    -webkit-justify-content: center;
-            justify-content: center;
+.u-f-ajc {
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+          justify-content: center;
 }
-.u-f-asb{
-    display: -webkit-box;
-    display: -webkit-flex;
-    display: flex;
-    -webkit-box-pack: center;
-    -webkit-justify-content: center;
-            justify-content: center;
-    -webkit-box-align: center;
-    -webkit-align-items: center;
-            align-items: center;
+.u-f-asb {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: flex;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+          justify-content: center;
+  -webkit-box-align: center;
+  -webkit-align-items: center;
+          align-items: center;
 }
-.u-f-ajb{
-    display: -webkit-box;
-    display: -webkit-flex;
-    display: flex;
-    -webkit-box-pack: justify;
-    -webkit-justify-content: space-between;
-            justify-content: space-between;
-    -webkit-box-align: center;
-    -webkit-align-items: center;
-            align-items: center;
+.u-f-ajb {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: flex;
+  -webkit-box-pack: justify;
+  -webkit-justify-content: space-between;
+          justify-content: space-between;
+  -webkit-box-align: center;
+  -webkit-align-items: center;
+          align-items: center;
 }
-.u-f-aje{
-    display: -webkit-box;
-    display: -webkit-flex;
-    display: flex;
-    -webkit-box-pack: space-evenly;
-    -webkit-justify-content: space-evenly;
-            justify-content: space-evenly;
-    -webkit-box-align: center;
-    -webkit-align-items: center;
-            align-items: center;
+.u-f-aje {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: flex;
+  -webkit-box-pack: space-evenly;
+  -webkit-justify-content: space-evenly;
+          justify-content: space-evenly;
+  -webkit-box-align: center;
+  -webkit-align-items: center;
+          align-items: center;
 }
-.u-f-dasb{
-    display: -webkit-box;
-    display: -webkit-flex;
-    display: flex;
-    -webkit-box-orient: vertical;
-    -webkit-box-direction: normal;
-    -webkit-flex-direction: column;
-            flex-direction: column;
-    -webkit-box-pack: justify;
-    -webkit-justify-content: space-between;
-            justify-content: space-between;
+.u-f-dasb {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -webkit-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: justify;
+  -webkit-justify-content: space-between;
+          justify-content: space-between;
+}
+/* 多端兼容 解决方案*/
+.status_bar {
+  margin-top: 40px;
+}
+.status_bar_classify{
+	margin-top: 0;
 }
 @font-face {
 	font-family: uniicons;

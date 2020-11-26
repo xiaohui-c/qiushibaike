@@ -218,7 +218,7 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
-var _vuex = __webpack_require__(/*! vuex */ 355);function ownKeys(object, enumerableOnly) {var keys = Object.keys(object);if (Object.getOwnPropertySymbols) {var symbols = Object.getOwnPropertySymbols(object);if (enumerableOnly) symbols = symbols.filter(function (sym) {return Object.getOwnPropertyDescriptor(object, sym).enumerable;});keys.push.apply(keys, symbols);}return keys;}function _objectSpread(target) {for (var i = 1; i < arguments.length; i++) {var source = arguments[i] != null ? arguments[i] : {};if (i % 2) {ownKeys(Object(source), true).forEach(function (key) {_defineProperty(target, key, source[key]);});} else if (Object.getOwnPropertyDescriptors) {Object.defineProperties(target, Object.getOwnPropertyDescriptors(source));} else {ownKeys(Object(source)).forEach(function (key) {Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key));});}}return target;}function _defineProperty(obj, key, value) {if (key in obj) {Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true });} else {obj[key] = value;}return obj;}var mpvueCityPicker = function mpvueCityPicker() {Promise.all(/*! require.ensure | components/mpvue-citypicker/mpvueCityPicker */[__webpack_require__.e("common/vendor"), __webpack_require__.e("components/mpvue-citypicker/mpvueCityPicker")]).then((function () {return resolve(__webpack_require__(/*! ../../components/mpvue-citypicker/mpvueCityPicker.vue */ 298));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};
+var _vuex = __webpack_require__(/*! vuex */ 12);function ownKeys(object, enumerableOnly) {var keys = Object.keys(object);if (Object.getOwnPropertySymbols) {var symbols = Object.getOwnPropertySymbols(object);if (enumerableOnly) symbols = symbols.filter(function (sym) {return Object.getOwnPropertyDescriptor(object, sym).enumerable;});keys.push.apply(keys, symbols);}return keys;}function _objectSpread(target) {for (var i = 1; i < arguments.length; i++) {var source = arguments[i] != null ? arguments[i] : {};if (i % 2) {ownKeys(Object(source), true).forEach(function (key) {_defineProperty(target, key, source[key]);});} else if (Object.getOwnPropertyDescriptors) {Object.defineProperties(target, Object.getOwnPropertyDescriptors(source));} else {ownKeys(Object(source)).forEach(function (key) {Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key));});}}return target;}function _defineProperty(obj, key, value) {if (key in obj) {Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true });} else {obj[key] = value;}return obj;}var mpvueCityPicker = function mpvueCityPicker() {Promise.all(/*! require.ensure | components/mpvue-citypicker/mpvueCityPicker */[__webpack_require__.e("common/vendor"), __webpack_require__.e("components/mpvue-citypicker/mpvueCityPicker")]).then((function () {return resolve(__webpack_require__(/*! ../../components/mpvue-citypicker/mpvueCityPicker.vue */ 298));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};
 var SEX = ["不限", "男", "女"];
 var MARRIAGE = ["未婚", "已婚"];
 var JOB = ["前端开发工程师", "教师", "公务员"];var _default =
@@ -240,6 +240,9 @@ var JOB = ["前端开发工程师", "教师", "公务员"];var _default =
       cityPickerValueDefault: [0, 0, 1],
       pickerText: "广州市白云区" };
 
+  },
+  onShow: function onShow() {
+    this.getImage();
   },
   onBackPress: function onBackPress() {
     if (this.$refs.mpvueCityPicker.showPicker) {
@@ -330,6 +333,15 @@ var JOB = ["前端开发工程师", "教师", "公务员"];var _default =
     },
     onConfirm: function onConfirm(e) {
       this.pickerText = e.label;
+    },
+    getImage: function getImage() {var _this3 = this;
+      uni.request({
+        url: "https://www.xiaohui.ac.cn/netdata/api/home/header",
+        success: function success(res) {
+          console.log(res);
+          _this3.defaultHeaderImg = res.data.urlhead;
+        } });
+
     } } };exports.default = _default;
 /* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./node_modules/@dcloudio/uni-mp-weixin/dist/index.js */ 1)["default"]))
 

@@ -238,9 +238,10 @@ var _userchatList = _interopRequireDefault(__webpack_require__(/*! ../../compone
       { name: "关注", id: "follow", num: 10 },
       { name: "粉丝", id: "fans", num: 10 }],
 
+      headerimg: '',
       userlist: [
       {
-        headerimg: '../../static/demo/userpic/19.jpg',
+        headerimg: '',
         name: 'Supzeol',
         sex: 0,
         age: 20 }] };
@@ -266,6 +267,10 @@ var _userchatList = _interopRequireDefault(__webpack_require__(/*! ../../compone
       } });
 
   },
+  onShow: function onShow() {
+    this.getPersonImgInfo();
+  },
+
   methods: {
     // 顶部导航点击事件
     topBar: function topBar(index) {
@@ -278,6 +283,15 @@ var _userchatList = _interopRequireDefault(__webpack_require__(/*! ../../compone
     clickRight: function clickRight() {
       uni.navigateBack({
         delta: 1 });
+
+    },
+    getPersonImgInfo: function getPersonImgInfo() {var _this2 = this;
+      uni.request({
+        url: "https://www.xiaohui.ac.cn/netdata/api/paper/chatlist",
+        success: function success(res) {
+          console.log(res);
+          _this2.headerimg = res.data.urlhead;
+        } });
 
     },
     // 上拉加载
@@ -459,11 +473,14 @@ Object.defineProperty(exports, "__esModule", { value: true });exports.default = 
 var _default =
 {
   props: {
-    userlist: Array },
+    userlist: Array,
+    headerimg: String },
 
   data: function data() {
     return {};
+
   },
+
   methods: {} };exports.default = _default;
 
 /***/ }),

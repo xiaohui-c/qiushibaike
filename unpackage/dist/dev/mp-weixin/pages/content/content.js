@@ -232,6 +232,9 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
+
+
+
 var _view = _interopRequireDefault(__webpack_require__(/*! ../../unpackage/hello uni-app/pages/component/view/view.vue */ 109));function _interopRequireDefault(obj) {return obj && obj.__esModule ? obj : { default: obj };}var commonList = function commonList() {__webpack_require__.e(/*! require.ensure | components/common/common-list */ "components/common/common-list").then((function () {return resolve(__webpack_require__(/*! ../../components/common/common-list.vue */ 231));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var thirdLogin = function thirdLogin() {__webpack_require__.e(/*! require.ensure | components/common/third-login */ "components/common/third-login").then((function () {return resolve(__webpack_require__(/*! ../../components/common/third-login.vue */ 252));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var _default =
 
 {
@@ -244,6 +247,8 @@ var _view = _interopRequireDefault(__webpack_require__(/*! ../../unpackage/hello
       commentDetail: true,
       text: "",
       bottomShow: false,
+      viewPicArr: [],
+      imgcontain: [],
       morePic: true,
       titleName: '',
       attention: {
@@ -274,6 +279,11 @@ var _view = _interopRequireDefault(__webpack_require__(/*! ../../unpackage/hello
   onLoad: function onLoad(e) {
     this.titleName = e.detailData;
   },
+  onShow: function onShow() {
+    this.getPersonImgInfo();
+    this.getDetailImg();
+  },
+
   methods: {
     bottomView: function bottomView() {
       this.bottomShow = !this.bottomShow;
@@ -282,7 +292,7 @@ var _view = _interopRequireDefault(__webpack_require__(/*! ../../unpackage/hello
       console.log(index);
       uni.previewImage({
         current: index,
-        urls: this.attention.list[0].morepic });
+        urls: this.viewPicArr });
 
     },
     sendmessage: function sendmessage() {
@@ -294,6 +304,24 @@ var _view = _interopRequireDefault(__webpack_require__(/*! ../../unpackage/hello
     back: function back() {
       uni.navigateBack({
         delta: 1 });
+
+    },
+    getPersonImgInfo: function getPersonImgInfo() {var _this = this;
+      uni.request({
+        url: "https://www.xiaohui.ac.cn/netdata/api/news/follow",
+        success: function success(res) {
+          console.log(res);
+          _this.imgcontain = res.data.objHead;
+        } });
+
+    },
+    getDetailImg: function getDetailImg() {var _this2 = this;
+      uni.request({
+        url: "https://www.xiaohui.ac.cn/netdata/api/index/maindetail",
+        success: function success(res) {
+          console.log(res);
+          _this2.viewPicArr = res.data.viewPicArr;
+        } });
 
     } } };exports.default = _default;
 /* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./node_modules/@dcloudio/uni-mp-weixin/dist/index.js */ 1)["default"]))

@@ -202,154 +202,74 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
-var _loadmore = __webpack_require__(/*! ../../Mixin/loadmore.js */ 19);
-var _vuex = __webpack_require__(/*! vuex */ 355);function ownKeys(object, enumerableOnly) {var keys = Object.keys(object);if (Object.getOwnPropertySymbols) {var symbols = Object.getOwnPropertySymbols(object);if (enumerableOnly) symbols = symbols.filter(function (sym) {return Object.getOwnPropertyDescriptor(object, sym).enumerable;});keys.push.apply(keys, symbols);}return keys;}function _objectSpread(target) {for (var i = 1; i < arguments.length; i++) {var source = arguments[i] != null ? arguments[i] : {};if (i % 2) {ownKeys(Object(source), true).forEach(function (key) {_defineProperty(target, key, source[key]);});} else if (Object.getOwnPropertyDescriptors) {Object.defineProperties(target, Object.getOwnPropertyDescriptors(source));} else {ownKeys(Object(source)).forEach(function (key) {Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key));});}}return target;}function _defineProperty(obj, key, value) {if (key in obj) {Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true });} else {obj[key] = value;}return obj;}var uniBadge = function uniBadge() {__webpack_require__.e(/*! require.ensure | components/uni-badge/uni-badge */ "components/uni-badge/uni-badge").then((function () {return resolve(__webpack_require__(/*! ../../components/uni-badge/uni-badge.vue */ 245));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var loadMore = function loadMore() {__webpack_require__.e(/*! require.ensure | components/common/load-more */ "components/common/load-more").then((function () {return resolve(__webpack_require__(/*! ../../components/common/load-more.vue */ 217));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var _default =
-{
-  mixins: [_loadmore.statMixin],
-  components: {
-    uniBadge: uniBadge,
-    loadMore: loadMore },
 
-  data: function data() {
-    return {
-      dropMeun: false,
-      titleName: '小纸条',
-      chatList: [
-      {
-        img: this.$store.state.demo.userpic.four,
-        username: "JIA一勺",
-        finaltime: "13:58",
-        ellipsesmsg:
-        "三个代表重要思想是江泽民同志2000年2月25日在广东省考察工作时，从全面总结党的历史经验和如何适应新形势新任务的要求出发，首次对“三个代表”重要思想进行了比较全面的阐述。具体内容为中国共产党始终代表中国先进生产力的发展要求、中国先进文化的前进方向、中国最广大人民的根本利益，是我们党的立党之本、执政之基、力量之源。",
-        msgnum: 1 },
-
-      {
-        img: "../../static/demo/userpic/15.jpg",
-        username: "低头看鱼",
-        finaltime: "13:58",
-        ellipsesmsg:
-        "三个代表重要思想是江泽民同志2000年2月25日在广东省考察工作时，从全面总结党的历史经验和如何适应新形势新任务的要求出发，首次对“三个代表”重要思想进行了比较全面的阐述。具体内容为中国共产党始终代表中国先进生产力的发展要求、中国先进文化的前进方向、中国最广大人民的根本利益，是我们党的立党之本、执政之基、力量之源。",
-        msgnum: 3 },
-
-      {
-        img: "../../static/demo/userpic/12.jpg",
-        username: "刘小慧",
-        finaltime: "13:58",
-        ellipsesmsg:
-        "三个代表重要思想是江泽民同志2000年2月25日在广东省考察工作时，从全面总结党的历史经验和如何适应新形势新任务的要求出发，首次对“三个代表”重要思想进行了比较全面的阐述。具体内容为中国共产党始终代表中国先进生产力的发展要求、中国先进文化的前进方向、中国最广大人民的根本利益，是我们党的立党之本、执政之基、力量之源。",
-        msgnum: 18 },
-
-      {
-        img: "../../static/demo/userpic/6.jpg",
-        username: "鲁大师",
-        finaltime: "13:58",
-        ellipsesmsg:
-        "三个代表重要思想是江泽民同志2000年2月25日在广东省考察工作时，从全面总结党的历史经验和如何适应新形势新任务的要求出发，首次对“三个代表”重要思想进行了比较全面的阐述。具体内容为中国共产党始终代表中国先进生产力的发展要求、中国先进文化的前进方向、中国最广大人民的根本利益，是我们党的立党之本、执政之基、力量之源。",
-        msgnum: 28 },
-
-      {
-        img: "../../static/demo/userpic/6.jpg",
-        username: "鲁大师",
-        finaltime: "13:58",
-        ellipsesmsg:
-        "三个代表重要思想是江泽民同志2000年2月25日在广东省考察工作时，从全面总结党的历史经验和如何适应新形势新任务的要求出发，首次对“三个代表”重要思想进行了比较全面的阐述。具体内容为中国共产党始终代表中国先进生产力的发展要求、中国先进文化的前进方向、中国最广大人民的根本利益，是我们党的立党之本、执政之基、力量之源。",
-        msgnum: 28 },
-
-      {
-        img: "../../static/demo/userpic/6.jpg",
-        username: "鲁大师",
-        finaltime: "13:58",
-        ellipsesmsg:
-        "三个代表重要思想是江泽民同志2000年2月25日在广东省考察工作时，从全面总结党的历史经验和如何适应新形势新任务的要求出发，首次对“三个代表”重要思想进行了比较全面的阐述。具体内容为中国共产党始终代表中国先进生产力的发展要求、中国先进文化的前进方向、中国最广大人民的根本利益，是我们党的立党之本、执政之基、力量之源。",
-        msgnum: 28 },
-
-      {
-        img: "../../static/demo/userpic/6.jpg",
-        username: "鲁大师",
-        finaltime: "13:58",
-        ellipsesmsg:
-        "三个代表重要思想是江泽民同志2000年2月25日在广东省考察工作时，从全面总结党的历史经验和如何适应新形势新任务的要求出发，首次对“三个代表”重要思想进行了比较全面的阐述。具体内容为中国共产党始终代表中国先进生产力的发展要求、中国先进文化的前进方向、中国最广大人民的根本利益，是我们党的立党之本、执政之基、力量之源。",
-        msgnum: 28 },
-
-      {
-        img: "../../static/demo/userpic/6.jpg",
-        username: "鲁大师",
-        finaltime: "13:58",
-        ellipsesmsg:
-        "三个代表重要思想是江泽民同志2000年2月25日在广东省考察工作时，从全面总结党的历史经验和如何适应新形势新任务的要求出发，首次对“三个代表”重要思想进行了比较全面的阐述。具体内容为中国共产党始终代表中国先进生产力的发展要求、中国先进文化的前进方向、中国最广大人民的根本利益，是我们党的立党之本、执政之基、力量之源。",
-        msgnum: 28 },
-
-      {
-        img: "../../static/demo/userpic/6.jpg",
-        username: "鲁大师",
-        finaltime: "13:58",
-        ellipsesmsg:
-        "三个代表重要思想是江泽民同志2000年2月25日在广东省考察工作时，从全面总结党的历史经验和如何适应新形势新任务的要求出发，首次对“三个代表”重要思想进行了比较全面的阐述。具体内容为中国共产党始终代表中国先进生产力的发展要求、中国先进文化的前进方向、中国最广大人民的根本利益，是我们党的立党之本、执政之基、力量之源。",
-        msgnum: 28 },
-
-      {
-        img: "../../static/demo/userpic/6.jpg",
-        username: "鲁大师",
-        finaltime: "13:58",
-        ellipsesmsg:
-        "三个代表重要思想是江泽民同志2000年2月25日在广东省考察工作时，从全面总结党的历史经验和如何适应新形势新任务的要求出发，首次对“三个代表”重要思想进行了比较全面的阐述。具体内容为中国共产党始终代表中国先进生产力的发展要求、中国先进文化的前进方向、中国最广大人民的根本利益，是我们党的立党之本、执政之基、力量之源。",
-        msgnum: 28 },
-
-      {
-        img: "../../static/demo/userpic/6.jpg",
-        username: "鲁大师",
-        finaltime: "13:58",
-        ellipsesmsg:
-        "三个代表重要思想是江泽民同志2000年2月25日在广东省考察工作时，从全面总结党的历史经验和如何适应新形势新任务的要求出发，首次对“三个代表”重要思想进行了比较全面的阐述。具体内容为中国共产党始终代表中国先进生产力的发展要求、中国先进文化的前进方向、中国最广大人民的根本利益，是我们党的立党之本、执政之基、力量之源。",
-        msgnum: 28 },
-
-      {
-        img: "../../static/demo/userpic/6.jpg",
-        username: "鲁大师",
-        finaltime: "13:58",
-        ellipsesmsg:
-        "三个代表重要思想是江泽民同志2000年2月25日在广东省考察工作时，从全面总结党的历史经验和如何适应新形势新任务的要求出发，首次对“三个代表”重要思想进行了比较全面的阐述。具体内容为中国共产党始终代表中国先进生产力的发展要求、中国先进文化的前进方向、中国最广大人民的根本利益，是我们党的立党之本、执政之基、力量之源。",
-        msgnum: 28 },
-
-      {
-        img: "../../static/demo/userpic/6.jpg",
-        username: "鲁大师",
-        finaltime: "13:58",
-        ellipsesmsg:
-        "三个代表重要思想是江泽民同志2000年2月25日在广东省考察工作时，从全面总结党的历史经验和如何适应新形势新任务的要求出发，首次对“三个代表”重要思想进行了比较全面的阐述。具体内容为中国共产党始终代表中国先进生产力的发展要求、中国先进文化的前进方向、中国最广大人民的根本利益，是我们党的立党之本、执政之基、力量之源。",
-        msgnum: 28 },
-
-      {
-        img: "../../static/demo/userpic/6.jpg",
-        username: "鲁大师",
-        finaltime: "13:58",
-        ellipsesmsg:
-        "三个代表重要思想是江泽民同志2000年2月25日在广东省考察工作时，从全面总结党的历史经验和如何适应新形势新任务的要求出发，首次对“三个代表”重要思想进行了比较全面的阐述。具体内容为中国共产党始终代表中国先进生产力的发展要求、中国先进文化的前进方向、中国最广大人民的根本利益，是我们党的立党之本、执政之基、力量之源。",
-        msgnum: 28 }] };
-
-
-
+var _loadmore = __webpack_require__(/*! ../../Mixin/loadmore.js */ 21); //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+var headerimg = [];var uniBadge = function uniBadge() {__webpack_require__.e(/*! require.ensure | components/uni-badge/uni-badge */ "components/uni-badge/uni-badge").then((function () {return resolve(__webpack_require__(/*! ../../components/uni-badge/uni-badge.vue */ 245));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var loadMore = function loadMore() {__webpack_require__.e(/*! require.ensure | components/common/load-more */ "components/common/load-more").then((function () {return resolve(__webpack_require__(/*! ../../components/common/load-more.vue */ 217));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var _default = { mixins: [_loadmore.statMixin], components: { uniBadge: uniBadge, loadMore: loadMore }, data: function data() {return { dropMeun: false, titleName: '小纸条', chatList: [{ img: '', username: "JIA一勺", finaltime: "13:58", ellipsesmsg: "三个代表重要思想是江泽民同志2000年2月25日在广东省考察工作时，从全面总结党的历史经验和如何适应新形势新任务的要求出发，首次对“三个代表”重要思想进行了比较全面的阐述。具体内容为中国共产党始终代表中国先进生产力的发展要求、中国先进文化的前进方向、中国最广大人民的根本利益，是我们党的立党之本、执政之基、力量之源。", msgnum: 1 }, { img: '', username: "低头看鱼", finaltime: "13:58", ellipsesmsg: "三个代表重要思想是江泽民同志2000年2月25日在广东省考察工作时，从全面总结党的历史经验和如何适应新形势新任务的要求出发，首次对“三个代表”重要思想进行了比较全面的阐述。具体内容为中国共产党始终代表中国先进生产力的发展要求、中国先进文化的前进方向、中国最广大人民的根本利益，是我们党的立党之本、执政之基、力量之源。", msgnum: 3 }, { img: '', username: "刘小慧", finaltime: "13:58", ellipsesmsg: "三个代表重要思想是江泽民同志2000年2月25日在广东省考察工作时，从全面总结党的历史经验和如何适应新形势新任务的要求出发，首次对“三个代表”重要思想进行了比较全面的阐述。具体内容为中国共产党始终代表中国先进生产力的发展要求、中国先进文化的前进方向、中国最广大人民的根本利益，是我们党的立党之本、执政之基、力量之源。", msgnum: 18 }, { img: '', username: "鲁大师", finaltime: "13:58", ellipsesmsg: "三个代表重要思想是江泽民同志2000年2月25日在广东省考察工作时，从全面总结党的历史经验和如何适应新形势新任务的要求出发，首次对“三个代表”重要思想进行了比较全面的阐述。具体内容为中国共产党始终代表中国先进生产力的发展要求、中国先进文化的前进方向、中国最广大人民的根本利益，是我们党的立党之本、执政之基、力量之源。", msgnum: 28 }] };}, // 监听原生标题导航按钮点击事件
+  onNavigationBarButtonTap: function onNavigationBarButtonTap(e) {switch (e.index) {case 0: // 打开发布页面
+        uni.navigateTo({ url: "../chat-list/chat-list" });break;case 1:this.dropMeun = !this.dropMeun;break;}}, onPullDownRefresh: function onPullDownRefresh() {this.getData();}, onShow: function onShow() {
+    this.getPersonImgInfo();
   },
-  // 监听原生标题导航按钮点击事件
-  onNavigationBarButtonTap: function onNavigationBarButtonTap(e) {
-    switch (e.index) {
-      case 0:
-        // 打开发布页面
-        uni.navigateTo({
-          url: "../chat-list/chat-list" });
-
-        break;
-      case 1:
-        this.dropMeun = !this.dropMeun;
-        break;}
-
-  },
-  onPullDownRefresh: function onPullDownRefresh() {
-    this.getData();
-  },
-  computed: _objectSpread({},
-  (0, _vuex.mapState)(['demo'])),
-
   methods: {
     getData: function getData() {var _this = this;
       setTimeout(function () {
@@ -491,6 +411,20 @@ var _vuex = __webpack_require__(/*! vuex */ 355);function ownKeys(object, enumer
     },
     openAdd: function openAdd() {
       this.dropMeun = !this.dropMeun;
+    },
+    getPersonImgInfo: function getPersonImgInfo() {var _this3 = this;
+      uni.request({
+        url: "https://www.xiaohui.ac.cn/netdata/api/paper/header",
+        success: function success(res) {
+          console.log(res);
+          headerimg = res.data.objHead;
+          console.log(headerimg);
+          _this3.chatList[0].img = headerimg[0];
+          _this3.chatList[1].img = headerimg[1];
+          _this3.chatList[2].img = headerimg[2];
+          _this3.chatList[3].img = headerimg[3];
+        } });
+
     } } };exports.default = _default;
 /* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./node_modules/@dcloudio/uni-mp-weixin/dist/index.js */ 1)["default"]))
 

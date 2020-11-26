@@ -6,7 +6,7 @@
         <view class="info-left">头像</view>
         <view class="right">
           <view class="info-detail u-f-asb" @tap="changeHeader">
-            <image :src="demo.userpic.nineteen" mode="aspectFill" lazy-load></image>
+            <image :src="defaultHeaderImg" mode="aspectFill" lazy-load></image>
             <view class="icon iconfont icon-bianji1"></view>
           </view>
         </view>
@@ -109,6 +109,9 @@ export default {
       pickerText: "广州市白云区",
     };
   },
+  onShow() {
+    this.getImage();
+  },
   onBackPress() {
     if (this.$refs.mpvueCityPicker.showPicker) {
       this.$refs.mpvueCityPicker.pickerCancel();
@@ -198,6 +201,15 @@ export default {
     },
     onConfirm(e) {
       this.pickerText = e.label;
+    },
+    getImage() {
+      uni.request({
+        url: "https://www.xiaohui.ac.cn/netdata/api/home/header",
+        success: (res) => {
+          console.log(res);
+          this.defaultHeaderImg = res.data.urlhead;
+        },
+      });
     },
   },
 };

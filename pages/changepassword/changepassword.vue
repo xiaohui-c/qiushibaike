@@ -1,5 +1,5 @@
 <template>
-	<view>
+	<view style="transform:translateX(10px)">
 		<input type="password" placeholder="输入旧密码">
 		<input type="password" placeholder="输入新密码">
 		<input type="password" placeholder="确认密码">
@@ -23,7 +23,7 @@
 <style scoped>
 input{
 	border-bottom:1px solid #f5f5f5;
-	padding: 18px 0;
+	padding: 18px 10px;
 	font-size: 13px;
 }
 button{

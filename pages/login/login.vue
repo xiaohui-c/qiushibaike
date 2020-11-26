@@ -2,7 +2,7 @@
   <view>
     <view class="topic-bg">
       <image
-        src="../../static/demo/login.png"
+        src="https://i.loli.net/2020/11/25/7vdVk6LEBifnhDZ.png"
         lazy-load
         mode="widthFix"
       ></image>

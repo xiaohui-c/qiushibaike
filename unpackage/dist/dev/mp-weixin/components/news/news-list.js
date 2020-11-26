@@ -138,7 +138,8 @@ __webpack_require__.r(__webpack_exports__);
 var _default =
 {
   props: {
-    nearlyObj: Array },
+    nearlyObj: Array,
+    nearlyObjImg: String },
 
   data: function data() {
     return {

@@ -249,8 +249,8 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
-var _userchatList = _interopRequireDefault(__webpack_require__(/*! ../../components/userchat-list/userchat-list.vue */ 93));function _interopRequireDefault(obj) {return obj && obj.__esModule ? obj : { default: obj };}var topBar = function topBar() {__webpack_require__.e(/*! require.ensure | components/topbar/topbar */ "components/topbar/topbar").then((function () {return resolve(__webpack_require__(/*! ../../components/topbar/topbar.vue */ 210));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var noThing = function noThing() {__webpack_require__.e(/*! require.ensure | components/common/no-thing */ "components/common/no-thing").then((function () {return resolve(__webpack_require__(/*! ../../components/common/no-thing.vue */ 224));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var _default =
 
+var _userchatList = _interopRequireDefault(__webpack_require__(/*! ../../components/userchat-list/userchat-list.vue */ 93));function _interopRequireDefault(obj) {return obj && obj.__esModule ? obj : { default: obj };}var topBar = function topBar() {__webpack_require__.e(/*! require.ensure | components/topbar/topbar-detail */ "components/topbar/topbar-detail").then((function () {return resolve(__webpack_require__(/*! ../../components/topbar/topbar-detail.vue */ 308));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var noThing = function noThing() {__webpack_require__.e(/*! require.ensure | components/common/no-thing */ "components/common/no-thing").then((function () {return resolve(__webpack_require__(/*! ../../components/common/no-thing.vue */ 224));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var _default =
 {
   components: {
     topBar: topBar,
@@ -260,32 +260,14 @@ var _userchatList = _interopRequireDefault(__webpack_require__(/*! ../../compone
   data: function data() {
     return {
       dropMeun: false,
+      headerimg: "",
+      bg: "",
       tabIndex: 0,
       swiperHeight: 0,
       tabBars: [
       { name: "主页", id: "main" },
       { name: "糗事", id: "funnyThing" },
-      { name: "动态", id: "news" }],
-
-      userlist: [
-      {
-        headerimg: "../../static/demo/userpic/4.jpg",
-        name: "Supzeol",
-        sex: 0,
-        age: 26 },
-
-      {
-        headerimg: "../../static/demo/userpic/14.jpg",
-        name: "Supzeol",
-        sex: 1,
-        age: 13 },
-
-      {
-        headerimg: "../../static/demo/userpic/5.jpg",
-        name: "Supzeol",
-        sex: 0,
-        age: 16 }] };
-
+      { name: "动态", id: "news" }] };
 
 
   },
@@ -298,6 +280,9 @@ var _userchatList = _interopRequireDefault(__webpack_require__(/*! ../../compone
         _this.swiperHeight = height;
       } });
 
+  },
+  onShow: function onShow() {
+    this.getPersonImgInfo();
   },
   methods: {
     // 顶部导航点击事件
@@ -320,6 +305,16 @@ var _userchatList = _interopRequireDefault(__webpack_require__(/*! ../../compone
     back: function back() {
       uni.navigateBack({
         delta: 1 });
+
+    },
+    getPersonImgInfo: function getPersonImgInfo() {var _this3 = this;
+      uni.request({
+        url: "https://www.xiaohui.ac.cn/netdata/api/home/person",
+        success: function success(res) {
+          console.log(res);
+          _this3.headerimg = res.data.urlhead;
+          _this3.bg = res.data.urlgb;
+        } });
 
     } } };exports.default = _default;
 /* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./node_modules/@dcloudio/uni-mp-weixin/dist/index.js */ 1)["default"]))
@@ -500,11 +495,14 @@ Object.defineProperty(exports, "__esModule", { value: true });exports.default = 
 var _default =
 {
   props: {
-    userlist: Array },
+    userlist: Array,
+    headerimg: String },
 
   data: function data() {
     return {};
+
   },
+
   methods: {} };exports.default = _default;
 
 /***/ }),

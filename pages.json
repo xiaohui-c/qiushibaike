@@ -5,9 +5,12 @@
         "navigationBarBackgroundColor": "#ffffff",
         "navigationBarTextStyle": "black",
         "app-plus": {
-          "scrollIndicator": "none", //隐藏滚动条
+          "scrollIndicator": "none", 
           "bounce": "none",
           "titleNView": false
+        },
+        "mp-weixin": {
+          "navigationStyle": "custom"
         }
 
 
@@ -20,7 +23,10 @@
         "app-plus": {
           "bounce": "none",
           "titleNView": false
-        }
+        },
+		"mp-weixin": {
+		          "navigationStyle": "custom"
+		        }
       }
     },
     {
@@ -33,7 +39,10 @@
         "app-plus": {
           "bounce": "none",
           "titleNView": false
-        }
+        },
+		"mp-weixin": {
+		          "navigationStyle": "custom"
+		        }
       }
     },
     {
@@ -45,7 +54,10 @@
         "app-plus": {
           "bounce": "none",
           "titleNView": false
-        }
+        },
+		"mp-weixin": {
+		          "navigationStyle": "custom"
+		        }
       }
     },
     {
@@ -56,8 +68,10 @@
         "app-plus": {
           "scrollIndicator": "none",
           "bounce": "none",
-
           "titleNView": false
+        },
+        "mp-weixin": {
+          "navigationStyle": "custom"
         }
       }
     },
@@ -67,6 +81,9 @@
         "navigationBarTextStyle": "black",
         "app-plus": {
           "titleNView": false
+        },
+        "mp-weixin": {
+          "navigationStyle": "custom"
         }
       }
     },
@@ -76,7 +93,10 @@
         "navigationBarTextStyle": "black",
         "app-plus": {
           "titleNView": false
-        }
+        },
+		"mp-weixin": {
+		          "navigationStyle": "custom"
+		        }
       }
     },
     {
@@ -87,7 +107,10 @@
           "enablePullDownRefresh": true,
           "scrollIndicator": "none",
           "titleNView": false
-        }
+        },
+		"mp-weixin": {
+		          "navigationStyle": "custom"
+		        }
       }
     },
     {
@@ -99,7 +122,10 @@
         "app-plus": {
           "bounce": "none",
           "titleNView": false
-        }
+        },
+		"mp-weixin": {
+		          "navigationStyle": "custom"
+		        }
       }
     },
     {
@@ -110,9 +136,11 @@
           "animationType": "slide-in-left",
           "scrollIndicator": "none",
           "bounce": "none",
-
           "titleNView": false
-        }
+        },
+		"mp-weixin": {
+		          "navigationStyle": "custom"
+		        }
       }
     }, {
       "path": "components/userchat-list/userchat-list",
@@ -132,8 +160,10 @@
         "app-plus": {
           "scrollIndicator": "none",
           "bounce": "none",
-
           "titleNView": false
+        },
+        "mp-weixin": {
+          "navigationStyle": "custom"
         }
       }
 
@@ -209,7 +239,10 @@
           "enablePullDownRefresh": true,
           "scrollIndicator": "none",
           "titleNView": false
-        }
+        },
+		"mp-weixin": {
+		          "navigationStyle": "custom"
+		        }
       }
 
     }

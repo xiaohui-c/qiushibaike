@@ -1,5 +1,5 @@
 <template>
-  <view>
+  <view class="status_bar">
      <!-- 自定义导航栏 -->
     <uni-nav-bar
       :fixed="true"
@@ -156,7 +156,7 @@ export default {
       console.log(index);
       uni.previewImage({
         current: index,
-        urls: this.attention.list[0].morepic,
+        urls: this.viewPicArr,
       });
     },
     sendmessage() {
@@ -172,7 +172,7 @@ export default {
     },
      getPersonImgInfo(){
       uni.request({
-        url: "http://127.0.0.1:3002/api/news/follow", 
+        url: "https://www.xiaohui.ac.cn/netdata/api/news/follow", 
         success: (res) => {
           console.log(res);
           this.imgcontain = res.data.objHead;
@@ -181,7 +181,7 @@ export default {
     },
     getDetailImg(){
       uni.request({
-        url: "http://127.0.0.1:3002/api/index/maindetail", 
+        url: "https://www.xiaohui.ac.cn/netdata/api/index/maindetail", 
         success: (res) => {
           console.log(res);
           this.viewPicArr = res.data.viewPicArr;

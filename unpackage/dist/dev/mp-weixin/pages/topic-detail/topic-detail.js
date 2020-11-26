@@ -212,7 +212,11 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
-var _loadmore = __webpack_require__(/*! ../../Mixin/loadmore.js */ 19);var topBar = function topBar() {__webpack_require__.e(/*! require.ensure | components/topbar/topbar */ "components/topbar/topbar").then((function () {return resolve(__webpack_require__(/*! ../../components/topbar/topbar.vue */ 210));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var commonList = function commonList() {__webpack_require__.e(/*! require.ensure | components/common/common-list */ "components/common/common-list").then((function () {return resolve(__webpack_require__(/*! ../../components/common/common-list.vue */ 231));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var loadMore = function loadMore() {__webpack_require__.e(/*! require.ensure | components/common/load-more */ "components/common/load-more").then((function () {return resolve(__webpack_require__(/*! ../../components/common/load-more.vue */ 217));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var noThing = function noThing() {__webpack_require__.e(/*! require.ensure | components/common/no-thing */ "components/common/no-thing").then((function () {return resolve(__webpack_require__(/*! ../../components/common/no-thing.vue */ 224));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var _default =
+
+
+
+
+var _loadmore = __webpack_require__(/*! ../../Mixin/loadmore.js */ 21);var topBar = function topBar() {__webpack_require__.e(/*! require.ensure | components/topbar/topbar */ "components/topbar/topbar").then((function () {return resolve(__webpack_require__(/*! ../../components/topbar/topbar.vue */ 210));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var commonList = function commonList() {__webpack_require__.e(/*! require.ensure | components/common/common-list */ "components/common/common-list").then((function () {return resolve(__webpack_require__(/*! ../../components/common/common-list.vue */ 231));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var loadMore = function loadMore() {__webpack_require__.e(/*! require.ensure | components/common/load-more */ "components/common/load-more").then((function () {return resolve(__webpack_require__(/*! ../../components/common/load-more.vue */ 217));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var noThing = function noThing() {__webpack_require__.e(/*! require.ensure | components/common/no-thing */ "components/common/no-thing").then((function () {return resolve(__webpack_require__(/*! ../../components/common/no-thing.vue */ 224));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var _default =
 {
   mixins: [_loadmore.statMixin],
   components: {
@@ -225,6 +229,8 @@ var _loadmore = __webpack_require__(/*! ../../Mixin/loadmore.js */ 19);var topBa
     return {
       swiperHeight: 0,
       tabIndex: 0,
+      imgcontain: [],
+      headbg: "",
       tabBars: [
       { name: "默认", id: "default" },
       { name: "最新", id: "latest" }],
@@ -358,12 +364,12 @@ var _loadmore = __webpack_require__(/*! ../../Mixin/loadmore.js */ 19);var topBa
         "面试官：在电梯里巧遇马云你会做什么？90后女孩的回答当场被录用" },
 
       obj: {
-        userpic: __webpack_require__(/*! ../../static/demo/userpic/12.jpg */ 20),
+        // userpic: require("../../static/demo/userpic/12.jpg"),
         username: "小马111",
         follow: false,
         title: "新时代社会主义",
         type: "img", //img:图文,video:视频
-        titlepic: __webpack_require__(/*! ../../static/demo/datapic/11.jpg */ 21),
+        // titlepic: require("../../static/demo/datapic/11.jpg"),
         infonum: {
           index: 2, // !0表示没有操作，1表示已经顶了，2表示已经踩了
           dingnum: 11,
@@ -373,6 +379,9 @@ var _loadmore = __webpack_require__(/*! ../../Mixin/loadmore.js */ 19);var topBa
         forward: 12 } };
 
 
+  },
+  onShow: function onShow() {
+    this.getPersonImgInfo();
   },
   onLoad: function onLoad() {var _this = this;
     // 计算并设置主要内容区域高度
@@ -398,13 +407,13 @@ var _loadmore = __webpack_require__(/*! ../../Mixin/loadmore.js */ 19);var topBa
         var arr = [
         // 图文
         {
-          userpic: "../../static/demo/userpic/12.jpg",
+          // userpic: "../../static/demo/userpic/12.jpg",
           username: "小灰01",
           sex: 1, //0 男 1 女
           age: 25,
           follow: false,
           title: "关于加强思想层面深建设",
-          titlepic: "../../static/demo/datapic/13.jpg",
+          // titlepic: "../../static/demo/datapic/13.jpg",
           video: false,
           share: false,
           path: "深圳 龙岗",
@@ -414,13 +423,13 @@ var _loadmore = __webpack_require__(/*! ../../Mixin/loadmore.js */ 19);var topBa
 
         // 图文
         {
-          userpic: "../../static/demo/userpic/12.jpg",
+          // userpic: "../../static/demo/userpic/12.jpg",
           username: "小灰03",
           sex: 1, //0 男 1 女
           age: 25,
           follow: false,
           title: "关于加强思想层面深建设",
-          titlepic: "../../static/demo/datapic/13.jpg",
+          // titlepic: "../../static/demo/datapic/13.jpg",
           video: false,
           share: false,
           path: "深圳 龙岗",
@@ -444,6 +453,16 @@ var _loadmore = __webpack_require__(/*! ../../Mixin/loadmore.js */ 19);var topBa
     back: function back() {
       uni.navigateBack({
         delta: 1 });
+
+    },
+    getPersonImgInfo: function getPersonImgInfo() {var _this3 = this;
+      uni.request({
+        url: "https://www.xiaohui.ac.cn/netdata/api/news/follow",
+        success: function success(res) {
+          console.log(res);
+          _this3.imgcontain = res.data.objHead;
+          _this3.headbg = res.data.headbg;
+        } });
 
     } } };exports.default = _default;
 /* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./node_modules/@dcloudio/uni-mp-weixin/dist/index.js */ 1)["default"]))

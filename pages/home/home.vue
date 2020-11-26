@@ -1,5 +1,5 @@
 <template>
-  <view class="container">
+  <view class="container status_bar">
     <uni-nav-bar
       :fixed="true"
       :statusBar="true"
@@ -112,7 +112,7 @@ export default {
     },
     getImage() {
       uni.request({
-        url: "http://127.0.0.1:3002/api/home/header",
+        url: "https://www.xiaohui.ac.cn/netdata/api/home/header",
         success: (res) => {
           console.log(res);
           this.userobj.headerimg = res.data.urlhead;

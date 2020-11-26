@@ -22,14 +22,14 @@
     </uni-nav-bar>
     <!-- 模糊图片 -->
     <view class="topic-bg">
-      <image :src="detailobj.bgimg" lazy-load mode="aspectFill"></image>
+      <image :src="headbg" lazy-load mode="aspectFill"></image>
     </view>
     <view class="main-box">
       <view>
         <!-- 图片栏 -->
         <view class="title u-f">
           <view class="imagebox">
-            <image :src="detailobj.bgimg" lazy-load mode="aspectFill"></image>
+            <image :src="headbg" lazy-load mode="aspectFill"></image>
           </view>
           <view class="titleline"> #{{ detailobj.detailtitle }}# </view>
         </view>
@@ -41,6 +41,7 @@
         <!-- 动态详情 -->
         <view class="news-detail">{{ detailobj.detailmsg }} </view>
       </view>
+      <!-- 类别导航栏 -->
       <view class="topbars">
         <topBar
           :tabBars="tabBars"
@@ -49,7 +50,7 @@
         ></topBar>
       </view>
 
-      <view class="uni-tab-bar" style="padding-left: 0">
+      <view class="uni-tab-bar" style="padding-left: 0; margin-top: 20px">
         <swiper
           class="swiper-box"
           :style="{ height: swiperHeight + 'px' }"
@@ -60,7 +61,10 @@
             <scroll-view scroll-y class="list" @scrolltolower="loadmore()">
               <!-- 每一个话题区域 -->
               <block>
-                <common-list :list="item.list"></common-list>
+                <common-list
+                  :imgcontain="imgcontain"
+                  :list="item.list"
+                ></common-list>
                 <!-- 上拉加载区域-->
                 <loadMore :loadtext="item.loadtext"></loadMore>
               </block>
@@ -89,6 +93,8 @@ export default {
     return {
       swiperHeight: 0,
       tabIndex: 0,
+      imgcontain: [],
+      headbg: "",
       tabBars: [
         { name: "默认", id: "default" },
         { name: "最新", id: "latest" },
@@ -222,12 +228,12 @@ export default {
           "面试官：在电梯里巧遇马云你会做什么？90后女孩的回答当场被录用",
       },
       obj: {
-        userpic: require("../../static/demo/userpic/12.jpg"),
+        // userpic: require("../../static/demo/userpic/12.jpg"),
         username: "小马111",
         follow: false,
         title: "新时代社会主义",
         type: "img", //img:图文,video:视频
-        titlepic: require("../../static/demo/datapic/11.jpg"),
+        // titlepic: require("../../static/demo/datapic/11.jpg"),
         infonum: {
           index: 2, // !0表示没有操作，1表示已经顶了，2表示已经踩了
           dingnum: 11,
@@ -237,6 +243,9 @@ export default {
         forward: 12,
       },
     };
+  },
+  onShow() {
+    this.getPersonImgInfo();
   },
   onLoad() {
     // 计算并设置主要内容区域高度
@@ -262,13 +271,13 @@ export default {
         const arr = [
           // 图文
           {
-            userpic: "../../static/demo/userpic/12.jpg",
+            // userpic: "../../static/demo/userpic/12.jpg",
             username: "小灰01",
             sex: 1, //0 男 1 女
             age: 25,
             follow: false,
             title: "关于加强思想层面深建设",
-            titlepic: "../../static/demo/datapic/13.jpg",
+            // titlepic: "../../static/demo/datapic/13.jpg",
             video: false,
             share: false,
             path: "深圳 龙岗",
@@ -278,13 +287,13 @@ export default {
           },
           // 图文
           {
-            userpic: "../../static/demo/userpic/12.jpg",
+            // userpic: "../../static/demo/userpic/12.jpg",
             username: "小灰03",
             sex: 1, //0 男 1 女
             age: 25,
             follow: false,
             title: "关于加强思想层面深建设",
-            titlepic: "../../static/demo/datapic/13.jpg",
+            // titlepic: "../../static/demo/datapic/13.jpg",
             video: false,
             share: false,
             path: "深圳 龙岗",
@@ -305,11 +314,21 @@ export default {
     tabChange(e) {
       this.tabIndex = e.detail.current;
     },
-    back(){
+    back() {
       uni.navigateBack({
-      	delta: 1
+        delta: 1,
       });
-    }
+    },
+    getPersonImgInfo() {
+      uni.request({
+        url: "https://www.xiaohui.ac.cn/netdata/api/news/follow",
+        success: (res) => {
+          console.log(res);
+          this.imgcontain = res.data.objHead;
+          this.headbg = res.data.headbg;
+        },
+      });
+    },
   },
 };
 </script>
@@ -386,5 +405,9 @@ export default {
   position: fixed;
   font-size: 18px;
   z-index: 1200;
+}
+.topbars {
+  position: relative;
+  height: 50px;
 }
 </style>
