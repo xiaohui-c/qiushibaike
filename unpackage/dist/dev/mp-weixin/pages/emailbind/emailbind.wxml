@@ -1,1 +1,1 @@
-<view style="transform:translateX(10px);" class="data-v-44f754ba"><input type="email" placeholder="输入你要绑定的邮箱" class="data-v-44f754ba"/><input type="password" placeholder="请输入密码" class="data-v-44f754ba"/><button class="data-v-44f754ba">完成</button></view>
+<view class="data-v-44f754ba"><view style="transform:translateX(15px);" class="data-v-44f754ba"><input type="email" placeholder="输入你要绑定的邮箱" class="data-v-44f754ba"/><input type="password" placeholder="请输入密码" class="data-v-44f754ba"/></view><button class="data-v-44f754ba">完成</button></view>

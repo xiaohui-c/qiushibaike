@@ -1,9 +1,11 @@
 <template>
-	<view style="transform:translateX(10px)">
+<view>
+	<view style="transform:translateX(15px)">
 		<input type="email" placeholder="输入你要绑定的邮箱">
 		<input type="password" placeholder="请输入密码">
-		<button>完成</button>
 	</view>
+		<button>完成</button>
+</view>
 </template>
 
 <script>

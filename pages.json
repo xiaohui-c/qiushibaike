@@ -274,8 +274,8 @@
       {
         "pagePath": "pages/paper/paper",
         "text": "小纸条",
-        "iconPath": "static/tabbar/paper.png",
-        "selectedIconPath": "static/tabbar/papered.png"
+        "iconPath": "static/tabbar/messages.png",
+        "selectedIconPath": "static/tabbar/messagesd.png"
       },
       {
         "pagePath": "pages/home/home",

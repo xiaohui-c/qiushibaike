@@ -1,21 +1,19 @@
+
+// 抽象类别状态栏数据
+ const NUMBERS = new Map([
+  [0,0],
+  [1,5],
+  [2,10],
+  [3,10],
+  [4,15],
+  [5,100],
+])
 export const statMixin = {
   watch: {
     tabIndex(e) {
-      console.log(e);
-      //监听index来滑动导航栏
-      if (e == 0) {
-        this.scroll = this.scrollwidth * (0 / 100);
-      } else if (e == 1) {
-        this.scroll = this.scrollwidth * (5 / 100);
-      } else if (e == 2) {
-        this.scroll = this.scrollwidth * (10 / 100);
-      } else if (e == 3) {
-        this.scroll = this.scrollwidth * (10 / 100);
-      } else if (e == 4) {
-        this.scroll = this.scrollwidth * (15 / 100);
-      } else {
-        this.scroll = this.scrollwidth * (100 / 100);
-      }
+      //监听index来滑动导航栏 
+      let result = NUMBERS.get(e);
+        this.scroll = this.scrollwidth * (result / 100);
     },
   },
   methods: {

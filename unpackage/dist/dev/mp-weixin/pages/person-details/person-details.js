@@ -261,6 +261,7 @@ var _userchatList = _interopRequireDefault(__webpack_require__(/*! ../../compone
     return {
       dropMeun: false,
       headerimg: "",
+      smallPic: true,
       bg: "",
       tabIndex: 0,
       swiperHeight: 0,

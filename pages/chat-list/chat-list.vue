@@ -5,11 +5,10 @@
       <!-- 左边 -->
       <view class="nav-tab-bar u-f-asb serach-input">
         <input
-          class="uni-input u-f-asb"
+          class="uni-input"
           placeholder-class="icon iconfont icon-sousuo topic-search"
           placeholder="搜索糗事"
           v-model="serachtext"
-          style="margin-top:20px;margin-bottom:10px;height:5px;width:300px;"
         />
       </view>
       <!-- 右边 -->

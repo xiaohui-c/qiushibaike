@@ -94,15 +94,15 @@
             </scroll-view>
           </swiper-item>
           <!-- 糗事 -->
-          <swiper-item style="height:50%;">
+          <swiper-item>
             <scroll-view scroll-y class="list">
-              <no-thing></no-thing>
+              <no-thing :smallPic="smallPic"></no-thing>
             </scroll-view>
           </swiper-item>
           <!-- 动态 -->
-          <swiper-item style="height:50%;">
+          <swiper-item >
             <scroll-view scroll-y class="list">
-              <no-thing></no-thing>
+              <no-thing :smallPic="smallPic"></no-thing>
             </scroll-view>
           </swiper-item>
         </swiper>
@@ -125,6 +125,7 @@ export default {
     return {
       dropMeun: false,
       headerimg: "",
+      smallPic:true,
       bg: "",
       tabIndex: 0,
       swiperHeight: 0,
