@@ -904,7 +904,7 @@ function initData(vueOptions, context) {
     try {
       data = data.call(context); // 支持 Vue.prototype 上挂的数据
     } catch (e) {
-      if (Object({"VUE_APP_NAME":"仿糗事百科","VUE_APP_PLATFORM":"mp-weixin","NODE_ENV":"development","BASE_URL":"/"}).VUE_APP_DEBUG) {
+      if (Object({"NODE_ENV":"development","VUE_APP_NAME":"仿糗事百科","VUE_APP_PLATFORM":"mp-weixin","BASE_URL":"/"}).VUE_APP_DEBUG) {
         console.warn('根据 Vue 的 data 函数初始化小程序 data 失败，请尽量确保 data 函数中不访问 vm 对象，否则可能影响首次数据渲染速度。', data);
       }
     }
@@ -1936,9 +1936,9 @@ function normalizeComponent (
 /***/ }),
 
 /***/ 11:
-/*!*************************************************!*\
-  !*** E:/WebLearning/qiushibaike/store/index.js ***!
-  \*************************************************/
+/*!****************************************************!*\
+  !*** E:/学习/WebLearning/qiushibaike/store/index.js ***!
+  \****************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -3091,9 +3091,9 @@ var index = {
 /***/ }),
 
 /***/ 13:
-/*!*************************************************!*\
-  !*** E:/WebLearning/qiushibaike/util/config.js ***!
-  \*************************************************/
+/*!****************************************************!*\
+  !*** E:/学习/WebLearning/qiushibaike/util/config.js ***!
+  \****************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -3110,9 +3110,9 @@ var _default = {
 /***/ }),
 
 /***/ 14:
-/*!**********************************************!*\
-  !*** E:/WebLearning/qiushibaike/util/lib.js ***!
-  \**********************************************/
+/*!*************************************************!*\
+  !*** E:/学习/WebLearning/qiushibaike/util/lib.js ***!
+  \*************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -8718,7 +8718,7 @@ function type(obj) {
 
 function flushCallbacks$1(vm) {
     if (vm.__next_tick_callbacks && vm.__next_tick_callbacks.length) {
-        if (Object({"VUE_APP_NAME":"仿糗事百科","VUE_APP_PLATFORM":"mp-weixin","NODE_ENV":"development","BASE_URL":"/"}).VUE_APP_DEBUG) {
+        if (Object({"NODE_ENV":"development","VUE_APP_NAME":"仿糗事百科","VUE_APP_PLATFORM":"mp-weixin","BASE_URL":"/"}).VUE_APP_DEBUG) {
             var mpInstance = vm.$scope;
             console.log('[' + (+new Date) + '][' + (mpInstance.is || mpInstance.route) + '][' + vm._uid +
                 ']:flushCallbacks[' + vm.__next_tick_callbacks.length + ']');
@@ -8739,14 +8739,14 @@ function nextTick$1(vm, cb) {
     //1.nextTick 之前 已 setData 且 setData 还未回调完成
     //2.nextTick 之前存在 render watcher
     if (!vm.__next_tick_pending && !hasRenderWatcher(vm)) {
-        if(Object({"VUE_APP_NAME":"仿糗事百科","VUE_APP_PLATFORM":"mp-weixin","NODE_ENV":"development","BASE_URL":"/"}).VUE_APP_DEBUG){
+        if(Object({"NODE_ENV":"development","VUE_APP_NAME":"仿糗事百科","VUE_APP_PLATFORM":"mp-weixin","BASE_URL":"/"}).VUE_APP_DEBUG){
             var mpInstance = vm.$scope;
             console.log('[' + (+new Date) + '][' + (mpInstance.is || mpInstance.route) + '][' + vm._uid +
                 ']:nextVueTick');
         }
         return nextTick(cb, vm)
     }else{
-        if(Object({"VUE_APP_NAME":"仿糗事百科","VUE_APP_PLATFORM":"mp-weixin","NODE_ENV":"development","BASE_URL":"/"}).VUE_APP_DEBUG){
+        if(Object({"NODE_ENV":"development","VUE_APP_NAME":"仿糗事百科","VUE_APP_PLATFORM":"mp-weixin","BASE_URL":"/"}).VUE_APP_DEBUG){
             var mpInstance$1 = vm.$scope;
             console.log('[' + (+new Date) + '][' + (mpInstance$1.is || mpInstance$1.route) + '][' + vm._uid +
                 ']:nextMPTick');
@@ -8832,7 +8832,7 @@ var patch = function(oldVnode, vnode) {
     });
     var diffData = this.$shouldDiffData === false ? data : diff(data, mpData);
     if (Object.keys(diffData).length) {
-      if (Object({"VUE_APP_NAME":"仿糗事百科","VUE_APP_PLATFORM":"mp-weixin","NODE_ENV":"development","BASE_URL":"/"}).VUE_APP_DEBUG) {
+      if (Object({"NODE_ENV":"development","VUE_APP_NAME":"仿糗事百科","VUE_APP_PLATFORM":"mp-weixin","BASE_URL":"/"}).VUE_APP_DEBUG) {
         console.log('[' + (+new Date) + '][' + (mpInstance.is || mpInstance.route) + '][' + this._uid +
           ']差量更新',
           JSON.stringify(diffData));
@@ -9240,31 +9240,29 @@ internalMixin(Vue);
 /***/ }),
 
 /***/ 21:
-/*!****************************************************!*\
-  !*** E:/WebLearning/qiushibaike/Mixin/loadmore.js ***!
-  \****************************************************/
+/*!*******************************************************!*\
+  !*** E:/学习/WebLearning/qiushibaike/Mixin/loadmore.js ***!
+  \*******************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-/* WEBPACK VAR INJECTION */(function(uni) {Object.defineProperty(exports, "__esModule", { value: true });exports.statMixin = void 0;var statMixin = {
+/* WEBPACK VAR INJECTION */(function(uni) {Object.defineProperty(exports, "__esModule", { value: true });exports.statMixin = void 0;
+// 抽象类别状态栏数据
+var NUMBERS = new Map([
+[0, 0],
+[1, 5],
+[2, 10],
+[3, 10],
+[4, 15],
+[5, 100]]);
+
+var statMixin = {
   watch: {
     tabIndex: function tabIndex(e) {
-      console.log(e);
-      //监听index来滑动导航栏
-      if (e == 0) {
-        this.scroll = this.scrollwidth * (0 / 100);
-      } else if (e == 1) {
-        this.scroll = this.scrollwidth * (5 / 100);
-      } else if (e == 2) {
-        this.scroll = this.scrollwidth * (10 / 100);
-      } else if (e == 3) {
-        this.scroll = this.scrollwidth * (10 / 100);
-      } else if (e == 4) {
-        this.scroll = this.scrollwidth * (15 / 100);
-      } else {
-        this.scroll = this.scrollwidth * (100 / 100);
-      }
+      //监听index来滑动导航栏 
+      var result = NUMBERS.get(e);
+      this.scroll = this.scrollwidth * (result / 100);
     } },
 
   methods: {
@@ -10118,9 +10116,9 @@ if (hadRuntime) {
 /***/ }),
 
 /***/ 295:
-/*!****************************************************************!*\
-  !*** E:/WebLearning/qiushibaike/components/uni-icons/icons.js ***!
-  \****************************************************************/
+/*!*******************************************************************!*\
+  !*** E:/学习/WebLearning/qiushibaike/components/uni-icons/icons.js ***!
+  \*******************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -10255,9 +10253,9 @@ module.exports = g;
 /***/ }),
 
 /***/ 303:
-/*!************************************************************************************!*\
-  !*** E:/WebLearning/qiushibaike/components/mpvue-citypicker/city-data/province.js ***!
-  \************************************************************************************/
+/*!***************************************************************************************!*\
+  !*** E:/学习/WebLearning/qiushibaike/components/mpvue-citypicker/city-data/province.js ***!
+  \***************************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -10405,9 +10403,9 @@ provinceData;exports.default = _default;
 /***/ }),
 
 /***/ 304:
-/*!********************************************************************************!*\
-  !*** E:/WebLearning/qiushibaike/components/mpvue-citypicker/city-data/city.js ***!
-  \********************************************************************************/
+/*!***********************************************************************************!*\
+  !*** E:/学习/WebLearning/qiushibaike/components/mpvue-citypicker/city-data/city.js ***!
+  \***********************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -11919,9 +11917,9 @@ cityData;exports.default = _default;
 /***/ }),
 
 /***/ 305:
-/*!********************************************************************************!*\
-  !*** E:/WebLearning/qiushibaike/components/mpvue-citypicker/city-data/area.js ***!
-  \********************************************************************************/
+/*!***********************************************************************************!*\
+  !*** E:/学习/WebLearning/qiushibaike/components/mpvue-citypicker/city-data/area.js ***!
+  \***********************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -24472,9 +24470,9 @@ areaData;exports.default = _default;
 /***/ }),
 
 /***/ 4:
-/*!*********************************************!*\
-  !*** E:/WebLearning/qiushibaike/pages.json ***!
-  \*********************************************/
+/*!************************************************!*\
+  !*** E:/学习/WebLearning/qiushibaike/pages.json ***!
+  \************************************************/
 /*! no static exports found */
 /***/ (function(module, exports) {
 
@@ -24483,9 +24481,9 @@ areaData;exports.default = _default;
 /***/ }),
 
 /***/ 84:
-/*!***********************************************!*\
-  !*** E:/WebLearning/qiushibaike/util/time.js ***!
-  \***********************************************/
+/*!**************************************************!*\
+  !*** E:/学习/WebLearning/qiushibaike/util/time.js ***!
+  \**************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
